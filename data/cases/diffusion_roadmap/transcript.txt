@@ -1,0 +1,1 @@
+这张草图讲扩散模型的发展路线。最早可以从 DDPM 开始，它把生成过程看成从高斯噪声逐步去噪。DDIM 进一步提供了更少步数的确定性采样思路。后面 Classifier-Free Guidance 让文本条件控制变得更稳定，Latent Diffusion 把扩散过程搬到潜空间里，显著降低计算量，也推动了 Stable Diffusion 的普及。再往后，ControlNet 这类方法把边缘图、姿态、深度图作为控制条件，让图像生成更可控。DiT 把 Transformer 引入扩散骨干，Consistency Models 和蒸馏路线则主要解决快速采样问题。所以这条线可以概括为：从像素扩散到潜空间，从无条件生成到强条件控制，再到更快、更大的生成系统。

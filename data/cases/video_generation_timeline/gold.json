@@ -1,0 +1,71 @@
+{
+  "id": "video_generation_timeline",
+  "topic": "视频生成模型的发展脉络",
+  "difficulty": "advanced",
+  "expected_mermaid_direction": "LR",
+  "gold_nodes": [
+    "早期GAN/RNN视频",
+    "帧预测",
+    "Video Diffusion Models",
+    "Imagen Video",
+    "Phenaki",
+    "VideoLDM",
+    "时空Transformer",
+    "Lumiere",
+    "Sora",
+    "时序一致性",
+    "长视频生成",
+    "文本到视频"
+  ],
+  "gold_edges": [
+    [
+      "早期GAN/RNN视频",
+      "帧预测"
+    ],
+    [
+      "帧预测",
+      "Video Diffusion Models"
+    ],
+    [
+      "Video Diffusion Models",
+      "Imagen Video"
+    ],
+    [
+      "Video Diffusion Models",
+      "Phenaki"
+    ],
+    [
+      "Imagen Video",
+      "文本到视频"
+    ],
+    [
+      "Phenaki",
+      "长视频生成"
+    ],
+    [
+      "Video Diffusion Models",
+      "VideoLDM"
+    ],
+    [
+      "VideoLDM",
+      "时空Transformer"
+    ],
+    [
+      "时空Transformer",
+      "Lumiere"
+    ],
+    [
+      "时空Transformer",
+      "Sora"
+    ],
+    [
+      "Sora",
+      "时序一致性"
+    ]
+  ],
+  "warnings": [
+    "openai TTS 失败，已尝试回退：AuthenticationError",
+    "doubao TTS 失败，已尝试回退：HTTPStatusError",
+    "API TTS 均失败，已用 macOS say 生成本机语音。"
+  ]
+}

@@ -1,0 +1,61 @@
+{
+  "id": "diffusion_roadmap",
+  "topic": "扩散技术发展路线",
+  "difficulty": "intermediate",
+  "expected_mermaid_direction": "LR",
+  "gold_nodes": [
+    "DDPM",
+    "DDIM",
+    "Classifier-Free Guidance",
+    "Latent Diffusion",
+    "Stable Diffusion",
+    "ControlNet",
+    "DiT",
+    "Consistency Models",
+    "采样加速",
+    "文本条件控制"
+  ],
+  "gold_edges": [
+    [
+      "DDPM",
+      "DDIM"
+    ],
+    [
+      "DDIM",
+      "Classifier-Free Guidance"
+    ],
+    [
+      "Classifier-Free Guidance",
+      "文本条件控制"
+    ],
+    [
+      "Classifier-Free Guidance",
+      "Latent Diffusion"
+    ],
+    [
+      "Latent Diffusion",
+      "Stable Diffusion"
+    ],
+    [
+      "Stable Diffusion",
+      "ControlNet"
+    ],
+    [
+      "Stable Diffusion",
+      "DiT"
+    ],
+    [
+      "DiT",
+      "Consistency Models"
+    ],
+    [
+      "Consistency Models",
+      "采样加速"
+    ]
+  ],
+  "warnings": [
+    "openai TTS 失败，已尝试回退：AuthenticationError",
+    "doubao TTS 失败，已尝试回退：HTTPStatusError",
+    "API TTS 均失败，已用 macOS say 生成本机语音。"
+  ]
+}

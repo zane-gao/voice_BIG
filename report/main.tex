@@ -1,0 +1,116 @@
+% !TEX program = xelatex
+\documentclass[UTF8,a4paper,12pt]{ctexart}
+
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,shapes.geometric}
+
+\geometry{left=2.5cm,right=2.5cm,top=2.6cm,bottom=2.6cm}
+\hypersetup{colorlinks=true,linkcolor=teal,urlcolor=teal,citecolor=teal}
+
+\title{语音与草图多模态科研方法图实时生成系统}
+\author{语音信息处理大作业}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+科研早期想法通常同时存在于口头讨论和手绘草图中，从这些非结构化信息整理出论文风格方法图需要大量人工排版和语义补全。本文实现了一个语音与草图多模态方法图生成系统：用户在浏览器中绘制草图并录音或上传语音，后端完成语音转写、草图图像理解、多模态语义融合和结构化图生成，最终输出 Mermaid、SVG 预览、JSON 和 AI 生成图像。系统采用 FastAPI 搭建服务端，使用结构化输出约束图节点与边，并通过确定性后处理删除悬空边和重复边；同时引入豆包 Seedream 5.0 lite 生成实时草稿图，使用 OpenAI GPT Image 生成终稿图。该原型验证了从“语音 + 草图输入”到“可编辑方法图与展示图输出”的完整闭环，为科研表达、组会讨论记录和方案整理提供了轻量化工具基础。
+\end{abstract}
+
+\section{引言}
+在论文构思、组会讨论和方案设计阶段，研究者常用白板草图表达模块关系，同时通过口头语言补充动机、数据流和实验设置。这类信息具有强烈的多模态特征：草图提供空间结构，语音提供语义解释。如果只依靠人工整理，往往需要反复转写、归纳、排版和修正。
+
+本项目目标是构建一个可演示的最小可用系统，将手绘草图和语音描述转化为结构化、规整化、可编辑的科研方法图。系统强调三个设计原则：第一，输入流程应贴近真实讨论场景；第二，输出必须具备可编辑性，而不是只生成一张静态图片；第三，系统应可验证，能够记录转写、结构化和渲染耗时，并支持节点和边级别评测。
+
+\section{系统设计}
+系统整体流程如图~\ref{fig:architecture} 所示。浏览器负责采集草图和音频，服务端负责调用模型并执行结构化后处理。最终结果同时以 Mermaid、SVG、JSON 和 AI 图像形式返回，便于后续论文、幻灯片或实验记录复用。
+
+\begin{figure}[htbp]
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tikzpicture}[
+  node distance=1.05cm and 1.3cm,
+  block/.style={draw, rounded corners, align=center, minimum width=2.3cm, minimum height=0.9cm, fill=gray!8},
+  input/.style={block, fill=cyan!10},
+  model/.style={block, fill=yellow!18},
+  output/.style={block, fill=green!12},
+  arrow/.style={-{Stealth[length=2.3mm]}, thick}
+]
+\node[input] (sketch) {草图画布\\PNG};
+\node[input, below=of sketch] (audio) {语音输入\\WebM/上传};
+\node[block, right=of audio] (api) {FastAPI\\接口聚合};
+\node[model, right=of api, yshift=0.65cm] (asr) {语音转写};
+\node[model, right=of api, yshift=-0.65cm] (vision) {草图理解};
+\node[model, right=of asr, yshift=-0.65cm] (fusion) {多模态\\结构化输出};
+\node[block, right=of fusion] (norm) {节点/边\\规整};
+\node[output, right=of norm] (out) {Mermaid\\SVG/JSON};
+\node[model, below=of norm] (image) {生图增强\\豆包/OpenAI};
+\node[output, right=of image] (png) {草稿/终稿\\PNG/JPEG};
+\draw[arrow] (sketch) -- (api);
+\draw[arrow] (audio) -- (api);
+\draw[arrow] (api) -- (asr);
+\draw[arrow] (api) -- (vision);
+\draw[arrow] (asr) -- (fusion);
+\draw[arrow] (vision) -- (fusion);
+\draw[arrow] (fusion) -- (norm);
+\draw[arrow] (norm) -- (out);
+\draw[arrow] (norm) -- (image);
+\draw[arrow] (image) -- (png);
+\end{tikzpicture}
+}
+\caption{语音与草图多模态方法图生成系统架构。}
+\label{fig:architecture}
+\end{figure}
+
+\section{方法}
+\subsection{输入采集}
+前端提供一个可实时绘制的 canvas 画布，用户可以用画笔和橡皮绘制流程框、箭头和注释。语音部分支持浏览器录音和本地音频上传，同时提供文本框允许用户直接输入或修正转写文本。若用户填写了人工文本，系统优先使用该文本，避免重复调用语音转写。
+
+\subsection{结构化图表示}
+系统将方法图表示为节点集合和边集合。节点包含 id、标签、类型、描述和置信度；边包含起点、终点、标签、类型和置信度。该 schema 既能表达科研方法图中的数据流，也能表达评测、反馈和语义依赖。
+
+\subsection{多模态生成与后处理}
+后端默认使用 OpenAI 语音转写模型处理音频，再将转写文本和草图图像输入结构化输出模型。模型被要求返回符合 schema 的 JSON。为了降低生成错误带来的渲染风险，系统在 Mermaid 转换前执行确定性后处理：规整节点 id、去重节点、删除悬空边和重复边，并把修复信息写入 warnings。
+
+\subsection{生图增强}
+在可编辑结构图之外，系统新增展示型生图模块。用户停止画图或编辑文本 10 秒后，前端自动调用豆包 Seedream 5.0 lite 生成低清草稿图，用于快速查看构图效果；用户点击“生成终稿图”时，后端调用 OpenAI GPT Image 生成高清论文风格终稿。两条生图链路都只在服务端读取密钥，前端仅接收 base64 图像、模型名、耗时和告警信息。若外部 API 认证失败、额度不足或网络异常，系统会回退到本地 mock 图，保证课堂演示不中断。
+
+\section{实现}
+项目采用 FastAPI 提供四个核心接口：根路径返回 Web UI，\texttt{/health} 返回模型与 mock 状态，\texttt{/api/generate} 接收草图、音频、文本和图方向并返回结构化生成结果，\texttt{/api/render-image} 接收草图、转写文本、Mermaid、结构化 JSON 和风格参数并返回生图结果。前端使用原生 HTML、CSS 和 JavaScript 实现，避免引入复杂构建流程，便于课程验收和复现。
+
+当本地没有 API key 或模型调用失败时，系统可回退到 mock 结果。该机制不是最终算法能力的一部分，而是为了保证课堂演示、接口测试和报告复现稳定。
+
+\section{实验设计}
+实验计划包含三类样例：线性流程、多模态融合流程和带评测闭环的流程。每个样例应提供草图、语音文本标注、目标节点和目标边。评测指标包括中文字符错误率 CER、英文词错误率 WER、节点识别 precision/recall/F1、边识别 precision/recall/F1、图结构还原度和端到端耗时。
+
+\begin{table}[htbp]
+\centering
+\caption{系统评测指标}
+\begin{tabular}{lll}
+\toprule
+类别 & 指标 & 说明 \\
+\midrule
+语音识别 & CER/WER & 衡量转写质量 \\
+图结构 & 节点 F1 & 衡量模块识别能力 \\
+图结构 & 边 F1 & 衡量关系还原能力 \\
+效率 & 端到端耗时 & 衡量交互响应速度 \\
+生图质量 & 一致性/可读性 & 衡量生图是否保留结构且文字清晰 \\
+主观体验 & 可读性评分 & 衡量是否符合论文方法图风格 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section{局限与展望}
+当前版本主要依赖通用多模态模型完成端到端结构化，没有训练专门的草图识别模型，因此对复杂箭头、遮挡文字和潦草图形仍可能不稳定。后续可以扩展本地 ASR、草图目标检测、PPTX 导出和更系统的样例评测集，使系统从课堂原型进一步发展为科研工作流工具。
+
+\section{结论}
+本文实现了一个语音与草图多模态科研方法图生成系统，完成了从浏览器输入采集、语音转写、多模态结构化、Mermaid 转换到 SVG/JSON 输出的完整链路。该系统展示了语音信息处理与多模态理解在科研表达辅助中的应用价值，也为后续加入本地模型、交互式编辑和系统化评测奠定了基础。
+
+\end{document}

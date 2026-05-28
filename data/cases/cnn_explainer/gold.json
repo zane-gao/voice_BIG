@@ -1,0 +1,66 @@
+{
+  "id": "cnn_explainer",
+  "topic": "卷积神经网络讲解",
+  "difficulty": "intro",
+  "expected_mermaid_direction": "LR",
+  "gold_nodes": [
+    "输入图像",
+    "卷积核",
+    "特征图",
+    "ReLU",
+    "池化",
+    "多层卷积",
+    "Flatten",
+    "全连接",
+    "Softmax分类",
+    "局部感受野",
+    "参数共享"
+  ],
+  "gold_edges": [
+    [
+      "输入图像",
+      "卷积核"
+    ],
+    [
+      "卷积核",
+      "特征图"
+    ],
+    [
+      "特征图",
+      "ReLU"
+    ],
+    [
+      "ReLU",
+      "池化"
+    ],
+    [
+      "池化",
+      "多层卷积"
+    ],
+    [
+      "多层卷积",
+      "Flatten"
+    ],
+    [
+      "Flatten",
+      "全连接"
+    ],
+    [
+      "全连接",
+      "Softmax分类"
+    ],
+    [
+      "局部感受野",
+      "卷积核"
+    ],
+    [
+      "参数共享",
+      "卷积核"
+    ]
+  ],
+  "warnings": [
+    "openai TTS 失败，已尝试回退：AuthenticationError",
+    "doubao TTS 失败，已尝试回退：HTTPStatusError",
+    "API TTS 均失败，已用 macOS say 生成本机语音。"
+  ]
+}

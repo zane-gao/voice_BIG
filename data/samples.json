@@ -1,0 +1,289 @@
+[
+  {
+    "id": "linear_pipeline",
+    "transcript": "输入实验数据，先进行预处理，然后送入深度学习模型，最后输出分类结果。",
+    "gold_nodes": [
+      "输入数据",
+      "预处理",
+      "深度学习模型",
+      "分类结果"
+    ],
+    "gold_edges": [
+      [
+        "输入数据",
+        "预处理"
+      ],
+      [
+        "预处理",
+        "深度学习模型"
+      ],
+      [
+        "深度学习模型",
+        "分类结果"
+      ]
+    ]
+  },
+  {
+    "id": "multimodal_fusion",
+    "transcript": "系统接收语音描述和手绘草图，语音经过 ASR 转写，草图经过结构识别，然后在语义融合模块中对齐，生成 Mermaid 方法图。",
+    "gold_nodes": [
+      "语音描述",
+      "手绘草图",
+      "ASR 转写",
+      "结构识别",
+      "语义融合",
+      "Mermaid 方法图"
+    ],
+    "gold_edges": [
+      [
+        "语音描述",
+        "ASR 转写"
+      ],
+      [
+        "手绘草图",
+        "结构识别"
+      ],
+      [
+        "ASR 转写",
+        "语义融合"
+      ],
+      [
+        "结构识别",
+        "语义融合"
+      ],
+      [
+        "语义融合",
+        "Mermaid 方法图"
+      ]
+    ]
+  },
+  {
+    "id": "evaluation_loop",
+    "transcript": "生成方法图后，用户可以检查节点和边，系统计算结构还原度、生成耗时和主观评分，再根据反馈迭代修改。",
+    "gold_nodes": [
+      "方法图",
+      "用户检查",
+      "结构还原度",
+      "生成耗时",
+      "主观评分",
+      "反馈迭代"
+    ],
+    "gold_edges": [
+      [
+        "方法图",
+        "用户检查"
+      ],
+      [
+        "用户检查",
+        "结构还原度"
+      ],
+      [
+        "用户检查",
+        "生成耗时"
+      ],
+      [
+        "用户检查",
+        "主观评分"
+      ],
+      [
+        "主观评分",
+        "反馈迭代"
+      ]
+    ]
+  },
+  {
+    "id": "cnn_explainer",
+    "topic": "卷积神经网络讲解",
+    "difficulty": "intro",
+    "transcript": "这张图我想讲卷积神经网络。左边是输入图像，先用一组小的卷积核在局部窗口上滑动，提取边缘、纹理这些低层特征，得到多张特征图。特征图经过 ReLU 激活以后，再做池化，把空间尺寸降下来，同时保留主要响应。后面可以堆叠多层卷积和池化，让特征从局部边缘逐渐变成物体部件和语义概念。最后把特征展平，接全连接层，再经过 Softmax 输出类别概率。这里有两个关键词，一个是局部感受野，另一个是参数共享，它们让 CNN 比普通全连接网络更适合处理图像。",
+    "transcript_path": "data/cases/cnn_explainer/transcript.txt",
+    "sketch_path": "data/cases/cnn_explainer/sketch.png",
+    "audio_path": "data/cases/cnn_explainer/speech.wav",
+    "expected_mermaid_direction": "LR",
+    "gold_nodes": [
+      "输入图像",
+      "卷积核",
+      "特征图",
+      "ReLU",
+      "池化",
+      "多层卷积",
+      "Flatten",
+      "全连接",
+      "Softmax分类",
+      "局部感受野",
+      "参数共享"
+    ],
+    "gold_edges": [
+      [
+        "输入图像",
+        "卷积核"
+      ],
+      [
+        "卷积核",
+        "特征图"
+      ],
+      [
+        "特征图",
+        "ReLU"
+      ],
+      [
+        "ReLU",
+        "池化"
+      ],
+      [
+        "池化",
+        "多层卷积"
+      ],
+      [
+        "多层卷积",
+        "Flatten"
+      ],
+      [
+        "Flatten",
+        "全连接"
+      ],
+      [
+        "全连接",
+        "Softmax分类"
+      ],
+      [
+        "局部感受野",
+        "卷积核"
+      ],
+      [
+        "参数共享",
+        "卷积核"
+      ]
+    ]
+  },
+  {
+    "id": "diffusion_roadmap",
+    "topic": "扩散技术发展路线",
+    "difficulty": "intermediate",
+    "transcript": "这张草图讲扩散模型的发展路线。最早可以从 DDPM 开始，它把生成过程看成从高斯噪声逐步去噪。DDIM 进一步提供了更少步数的确定性采样思路。后面 Classifier-Free Guidance 让文本条件控制变得更稳定，Latent Diffusion 把扩散过程搬到潜空间里，显著降低计算量，也推动了 Stable Diffusion 的普及。再往后，ControlNet 这类方法把边缘图、姿态、深度图作为控制条件，让图像生成更可控。DiT 把 Transformer 引入扩散骨干，Consistency Models 和蒸馏路线则主要解决快速采样问题。所以这条线可以概括为：从像素扩散到潜空间，从无条件生成到强条件控制，再到更快、更大的生成系统。",
+    "transcript_path": "data/cases/diffusion_roadmap/transcript.txt",
+    "sketch_path": "data/cases/diffusion_roadmap/sketch.png",
+    "audio_path": "data/cases/diffusion_roadmap/speech.wav",
+    "expected_mermaid_direction": "LR",
+    "gold_nodes": [
+      "DDPM",
+      "DDIM",
+      "Classifier-Free Guidance",
+      "Latent Diffusion",
+      "Stable Diffusion",
+      "ControlNet",
+      "DiT",
+      "Consistency Models",
+      "采样加速",
+      "文本条件控制"
+    ],
+    "gold_edges": [
+      [
+        "DDPM",
+        "DDIM"
+      ],
+      [
+        "DDIM",
+        "Classifier-Free Guidance"
+      ],
+      [
+        "Classifier-Free Guidance",
+        "文本条件控制"
+      ],
+      [
+        "Classifier-Free Guidance",
+        "Latent Diffusion"
+      ],
+      [
+        "Latent Diffusion",
+        "Stable Diffusion"
+      ],
+      [
+        "Stable Diffusion",
+        "ControlNet"
+      ],
+      [
+        "Stable Diffusion",
+        "DiT"
+      ],
+      [
+        "DiT",
+        "Consistency Models"
+      ],
+      [
+        "Consistency Models",
+        "采样加速"
+      ]
+    ]
+  },
+  {
+    "id": "video_generation_timeline",
+    "topic": "视频生成模型的发展脉络",
+    "difficulty": "advanced",
+    "transcript": "这张图想梳理视频生成模型的发展脉络。早期很多方法基于 GAN、RNN 或者帧预测，只能生成比较短的视频片段，而且容易出现闪烁和时序不一致。后来 Video Diffusion Models 把扩散生成扩展到视频维度，Imagen Video 和 Phenaki 进一步展示了文本到视频和长视频生成的可能性。VideoLDM 这类方法把潜空间扩散用于视频，降低了计算成本。再往后，时空 Transformer 和 DiT 风格的结构开始成为核心，通过时空 patch 同时建模画面内容和运动。Lumiere、Sora 这一类系统强调更长时长、更一致的运动、更强的镜头控制。所以评测视频生成时，除了看画质，还要看时序一致性、运动合理性、文本对齐和长视频稳定性。",
+    "transcript_path": "data/cases/video_generation_timeline/transcript.txt",
+    "sketch_path": "data/cases/video_generation_timeline/sketch.png",
+    "audio_path": "data/cases/video_generation_timeline/speech.wav",
+    "expected_mermaid_direction": "LR",
+    "gold_nodes": [
+      "早期GAN/RNN视频",
+      "帧预测",
+      "Video Diffusion Models",
+      "Imagen Video",
+      "Phenaki",
+      "VideoLDM",
+      "时空Transformer",
+      "Lumiere",
+      "Sora",
+      "时序一致性",
+      "长视频生成",
+      "文本到视频"
+    ],
+    "gold_edges": [
+      [
+        "早期GAN/RNN视频",
+        "帧预测"
+      ],
+      [
+        "帧预测",
+        "Video Diffusion Models"
+      ],
+      [
+        "Video Diffusion Models",
+        "Imagen Video"
+      ],
+      [
+        "Video Diffusion Models",
+        "Phenaki"
+      ],
+      [
+        "Imagen Video",
+        "文本到视频"
+      ],
+      [
+        "Phenaki",
+        "长视频生成"
+      ],
+      [
+        "Video Diffusion Models",
+        "VideoLDM"
+      ],
+      [
+        "VideoLDM",
+        "时空Transformer"
+      ],
+      [
+        "时空Transformer",
+        "Lumiere"
+      ],
+      [
+        "时空Transformer",
+        "Sora"
+      ],
+      [
+        "Sora",
+        "时序一致性"
+      ]
+    ]
+  }
+]

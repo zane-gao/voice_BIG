@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>SketchVoice 方法图工坊</title>
+    <link rel="stylesheet" href="/static/styles.css" />
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <div>
+          <h1>SketchVoice 方法图工坊</h1>
+          <p>语音 + 草图到论文风格方法图</p>
+        </div>
+        <div class="topbar-actions">
+          <span id="healthBadge" class="status-badge">检查服务中</span>
+          <button id="generateBtn" class="primary-btn">生成方法图</button>
+        </div>
+      </header>
+
+      <main class="workspace">
+        <section class="panel sketch-panel">
+          <div class="panel-title">
+            <div>
+              <h2>手绘草图</h2>
+              <p>画出模块、箭头和大致布局</p>
+            </div>
+            <div class="tool-row">
+              <button class="tool-btn active" data-tool="pen" title="画笔">画笔</button>
+              <button class="tool-btn" data-tool="eraser" title="橡皮">橡皮</button>
+              <button id="clearCanvas" class="tool-btn" title="清空画布">清空</button>
+            </div>
+          </div>
+          <div class="demo-strip">
+            <div>
+              <label class="field-label compact" for="sampleSelect">演示样例</label>
+              <select id="sampleSelect">
+                <option value="">选择草图 + 语音案例</option>
+              </select>
+            </div>
+            <button id="loadSampleBtn" class="secondary-btn">载入样例</button>
+            <span id="sampleHint">CNN、扩散路线、视频生成脉络</span>
+          </div>
+          <canvas id="sketchCanvas" width="860" height="620"></canvas>
+        </section>
+
+        <section class="panel input-panel">
+          <div class="panel-title">
+            <div>
+              <h2>语音与文本</h2>
+              <p>录音、上传或直接编辑转写</p>
+            </div>
+          </div>
+
+          <div class="record-box">
+            <button id="recordBtn" class="secondary-btn">开始录音</button>
+            <label class="file-btn">
+              上传音频
+              <input id="audioInput" type="file" accept="audio/*" />
+            </label>
+            <span id="audioState">未选择音频</span>
+          </div>
+          <audio id="sampleAudioPlayer" class="sample-audio" controls></audio>
+
+          <label class="field-label" for="transcriptInput">转写文本</label>
+          <textarea id="transcriptInput" placeholder="可以先输入一段描述，例如：输入语音和草图，经过 ASR、草图识别、多模态融合，输出 Mermaid 方法图并用节点边准确率评测。"></textarea>
+
+          <label class="field-label" for="directionInput">图方向</label>
+          <select id="directionInput">
+            <option value="LR">从左到右</option>
+            <option value="TD">从上到下</option>
+          </select>
+
+          <div class="metric-strip">
+            <div><strong id="asrTime">--</strong><span>ASR ms</span></div>
+            <div><strong id="graphTime">--</strong><span>Graph ms</span></div>
+            <div><strong id="totalTime">--</strong><span>Total ms</span></div>
+          </div>
+        </section>
+
+        <section class="panel result-panel">
+          <div class="panel-title">
+            <div>
+              <h2>生成结果</h2>
+              <p>可下载 Mermaid、SVG 和 JSON</p>
+            </div>
+          </div>
+
+          <div class="tabs">
+            <button class="tab active" data-tab="mermaid">Mermaid</button>
+            <button class="tab" data-tab="graph">图形</button>
+            <button class="tab" data-tab="image">AI 图像</button>
+            <button class="tab" data-tab="json">JSON</button>
+          </div>
+
+          <div id="mermaidPane" class="tab-pane active">
+            <pre id="mermaidCode">等待生成...</pre>
+          </div>
+          <div id="graphPane" class="tab-pane">
+            <div id="graphPreview" class="graph-preview">等待图形预览</div>
+          </div>
+          <div id="imagePane" class="tab-pane">
+            <div class="image-console">
+              <div class="image-controls">
+                <label class="field-label compact" for="imageStyleInput">风格</label>
+                <select id="imageStyleInput">
+                  <option value="paper">论文白底</option>
+                  <option value="slides">PPT 扁平风</option>
+                  <option value="nature">Nature/Science 风</option>
+                  <option value="mono">黑白线稿</option>
+                </select>
+                <button id="finalImageBtn" class="primary-btn">生成终稿图</button>
+              </div>
+
+              <div class="image-status-rail">
+                <div>
+                  <span class="rail-dot draft"></span>
+                  <strong>实时草稿</strong>
+                  <small id="draftStatus">等待 10 秒静默触发</small>
+                </div>
+                <div>
+                  <span class="rail-dot final"></span>
+                  <strong>高清终稿</strong>
+                  <small id="finalStatus">点击按钮生成</small>
+                </div>
+              </div>
+
+              <div class="image-preview-grid">
+                <article class="image-card draft-card">
+                  <header>
+                    <div>
+                      <h3>豆包草稿</h3>
+                      <p id="draftMeta">Seedream 5.0 lite</p>
+                    </div>
+                    <button id="downloadDraftImage" class="secondary-btn">下载草稿</button>
+                  </header>
+                  <div class="image-frame">
+                    <img id="draftImage" alt="豆包草稿图" />
+                    <span id="draftEmpty">停止输入 10 秒后自动生成</span>
+                  </div>
+                </article>
+
+                <article class="image-card final-card">
+                  <header>
+                    <div>
+                      <h3>OpenAI 终稿</h3>
+                      <p id="finalMeta">GPT Image</p>
+                    </div>
+                    <button id="downloadFinalImage" class="secondary-btn">下载终稿</button>
+                  </header>
+                  <div class="image-frame">
+                    <img id="finalImage" alt="OpenAI 终稿图" />
+                    <span id="finalEmpty">生成高质量论文风格 PNG</span>
+                  </div>
+                </article>
+              </div>
+            </div>
+          </div>
+          <div id="jsonPane" class="tab-pane">
+            <pre id="jsonCode">等待生成...</pre>
+          </div>
+
+          <div class="download-row">
+            <button id="downloadMermaid" class="secondary-btn">下载 Mermaid</button>
+            <button id="downloadSvg" class="secondary-btn">下载 SVG</button>
+            <button id="downloadJson" class="secondary-btn">下载 JSON</button>
+          </div>
+        </section>
+      </main>
+
+      <footer class="statusbar">
+        <span id="messageLine">准备就绪：可以画草图、录音或直接输入文本。</span>
+      </footer>
+    </div>
+
+    <script src="/static/app.js"></script>
+  </body>
+</html>
