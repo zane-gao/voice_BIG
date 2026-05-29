@@ -152,9 +152,58 @@
                   </header>
                   <div class="image-frame">
                     <img id="finalImage" alt="OpenAI 终稿图" />
+                    <div id="narrationCursor" class="narration-cursor" aria-hidden="true"></div>
                     <span id="finalEmpty">生成高质量论文风格 PNG</span>
                   </div>
                 </article>
+              </div>
+
+              <div class="narration-console">
+                <div class="narration-title">
+                  <div>
+                    <h3>语音讲解</h3>
+                    <p id="narrationStatus">等待终稿图</p>
+                  </div>
+                  <div class="narration-actions">
+                    <button id="generateNarrationBtn" class="primary-btn">生成讲解</button>
+                    <button id="downloadNarrationVideo" class="secondary-btn">下载 WebM</button>
+                  </div>
+                </div>
+
+                <div class="narration-controls">
+                  <label class="field-label compact" for="narrationProvider">音源</label>
+                  <select id="narrationProvider">
+                    <option value="openai">OpenAI</option>
+                    <option value="doubao">豆包</option>
+                    <option value="mock">Mock</option>
+                  </select>
+
+                  <label class="field-label compact" for="narrationVoice">模板音色</label>
+                  <select id="narrationVoice">
+                    <option value="marin">marin</option>
+                    <option value="cedar">cedar</option>
+                    <option value="coral" selected>coral</option>
+                    <option value="alloy">alloy</option>
+                    <option value="ash">ash</option>
+                    <option value="ballad">ballad</option>
+                    <option value="echo">echo</option>
+                    <option value="fable">fable</option>
+                    <option value="nova">nova</option>
+                    <option value="onyx">onyx</option>
+                    <option value="sage">sage</option>
+                    <option value="shimmer">shimmer</option>
+                    <option value="verse">verse</option>
+                  </select>
+
+                  <label class="field-label compact" for="narrationCustomVoiceId">个人 Voice ID</label>
+                  <input id="narrationCustomVoiceId" type="text" placeholder="voice_..." />
+
+                  <label class="field-label compact" for="narrationDoubaoVoiceType">豆包 voice_type</label>
+                  <input id="narrationDoubaoVoiceType" type="text" placeholder="zh_..." />
+                </div>
+
+                <audio id="narrationAudio" class="narration-audio" controls></audio>
+                <p id="narrationScript" class="narration-script"></p>
               </div>
             </div>
           </div>

@@ -10,6 +10,7 @@ from fastapi.staticfiles import StaticFiles
 
 from .config import Settings
 from .image_service import ImageRenderService
+from .narration_service import NarrationService
 from .openai_service import SketchVoiceGenerator
 
 STATIC_DIR = Path(__file__).parent / "static"
@@ -23,6 +24,7 @@ def create_app(settings: Settings | None = None) -> FastAPI:
     app.state.settings = resolved_settings
     app.state.generator = SketchVoiceGenerator(resolved_settings)
     app.state.image_renderer = ImageRenderService(resolved_settings)
+    app.state.narration_service = NarrationService(resolved_settings)
     app.mount("/static", StaticFiles(directory=STATIC_DIR), name="static")
 
     @app.get("/")
@@ -137,6 +139,42 @@ def create_app(settings: Settings | None = None) -> FastAPI:
             raise HTTPException(status_code=400, detail=str(exc)) from exc
         except Exception as exc:
             raise HTTPException(status_code=502, detail=f"生图失败：{type(exc).__name__}") from exc
+
+    @app.post("/api/narrate-image")
+    async def narrate_image(
+        request: Request,
+        image: UploadFile | None = File(default=None),
+        graph_json: str = Form(default=""),
+        mermaid: str = Form(default=""),
+        transcript: str = Form(default=""),
+        provider: str = Form(default=""),
+        voice: str = Form(default=""),
+        custom_voice_id: str = Form(default=""),
+        doubao_voice_type: str = Form(default=""),
+    ) -> dict[str, object]:
+        current = request.app.state.settings
+        selected_provider = provider or current.narration_tts_provider
+        selected_voice = voice or current.narration_openai_voice
+        selected_custom_voice_id = custom_voice_id or current.narration_custom_voice_id
+        selected_doubao_voice_type = doubao_voice_type or current.narration_doubao_voice_type
+        try:
+            image_bytes = await image.read() if image else None
+            result = await request.app.state.narration_service.narrate(
+                image_bytes=image_bytes,
+                image_content_type=image.content_type if image else None,
+                graph_json=graph_json,
+                mermaid=mermaid,
+                transcript=transcript,
+                provider=selected_provider,  # type: ignore[arg-type]
+                voice=selected_voice,
+                custom_voice_id=selected_custom_voice_id,
+                doubao_voice_type=selected_doubao_voice_type,
+            )
+            return result.model_dump()
+        except ValueError as exc:
+            raise HTTPException(status_code=400, detail=str(exc)) from exc
+        except Exception as exc:
+            raise HTTPException(status_code=502, detail=f"语音讲解生成失败：{type(exc).__name__}") from exc
 
     return app
 

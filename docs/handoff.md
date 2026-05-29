@@ -25,6 +25,8 @@ uv run uvicorn sketchvoice.main:app --reload --host 127.0.0.1 --port 8000
 - `SAMPLE_TTS_PROVIDER=openai|doubao|auto` 控制样例语音 provider。
 - `DOUBAO_TTS_MODEL` 默认 `doubao-seed-2-0-pro-260215`，仅用于样例语音的豆包尝试分支。
 - `IMAGE_FALLBACK_TO_MOCK=true` 可让图像 API 失败时自动返回 mock 图。
+- `NARRATION_TTS_PROVIDER=openai|doubao|mock` 控制终稿图讲解默认 provider。
+- `NARRATION_OPENAI_VOICE`、`NARRATION_CUSTOM_VOICE_ID`、`NARRATION_DOUBAO_VOICE_TYPE` 分别控制模板音色、已有 OpenAI custom voice ID 和已有豆包 `voice_type`。
 
 ## 图像生成说明
 
@@ -32,6 +34,14 @@ uv run uvicorn sketchvoice.main:app --reload --host 127.0.0.1 --port 8000
 - OpenAI 终稿图由“生成终稿图”按钮触发，请求 `/api/render-image` 且 `mode=final`。
 - 前端不会接触任何 provider key；所有生图调用都在 `sketchvoice.image_service` 中完成。
 - 若 OpenAI key 无效或豆包 key 不可用，默认 mock fallback 会生成本地占位图。
+
+## 终稿图语音讲解说明
+
+- 讲解入口位于前端 `AI 图像` 标签页的“语音讲解”区域，只绑定终稿图。
+- `/api/narrate-image` 读取终稿图、`graph_json`、Mermaid 和 transcript，返回 TTS 音频、讲解稿和归一化光标段落。
+- 前端播放音频时按音频进度和段落文本长度映射当前 segment，并把光标叠加在终稿图上。
+- “下载 WebM”使用浏览器 `canvas.captureStream()` 和 `MediaRecorder` 录制终稿图、光标动画和音频；浏览器不支持时只提示，不走服务端视频编码。
+- TTS provider 第一版为 `openai`、`doubao`、`mock`；VoxCPM2、CosyVoice2、MiniMax、ElevenLabs 等扩展评估见 `docs/tts_options.md`。
 
 ## 测试样例资产
 

@@ -1,6 +1,6 @@
 # SketchVoice 方法图工坊
 
-这是一个“语音 + 草图”多模态科研方法图实时生成系统 MVP。用户可以在浏览器里画草图、录音或上传音频，系统通过 OpenAI API 完成转写与结构化建模，输出 Mermaid、SVG 预览、JSON 和 AI 生成的论文风格图像。
+这是一个“语音 + 草图”多模态科研方法图实时生成系统 MVP。用户可以在浏览器里画草图、录音或上传音频，系统通过 OpenAI API 完成转写与结构化建模，输出 Mermaid、SVG 预览、JSON、AI 生成的论文风格图像，以及终稿图语音讲解 WebM。
 
 ## 快速启动
 
@@ -41,6 +41,14 @@ SKETCHVOICE_MOCK=true
 - `SAMPLE_TTS_PROVIDER=openai|doubao|auto`：`auto` 会先试 OpenAI，再试豆包兼容语音分支；API 都失败时，macOS 会用 `say` 生成 WAV 兜底。
 - `DOUBAO_TTS_MODEL=doubao-seed-2-0-pro-260215`：保留给豆包语音分支使用；若账号或端点不支持，会自动回退。
 
+终稿图讲解相关配置：
+
+- `NARRATION_TTS_PROVIDER=openai|doubao|mock`：控制 `/api/narrate-image` 默认 TTS provider。
+- `NARRATION_OPENAI_VOICE=coral`：OpenAI 模板音色；也可在前端选择 `marin`、`cedar` 等内置音色。
+- `NARRATION_CUSTOM_VOICE_ID=`：已有 OpenAI custom voice ID；第一版不在系统内创建新音色。
+- `NARRATION_DOUBAO_VOICE_TYPE=`：已有豆包声音复刻或模板 `voice_type`。
+- 更多 TTS 方案取舍见 `docs/tts_options.md`，其中包含 VoxCPM2、CosyVoice2、MiniMax、ElevenLabs 等候选。
+
 ## 演示流程
 
 1. 在左侧画布手绘科研流程草图。
@@ -50,6 +58,7 @@ SKETCHVOICE_MOCK=true
 5. 点击“生成方法图”。
 6. 在右侧查看 Mermaid、图形预览、AI 图像和 JSON，并下载结果。
 7. 停止画图或编辑文本 10 秒后会自动生成豆包草稿图；点击“生成终稿图”可生成 OpenAI 高清终稿图。
+8. 终稿图生成后，在“语音讲解”区域选择音源/音色，点击“生成讲解”，播放时光标会跟随讲解段落移动，也可下载浏览器录制的 WebM。
 
 ## 测试与报告
 
@@ -57,6 +66,7 @@ SKETCHVOICE_MOCK=true
 uv run pytest
 uv run python scripts/generate_test_cases.py --force --tts-provider auto
 uv run python scripts/evaluate_samples.py --mock
+node --check src/sketchvoice/static/app.js
 latexmk -xelatex -cd report/main.tex
 ```
 

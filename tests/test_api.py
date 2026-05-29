@@ -79,3 +79,31 @@ def test_sample_asset_endpoints_return_files() -> None:
     assert sketch.headers["content-type"].startswith("image/")
     assert audio.status_code == 200
     assert audio.headers["content-type"].startswith("audio/")
+
+
+def test_narrate_image_mock_returns_cursor_segments() -> None:
+    app = create_app(Settings(sketchvoice_mock=True))
+    client = TestClient(app)
+    response = client.post(
+        "/api/narrate-image",
+        data={
+            "provider": "openai",
+            "voice": "coral",
+            "graph_json": '{"nodes":[{"label":"输入"},{"label":"模型"},{"label":"输出"}],"edges":[]}',
+            "transcript": "输入经过模型得到输出。",
+        },
+        files={"image": ("final.png", b"not-a-real-image", "image/png")},
+    )
+    assert response.status_code == 200
+    body = response.json()
+    assert body["audio_b64"]
+    assert body["mime_type"] == "audio/wav"
+    assert len(body["segments"]) == 3
+    assert all(0 <= segment["x"] <= 1 for segment in body["segments"])
+
+
+def test_narrate_image_rejects_bad_provider() -> None:
+    app = create_app(Settings(sketchvoice_mock=True))
+    client = TestClient(app)
+    response = client.post("/api/narrate-image", data={"provider": "bad"})
+    assert response.status_code == 400

@@ -41,6 +41,9 @@ uv run python scripts/generate_test_cases.py --force --tts-provider auto
 - 生图耗时：草稿图和终稿图生成时间。
 - 图像一致性：生图是否保留 Mermaid 的主要节点和连线。
 - 图像可读性：节点文字是否可读、版式是否适合论文或汇报。
+- 讲解可用性：TTS 是否生成非空音频，讲解稿是否覆盖主要节点。
+- 光标同步：播放时光标是否落在 0 到 1 坐标范围内，并按段落顺序移动。
+- WebM 导出：浏览器录制结果是否非空，是否包含终稿图、光标动画和音频轨。
 - 主观评分：可读性、可编辑性、是否符合论文方法图风格。
 
 ## 最小验证
@@ -50,6 +53,15 @@ uv run python scripts/generate_test_cases.py --force --tts-provider auto
 ```bash
 uv run python scripts/evaluate_samples.py --mock
 uv run python scripts/evaluate_samples.py --include-audio
+node --check src/sketchvoice/static/app.js
 ```
 
 默认评测使用 transcript，避免每次运行都触发 ASR 费用；需要验证真实音频转写时再加 `--include-audio`。
+
+终稿图讲解最小验证：
+
+```bash
+uv run pytest tests/test_narration_service.py tests/test_api.py::test_narrate_image_mock_returns_cursor_segments
+```
+
+真实 TTS 评测建议先使用短文本和 mock 终稿图验证参数，再切换真实 OpenAI/豆包 key，避免反复消耗额度。

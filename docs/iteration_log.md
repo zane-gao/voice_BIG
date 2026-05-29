@@ -1,5 +1,14 @@
 # 版本迭代记录
 
+## v0.4.0
+
+- 新增 `/api/narrate-image` 终稿图语音讲解接口，返回 TTS 音频、讲解稿和段落级光标坐标。
+- 新增 `sketchvoice.narration_service`，支持 OpenAI、豆包和 mock TTS，并在外部 TTS 失败时尝试 macOS `say` 或 mock WAV 回退。
+- 前端 `AI 图像` 标签页新增“语音讲解”控制区，可选择 provider、模板音色、已有 OpenAI custom voice ID 或豆包 `voice_type`。
+- 终稿图预览新增讲解光标层，播放音频时按讲解 segment 自动移动。
+- 新增浏览器端 WebM 下载，使用 `canvas.captureStream()` 和 `MediaRecorder` 录制终稿图、光标动画和音频。
+- 新增 TTS 选型调研 `docs/tts_options.md`，记录 OpenAI、豆包、MiniMax、ElevenLabs、VoxCPM2、CosyVoice2、F5-TTS、Fish Speech 和 Kokoro 的取舍。
+
 ## v0.3.0
 
 - 新增三组“真实草图 + 语音”测试案例：CNN 讲解、扩散技术路线、视频生成发展脉络。
