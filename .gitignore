@@ -17,3 +17,5 @@ report/*.synctex.gz
 report/*.xdv
 report/*.bbl
 report/*.blg
+
+report/build/
