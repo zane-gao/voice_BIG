@@ -55,6 +55,17 @@ uv run uvicorn sketchvoice.main:app --reload --host 127.0.0.1 --port 8000
 uv run python scripts/generate_test_cases.py --force --tts-provider auto
 ```
 
+## 科研侧资料
+
+- 论文主稿已改为方法型草稿：`report/main.tex`，参考文献在 `report/references.bib`。
+- MMSB-Graph 研究实现位于 `src/sketchvoice/research.py`。
+- 科研数据生成脚本：`scripts/prepare_research_cases.py`。
+- 科研评测脚本：`scripts/evaluate_research_cases.py`。
+- 24 个科研小样本位于 `data/research_cases/`，清单为 `data/research_samples.json`。
+- 当前评测结果在 `docs/research_eval_results.json`，方法说明在 `docs/research_methodology.md`。
+
+注意：科研侧 `speech.wav` 目前是占位音频，`evaluate_research_cases.py` 默认是合成条件图 sanity check。后续若写真实实验结论，需要接入真实 VLM/ASR 输出后重新跑评测。
+
 ## 后续可扩展
 
 - 加入本地 ASR 模型作为离线后端。

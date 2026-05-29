@@ -1,0 +1,20 @@
+flowchart LR
+  n1["输入数据"]
+  n2["预处理"]
+  n3["深度学习模型"]
+  n4["分类结果"]
+  n1 --> n2
+  n2 --> n3
+  n3 --> n4
+  classDef input fill:#e7f5ff,stroke:#228be6,color:#102a43;
+  classDef process fill:#f8fafc,stroke:#64748b,color:#111827;
+  classDef model fill:#fef3c7,stroke:#f59e0b,color:#442006;
+  classDef fusion fill:#ccfbf1,stroke:#14b8a6,color:#134e4a;
+  classDef output fill:#dcfce7,stroke:#22c55e,color:#14532d;
+  classDef metric fill:#fae8ff,stroke:#c026d3,color:#581c87;
+  classDef decision fill:#fee2e2,stroke:#ef4444,color:#7f1d1d;
+  classDef note fill:#f1f5f9,stroke:#94a3b8,color:#334155;
+  class n1 process;
+  class n2 process;
+  class n3 process;
+  class n4 process;

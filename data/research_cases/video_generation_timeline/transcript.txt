@@ -1,0 +1,1 @@
+早期GAN/RNN视频依赖帧预测，后来 Video Diffusion Models 连接 Imagen Video、Phenaki 和 VideoLDM，时空Transformer 进一步支持 Lumiere、Sora 和时序一致性评测。

@@ -1,0 +1,35 @@
+flowchart LR
+  n1["DDPM"]
+  n2["DDIM"]
+  n3["Classifier-Free Guidance"]
+  n4["文本条件控制"]
+  n5["Latent Diffusion"]
+  n6["Stable Diffusion"]
+  n7["ControlNet"]
+  n8["DiT"]
+  n9["Consistency Models"]
+  n1 --> n2
+  n2 --> n3
+  n3 --> n4
+  n3 --> n5
+  n5 --> n6
+  n6 --> n7
+  n6 --> n8
+  n8 --> n9
+  classDef input fill:#e7f5ff,stroke:#228be6,color:#102a43;
+  classDef process fill:#f8fafc,stroke:#64748b,color:#111827;
+  classDef model fill:#fef3c7,stroke:#f59e0b,color:#442006;
+  classDef fusion fill:#ccfbf1,stroke:#14b8a6,color:#134e4a;
+  classDef output fill:#dcfce7,stroke:#22c55e,color:#14532d;
+  classDef metric fill:#fae8ff,stroke:#c026d3,color:#581c87;
+  classDef decision fill:#fee2e2,stroke:#ef4444,color:#7f1d1d;
+  classDef note fill:#f1f5f9,stroke:#94a3b8,color:#334155;
+  class n1 process;
+  class n2 process;
+  class n3 process;
+  class n4 process;
+  class n5 process;
+  class n6 process;
+  class n7 process;
+  class n8 process;
+  class n9 process;

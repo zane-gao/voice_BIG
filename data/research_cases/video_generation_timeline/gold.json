@@ -1,0 +1,287 @@
+{
+  "id": "video_generation_timeline",
+  "topic": "视频生成模型脉络",
+  "difficulty": "advanced",
+  "transcript": "早期GAN/RNN视频依赖帧预测，后来 Video Diffusion Models 连接 Imagen Video、Phenaki 和 VideoLDM，时空Transformer 进一步支持 Lumiere、Sora 和时序一致性评测。",
+  "gold_nodes": [
+    "早期GAN/RNN视频",
+    "帧预测",
+    "Video Diffusion Models",
+    "Imagen Video",
+    "Phenaki",
+    "VideoLDM",
+    "时空Transformer",
+    "Lumiere",
+    "Sora",
+    "时序一致性"
+  ],
+  "gold_edges": [
+    [
+      "早期GAN/RNN视频",
+      "帧预测"
+    ],
+    [
+      "帧预测",
+      "Video Diffusion Models"
+    ],
+    [
+      "Video Diffusion Models",
+      "Imagen Video"
+    ],
+    [
+      "Video Diffusion Models",
+      "Phenaki"
+    ],
+    [
+      "Video Diffusion Models",
+      "VideoLDM"
+    ],
+    [
+      "VideoLDM",
+      "时空Transformer"
+    ],
+    [
+      "时空Transformer",
+      "Lumiere"
+    ],
+    [
+      "时空Transformer",
+      "Sora"
+    ],
+    [
+      "Sora",
+      "时序一致性"
+    ]
+  ],
+  "node_spans": {
+    "早期GAN/RNN视频": [
+      0,
+      11
+    ],
+    "帧预测": [
+      13,
+      16
+    ],
+    "Video Diffusion Models": [
+      20,
+      42
+    ],
+    "Imagen Video": [
+      46,
+      58
+    ],
+    "Phenaki": [
+      59,
+      66
+    ],
+    "VideoLDM": [
+      69,
+      77
+    ],
+    "时空Transformer": [
+      78,
+      91
+    ],
+    "Lumiere": [
+      98,
+      105
+    ],
+    "Sora": [
+      106,
+      110
+    ],
+    "时序一致性": [
+      112,
+      117
+    ]
+  },
+  "speech_anchors": [
+    {
+      "label": "早期GAN/RNN视频",
+      "order": 0,
+      "span": [
+        0,
+        11
+      ]
+    },
+    {
+      "label": "帧预测",
+      "order": 1,
+      "span": [
+        13,
+        16
+      ]
+    },
+    {
+      "label": "Video Diffusion Models",
+      "order": 2,
+      "span": [
+        20,
+        42
+      ]
+    },
+    {
+      "label": "Imagen Video",
+      "order": 3,
+      "span": [
+        46,
+        58
+      ]
+    },
+    {
+      "label": "Phenaki",
+      "order": 4,
+      "span": [
+        59,
+        66
+      ]
+    },
+    {
+      "label": "VideoLDM",
+      "order": 5,
+      "span": [
+        69,
+        77
+      ]
+    },
+    {
+      "label": "时空Transformer",
+      "order": 6,
+      "span": [
+        78,
+        91
+      ]
+    },
+    {
+      "label": "Lumiere",
+      "order": 7,
+      "span": [
+        98,
+        105
+      ]
+    },
+    {
+      "label": "Sora",
+      "order": 8,
+      "span": [
+        106,
+        110
+      ]
+    },
+    {
+      "label": "时序一致性",
+      "order": 9,
+      "span": [
+        112,
+        117
+      ]
+    }
+  ],
+  "sketch_regions": {
+    "早期GAN/RNN视频": {
+      "x": 0.1391,
+      "y": 0.3,
+      "w": 0.1437,
+      "h": 0.0895
+    },
+    "帧预测": {
+      "x": 0.1422,
+      "y": 0.5579,
+      "w": 0.1437,
+      "h": 0.0895
+    },
+    "Video Diffusion Models": {
+      "x": 0.1453,
+      "y": 0.8158,
+      "w": 0.1437,
+      "h": 0.0895
+    },
+    "Imagen Video": {
+      "x": 0.3992,
+      "y": 0.3,
+      "w": 0.1437,
+      "h": 0.0895
+    },
+    "Phenaki": {
+      "x": 0.4023,
+      "y": 0.5579,
+      "w": 0.1437,
+      "h": 0.0895
+    },
+    "VideoLDM": {
+      "x": 0.4055,
+      "y": 0.8158,
+      "w": 0.1437,
+      "h": 0.0895
+    },
+    "时空Transformer": {
+      "x": 0.6594,
+      "y": 0.3,
+      "w": 0.1437,
+      "h": 0.0895
+    },
+    "Lumiere": {
+      "x": 0.6625,
+      "y": 0.5579,
+      "w": 0.1437,
+      "h": 0.0895
+    },
+    "Sora": {
+      "x": 0.6656,
+      "y": 0.8158,
+      "w": 0.1437,
+      "h": 0.0895
+    },
+    "时序一致性": {
+      "x": 0.9195,
+      "y": 0.3,
+      "w": 0.1437,
+      "h": 0.0895
+    }
+  },
+  "layout": {
+    "早期GAN/RNN视频": {
+      "x": 0.1391,
+      "y": 0.3
+    },
+    "帧预测": {
+      "x": 0.1422,
+      "y": 0.5579
+    },
+    "Video Diffusion Models": {
+      "x": 0.1453,
+      "y": 0.8158
+    },
+    "Imagen Video": {
+      "x": 0.3992,
+      "y": 0.3
+    },
+    "Phenaki": {
+      "x": 0.4023,
+      "y": 0.5579
+    },
+    "VideoLDM": {
+      "x": 0.4055,
+      "y": 0.8158
+    },
+    "时空Transformer": {
+      "x": 0.6594,
+      "y": 0.3
+    },
+    "Lumiere": {
+      "x": 0.6625,
+      "y": 0.5579
+    },
+    "Sora": {
+      "x": 0.6656,
+      "y": 0.8158
+    },
+    "时序一致性": {
+      "x": 0.9195,
+      "y": 0.3
+    }
+  },
+  "warnings": [
+    "speech.wav 为确定性占位音频；真实 ASR 评测时请替换为真人或 TTS 录音。"
+  ]
+}

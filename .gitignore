@@ -15,3 +15,5 @@ report/*.out
 report/*.toc
 report/*.synctex.gz
 report/*.xdv
+report/*.bbl
+report/*.blg

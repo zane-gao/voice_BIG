@@ -1,0 +1,1 @@
+DDPM 发展到 DDIM，Classifier-Free Guidance 带来文本条件控制，Latent Diffusion 推动 Stable Diffusion，之后出现 ControlNet、DiT 和 Consistency Models。

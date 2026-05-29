@@ -1,0 +1,29 @@
+flowchart LR
+  n1["完整模型"]
+  n2["去掉语音反馈"]
+  n3["去掉草图保持"]
+  n4["去掉路径能量"]
+  n5["节点F1"]
+  n6["边F1"]
+  n7["用户修改成本"]
+  n1 --> n5
+  n1 --> n6
+  n1 --> n7
+  n2 --> n5
+  n3 --> n6
+  n4 --> n7
+  classDef input fill:#e7f5ff,stroke:#228be6,color:#102a43;
+  classDef process fill:#f8fafc,stroke:#64748b,color:#111827;
+  classDef model fill:#fef3c7,stroke:#f59e0b,color:#442006;
+  classDef fusion fill:#ccfbf1,stroke:#14b8a6,color:#134e4a;
+  classDef output fill:#dcfce7,stroke:#22c55e,color:#14532d;
+  classDef metric fill:#fae8ff,stroke:#c026d3,color:#581c87;
+  classDef decision fill:#fee2e2,stroke:#ef4444,color:#7f1d1d;
+  classDef note fill:#f1f5f9,stroke:#94a3b8,color:#334155;
+  class n1 process;
+  class n2 process;
+  class n3 process;
+  class n4 process;
+  class n5 process;
+  class n6 process;
+  class n7 process;

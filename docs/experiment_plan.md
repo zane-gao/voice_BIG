@@ -65,3 +65,22 @@ uv run pytest tests/test_narration_service.py tests/test_api.py::test_narrate_im
 ```
 
 真实 TTS 评测建议先使用短文本和 mock 终稿图验证参数，再切换真实 OpenAI/豆包 key，避免反复消耗额度。
+
+## 科研侧 MMSB-Graph 实验
+
+科研侧新增 24 个小样本方法图 case，位于 `data/research_cases/`，清单为 `data/research_samples.json`。每个 case 包含：
+
+- `sketch.png`：确定性生成的手绘风格草图。
+- `speech.wav`：确定性占位音频，真实 ASR 评测前需要替换。
+- `transcript.txt`：语音文本标注。
+- `gold.json`：目标节点、目标边、`node_spans`、`speech_anchors`、`sketch_regions`、`layout` 和 `difficulty`。
+- `gold_mermaid.mmd` 与 `gold_render.png`：标准方法图源码和渲染图。
+
+生成与评测命令：
+
+```bash
+uv run python scripts/prepare_research_cases.py
+uv run python scripts/evaluate_research_cases.py --samples data/research_samples.json --output docs/research_eval_results.json
+```
+
+当前 `evaluate_research_cases.py` 使用合成条件图做 sanity check，不调用外部模型。论文中只能把这些数字表述为可控验证，不能写成真实 VLM/ASR 性能。
