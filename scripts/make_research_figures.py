@@ -40,6 +40,9 @@ def configure_style() -> None:
     """配置适合论文插图的字体、线宽和导出参数。"""
 
     candidates = [
+        "C:/Windows/Fonts/msyh.ttc",
+        "C:/Windows/Fonts/simhei.ttf",
+        "C:/Windows/Fonts/simsun.ttc",
         "/System/Library/Fonts/PingFang.ttc",
         "/System/Library/Fonts/STHeiti Light.ttc",
         "/Library/Fonts/Arial Unicode.ttf",
@@ -62,6 +65,7 @@ def configure_style() -> None:
             "axes.titlesize": 10.5,
             "axes.labelsize": 9.5,
             "legend.fontsize": 8.5,
+            "axes.unicode_minus": False,
         }
     )
 
@@ -88,24 +92,37 @@ def draw_phase_portrait(ax: mpl.axes.Axes, aggregate: dict[str, dict[str, float]
     xs = [aggregate[key]["manual_edit_cost"] for key, _ in METHODS]
     ys = [aggregate[key]["edge_f1"] for key, _ in METHODS]
     ged = [aggregate[key]["normalized_ged"] for key, _ in METHODS]
+    # Keep nearby aggregate points readable without changing the source metrics.
+    visual_offsets = {
+        "speech_only": (0.18, -0.006),
+        "early_fusion": (-0.18, 0.008),
+    }
+    plot_xs = [
+        x + visual_offsets.get(key, (0.0, 0.0))[0]
+        for (key, _), x in zip(METHODS, xs, strict=True)
+    ]
+    plot_ys = [
+        y + visual_offsets.get(key, (0.0, 0.0))[1]
+        for (key, _), y in zip(METHODS, ys, strict=True)
+    ]
 
-    ax.plot(xs, ys, color="#30343F", linewidth=1.1, alpha=0.55, zorder=1)
-    for i in range(len(xs) - 1):
+    ax.plot(plot_xs, plot_ys, color="#30343F", linewidth=1.1, alpha=0.55, zorder=1)
+    for i in range(len(plot_xs) - 1):
         ax.annotate(
             "",
-            xy=(xs[i + 1], ys[i + 1]),
-            xytext=(xs[i], ys[i]),
+            xy=(plot_xs[i + 1], plot_ys[i + 1]),
+            xytext=(plot_xs[i], plot_ys[i]),
             arrowprops=dict(arrowstyle="->", color="#30343F", lw=1.0, alpha=0.7),
         )
 
     label_offsets = {
         "sketch_only": (0.25, 0.035),
-        "speech_only": (0.55, 0.030),
-        "early_fusion": (-0.50, 0.030),
+        "speech_only": (0.72, 0.046),
+        "early_fusion": (-0.72, -0.044),
         "greedy_repair": (-0.02, -0.055),
         "mmsb_graph": (0.28, -0.055),
     }
-    for (key, label), x, y, g in zip(METHODS, xs, ys, ged, strict=True):
+    for (key, label), x, y, g in zip(METHODS, plot_xs, plot_ys, ged, strict=True):
         size = 95 + 520 * g
         ax.scatter(x, y, s=size, color=PALETTE[key], alpha=0.18, edgecolor="none", zorder=2)
         ax.scatter(x, y, s=42, color=PALETTE[key], edgecolor="white", linewidth=0.7, zorder=3)

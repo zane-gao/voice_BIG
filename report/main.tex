@@ -128,7 +128,7 @@ FSBM 表明，少量预对齐反馈可以指导未配对样本的传输方向并
 \draw[svarrow] (gf) -- (sb);
 \draw[svarrow] (sb) -- (graph);
 \draw[svarrow] (graph) -- (render);
-\draw[svdash] (speech.east) to[out=0,in=-115] node[below, sloped, font=\scriptsize]{语音反馈约束} (sb.south);
+\draw[svdash] (speech.south east) to[out=-25,in=-155] node[below, sloped, font=\scriptsize]{语音反馈约束} (sb.south);
 \draw[svdash] (sketch.north east) to[out=25,in=155] node[above, sloped, font=\scriptsize]{空间保持约束} (sb.north);
 \end{tikzpicture}
 }
