@@ -1,0 +1,79 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720">
+  <defs>
+    <filter id="softShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="4"/>
+      <feOffset dx="0" dy="2" result="offsetBlur"/>
+      <feFlood flood-color="#172033" flood-opacity="0.06" result="shadowColor"/>
+      <feComposite in="shadowColor" in2="offsetBlur" operator="in" result="shadow"/>
+      <feMerge><feMergeNode in="shadow"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <g id="background">
+    <rect width="1280" height="720" fill="#F8FAFC"/>
+  </g>
+  <g id="header">
+    <text x="60" y="72" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="36" font-weight="800" fill="#172033">竞品定位：我们解决的是“自然表达过程到科研图”</text>
+    <text x="60" y="106" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="18" fill="#475569">现有工具大多做文本到图或画布协作，SketchVoice 聚焦草图 + 语音 + 结构化科研方法图。</text>
+  </g>
+  <g id="competitor-table">
+    <rect x="60" y="142" width="1160" height="360" rx="8" fill="#FFFFFF" stroke="#CBD5E1" filter="url(#softShadow)"/>
+    <rect x="60" y="142" width="1160" height="52" rx="8" fill="#155E75"/>
+    <text x="90" y="176" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="16" font-weight="800" fill="#FFFFFF">类型</text>
+    <text x="256" y="176" text-anchor="middle" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="16" font-weight="800" fill="#FFFFFF">代表</text>
+    <text x="500" y="176" text-anchor="middle" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="16" font-weight="800" fill="#FFFFFF">优势</text>
+    <text x="766" y="176" text-anchor="middle" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="16" font-weight="800" fill="#FFFFFF">不足</text>
+    <text x="1046" y="176" text-anchor="middle" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="16" font-weight="800" fill="#FFFFFF">我们的切入点</text>
+    <line x1="174" y1="194" x2="174" y2="502" stroke="#CBD5E1"/>
+    <line x1="340" y1="194" x2="340" y2="502" stroke="#CBD5E1"/>
+    <line x1="650" y1="194" x2="650" y2="502" stroke="#CBD5E1"/>
+    <line x1="880" y1="194" x2="880" y2="502" stroke="#CBD5E1"/>
+    <line x1="60" y1="270" x2="1220" y2="270" stroke="#CBD5E1"/>
+    <line x1="60" y1="346" x2="1220" y2="346" stroke="#CBD5E1"/>
+    <line x1="60" y1="422" x2="1220" y2="422" stroke="#CBD5E1"/>
+    <g id="row-whiteboard">
+      <text x="90" y="235" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="16" font-weight="800" fill="#172033">在线白板</text>
+      <text x="256" y="235" text-anchor="middle" font-family="Consolas, monospace" font-size="14" fill="#475569">Miro / Whimsical</text>
+      <text x="370" y="222" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="15" fill="#475569">协作、画布、流程图成熟</text>
+      <text x="370" y="248" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="15" fill="#475569">AI 可利用画布上下文</text>
+      <text x="680" y="222" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="15" fill="#475569">偏通用协作资产</text>
+      <text x="680" y="248" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="15" fill="#475569">不专注科研方法图</text>
+      <text x="912" y="235" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="15" font-weight="800" fill="#0F766E">科研知识草图结构化</text>
+    </g>
+    <g id="row-ai-diagram">
+      <text x="90" y="311" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="16" font-weight="800" fill="#172033">AI 图示生成</text>
+      <text x="256" y="311" text-anchor="middle" font-family="Consolas, monospace" font-size="14" fill="#475569">Napkin AI</text>
+      <text x="370" y="298" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="15" fill="#475569">文本转图方便</text>
+      <text x="370" y="324" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="15" fill="#475569">支持 PPT、PNG、PDF、SVG</text>
+      <text x="680" y="298" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="15" fill="#475569">输入多为文本</text>
+      <text x="680" y="324" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="15" fill="#475569">弱化草图和语音过程</text>
+      <text x="912" y="311" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="15" font-weight="800" fill="#0F766E">保留原始思考过程</text>
+    </g>
+    <g id="row-code-graph">
+      <text x="90" y="387" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="16" font-weight="800" fill="#172033">代码图工具</text>
+      <text x="256" y="387" text-anchor="middle" font-family="Consolas, monospace" font-size="14" fill="#475569">Mermaid / Graphviz</text>
+      <text x="370" y="374" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="15" fill="#475569">可编辑、可版本管理</text>
+      <text x="370" y="400" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="15" fill="#475569">适合工程化复用</text>
+      <text x="680" y="374" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="15" fill="#475569">非技术用户门槛高</text>
+      <text x="680" y="400" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="15" fill="#475569">需要手写图代码</text>
+      <text x="912" y="387" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="15" font-weight="800" fill="#0F766E">自动生成图代码和 JSON</text>
+    </g>
+    <g id="row-research">
+      <text x="90" y="463" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="16" font-weight="800" fill="#172033">草图转图研究</text>
+      <text x="256" y="463" text-anchor="middle" font-family="Consolas, monospace" font-size="14" fill="#475569">SketchAgent 等</text>
+      <text x="370" y="450" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="15" fill="#475569">关注结构化图恢复</text>
+      <text x="370" y="476" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="15" fill="#475569">可转 Mermaid 或图代码</text>
+      <text x="680" y="450" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="15" fill="#475569">多聚焦静态图像</text>
+      <text x="680" y="476" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="15" fill="#475569">同步语音反馈较少</text>
+      <text x="912" y="463" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="15" font-weight="800" fill="#0F766E">语音作为语义锚点和方向约束</text>
+    </g>
+  </g>
+  <g id="positioning">
+    <rect x="150" y="548" width="980" height="56" rx="8" fill="#CCFBF1" stroke="#0F766E"/>
+    <use data-icon="tabler-outline/target" x="178" y="560" width="32" height="32" fill="#0F766E" stroke-width="2"/>
+    <text x="228" y="584" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="18" font-weight="800" fill="#155E75">差异化：草图保留空间结构，语音补全语义和方向，输出 Mermaid / SVG / JSON / WebM 等结构化资产。</text>
+  </g>
+  <g id="footer">
+    <text x="60" y="680" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="12" fill="#94A3B8">SketchVoice · Competitive Position</text>
+    <text x="1220" y="680" text-anchor="end" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="12" fill="#94A3B8">03 / 14</text>
+  </g>
+</svg>

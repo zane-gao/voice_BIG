@@ -1,0 +1,75 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720">
+  <defs>
+    <filter id="softShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="4"/>
+      <feOffset dx="0" dy="2" result="offsetBlur"/>
+      <feFlood flood-color="#172033" flood-opacity="0.06" result="shadowColor"/>
+      <feComposite in="shadowColor" in2="offsetBlur" operator="in" result="shadow"/>
+      <feMerge><feMergeNode in="shadow"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <g id="background">
+    <rect width="1280" height="720" fill="#F8FAFC"/>
+  </g>
+  <g id="header">
+    <text x="60" y="72" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="36" font-weight="800" fill="#172033">实验结果：多模态编辑路径带来结构一致性</text>
+    <text x="60" y="106" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="18" fill="#475569">在可控验证中，MMSB-Graph 同时提升节点、边和方向恢复，并把人工修改成本降到最低。</text>
+  </g>
+  <g id="result-table">
+    <rect x="60" y="140" width="1160" height="230" rx="8" fill="#FFFFFF" stroke="#CBD5E1" filter="url(#softShadow)"/>
+    <rect x="60" y="140" width="1160" height="46" rx="8" fill="#155E75"/>
+    <text x="88" y="170" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="17" font-weight="800" fill="#FFFFFF">方法</text>
+    <text x="318" y="170" text-anchor="middle" font-family="Consolas, monospace" font-size="16" font-weight="700" fill="#FFFFFF">Node F1</text>
+    <text x="484" y="170" text-anchor="middle" font-family="Consolas, monospace" font-size="16" font-weight="700" fill="#FFFFFF">Edge F1</text>
+    <text x="680" y="170" text-anchor="middle" font-family="Consolas, monospace" font-size="16" font-weight="700" fill="#FFFFFF">Direction</text>
+    <text x="866" y="170" text-anchor="middle" font-family="Consolas, monospace" font-size="16" font-weight="700" fill="#FFFFFF">GED</text>
+    <text x="1082" y="170" text-anchor="middle" font-family="Consolas, monospace" font-size="16" font-weight="700" fill="#FFFFFF">Edit Cost</text>
+    <g id="rows" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="16" fill="#475569">
+      <line x1="60" y1="230" x2="1220" y2="230" stroke="#CBD5E1"/>
+      <line x1="60" y1="276" x2="1220" y2="276" stroke="#CBD5E1"/>
+      <line x1="60" y1="322" x2="1220" y2="322" stroke="#CBD5E1"/>
+      <text x="88" y="216" font-weight="700" fill="#172033">Sketch only</text>
+      <text x="318" y="216" text-anchor="middle">0.803</text>
+      <text x="484" y="216" text-anchor="middle">0.387</text>
+      <text x="680" y="216" text-anchor="middle">0.281</text>
+      <text x="866" y="216" text-anchor="middle">0.587</text>
+      <text x="1082" y="216" text-anchor="middle">9.292</text>
+      <text x="88" y="262" font-weight="700" fill="#172033">Speech only</text>
+      <text x="318" y="262" text-anchor="middle">0.890</text>
+      <text x="484" y="262" text-anchor="middle">0.564</text>
+      <text x="680" y="262" text-anchor="middle">0.394</text>
+      <text x="866" y="262" text-anchor="middle">0.391</text>
+      <text x="1082" y="262" text-anchor="middle">6.188</text>
+      <text x="88" y="308" font-weight="700" fill="#172033">Greedy Repair</text>
+      <text x="318" y="308" text-anchor="middle">1.000</text>
+      <text x="484" y="308" text-anchor="middle">0.842</text>
+      <text x="680" y="308" text-anchor="middle">0.729</text>
+      <text x="866" y="308" text-anchor="middle">0.129</text>
+      <text x="1082" y="308" text-anchor="middle">1.792</text>
+      <rect x="72" y="329" width="1136" height="32" rx="8" fill="#DCFCE7"/>
+      <text x="88" y="351" font-weight="800" fill="#0F766E">MMSB-Graph</text>
+      <text x="318" y="351" text-anchor="middle" font-weight="800" fill="#0F766E">1.000</text>
+      <text x="484" y="351" text-anchor="middle" font-weight="800" fill="#0F766E">1.000</text>
+      <text x="680" y="351" text-anchor="middle" font-weight="800" fill="#0F766E">1.000</text>
+      <text x="866" y="351" text-anchor="middle" font-weight="800" fill="#0F766E">0.000</text>
+      <text x="1082" y="351" text-anchor="middle" font-weight="800" fill="#0F766E">0.000</text>
+    </g>
+  </g>
+  <g id="diagnostic">
+    <rect x="60" y="402" width="760" height="222" rx="8" fill="#FFFFFF" stroke="#CBD5E1" filter="url(#softShadow)"/>
+    <image href="../images/mmsb_diagnostics.png" x="82" y="424" width="716" height="178" preserveAspectRatio="xMidYMid meet"/>
+    <rect x="82" y="424" width="716" height="178" fill="none" stroke="#155E75" stroke-width="2"/>
+  </g>
+  <g id="interpretation">
+    <rect x="852" y="402" width="368" height="222" rx="8" fill="#FFFFFF" stroke="#CBD5E1" filter="url(#softShadow)"/>
+    <use data-icon="tabler-outline/test-pipe" x="886" y="430" width="36" height="36" fill="#155E75" stroke-width="2"/>
+    <text x="940" y="456" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="22" font-weight="800" fill="#172033">怎么解释结果</text>
+    <text x="886" y="506" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="18" fill="#475569">草图单模态：边恢复弱。</text>
+    <text x="886" y="540" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="18" fill="#475569">语音单模态：语义强但布局不足。</text>
+    <text x="886" y="574" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="18" fill="#475569">编辑桥：把补全和修正显式化。</text>
+  </g>
+  <g id="footer">
+    <text x="60" y="680" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="12" fill="#94A3B8">SketchVoice · Results</text>
+    <text x="1220" y="680" text-anchor="end" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="12" fill="#94A3B8">11 / 14</text>
+  </g>
+</svg>

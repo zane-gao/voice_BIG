@@ -1,0 +1,62 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720">
+  <defs>
+    <filter id="softShadow" x="-12%" y="-12%" width="124%" height="124%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="5"/>
+      <feOffset dx="0" dy="3" result="offsetBlur"/>
+      <feFlood flood-color="#172033" flood-opacity="0.08" result="shadowColor"/>
+      <feComposite in="shadowColor" in2="offsetBlur" operator="in" result="shadow"/>
+      <feMerge><feMergeNode in="shadow"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <g id="background">
+    <rect width="1280" height="720" fill="#F8FAFC"/>
+  </g>
+  <g id="header">
+    <text x="60" y="72" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="36" font-weight="800" fill="#172033">真实性边界：当前是可控验证，不是大规模宣称</text>
+    <text x="60" y="106" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="18" fill="#475569">产品原型已经跑通闭环，但科研结论需要限定在合成条件图的验证范围内。</text>
+  </g>
+  <g id="boundary-panel">
+    <rect x="60" y="154" width="456" height="410" rx="8" fill="#FFFFFF" stroke="#CBD5E1" filter="url(#softShadow)"/>
+    <rect x="92" y="190" width="132" height="36" rx="8" fill="#FEF3C7"/>
+    <text x="158" y="214" text-anchor="middle" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="17" font-weight="800" fill="#F59E0B">边界说明</text>
+    <text x="92" y="284" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="34" font-weight="800" fill="#155E75">讲清楚边界，</text>
+    <text x="92" y="328" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="34" font-weight="800" fill="#155E75">反而让产品故事更可信</text>
+    <line x1="92" y1="366" x2="460" y2="366" stroke="#CBD5E1"/>
+    <text x="92" y="416" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="20" font-weight="800" fill="#172033">当前定位</text>
+    <text x="92" y="452" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="18" fill="#475569">SketchVoice 是可演示、可导出、可评测的</text>
+    <text x="92" y="482" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="18" fill="#475569">课程项目原型。</text>
+    <text x="92" y="528" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="18" fill="#475569">MMSB-Graph 当前验证的是结构恢复链路</text>
+    <text x="92" y="558" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="18" fill="#475569">和图编辑路径的可计算性。</text>
+  </g>
+  <g id="vertical-list">
+    <rect x="572" y="154" width="648" height="410" rx="8" fill="#FFFFFF" stroke="#CBD5E1" filter="url(#softShadow)"/>
+    <g id="item-can">
+      <circle cx="632" cy="226" r="28" fill="#CCFBF1"/>
+      <use data-icon="tabler-outline/test-pipe" x="614" y="208" width="36" height="36" fill="#0F766E" stroke-width="2"/>
+      <text x="686" y="218" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="21" font-weight="800" fill="#172033">当前能说明</text>
+      <text x="686" y="252" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="17" fill="#475569">任务定义成立，评测链路可运行，图编辑过程可计算。</text>
+    </g>
+    <line x1="632" y1="268" x2="632" y2="322" stroke="#CBD5E1" stroke-width="2"/>
+    <g id="item-cannot">
+      <circle cx="632" cy="350" r="28" fill="#FEF3C7"/>
+      <use data-icon="tabler-outline/chart-dots" x="614" y="332" width="36" height="36" fill="#F59E0B" stroke-width="2"/>
+      <text x="686" y="342" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="21" font-weight="800" fill="#172033">不能直接说明</text>
+      <text x="686" y="376" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="17" fill="#475569">大规模真实世界性能、复杂手写图鲁棒性、长期用户成本。</text>
+    </g>
+    <line x1="632" y1="392" x2="632" y2="446" stroke="#CBD5E1" stroke-width="2"/>
+    <g id="item-next">
+      <circle cx="632" cy="474" r="28" fill="#E0F2FE"/>
+      <use data-icon="tabler-outline/bulb" x="614" y="456" width="36" height="36" fill="#2563EB" stroke-width="2"/>
+      <text x="686" y="466" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="21" font-weight="800" fill="#172033">下一步产品化验证</text>
+      <text x="686" y="500" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="17" fill="#475569">接入真实用户数据，记录人工修改，形成产品反馈指标。</text>
+    </g>
+  </g>
+  <g id="takeaway">
+    <rect x="166" y="604" width="948" height="46" rx="8" fill="#155E75"/>
+    <text x="640" y="634" text-anchor="middle" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="19" font-weight="800" fill="#FFFFFF">结论：本项目证明了“产品闭环 + 结构恢复方法 + 可评测协议”可以被完整打通。</text>
+  </g>
+  <g id="footer">
+    <text x="60" y="680" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="12" fill="#94A3B8">SketchVoice 路 Boundary</text>
+    <text x="1220" y="680" text-anchor="end" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="12" fill="#94A3B8">13 / 14</text>
+  </g>
+</svg>

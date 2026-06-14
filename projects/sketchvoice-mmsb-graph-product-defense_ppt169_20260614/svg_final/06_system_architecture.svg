@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720">
+  <defs>
+    <filter id="softShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="4" />
+      <feOffset dx="0" dy="2" result="offsetBlur" />
+      <feFlood flood-color="#172033" flood-opacity="0.06" result="shadowColor" />
+      <feComposite in="shadowColor" in2="offsetBlur" operator="in" result="shadow" />
+      <feMerge><feMergeNode in="shadow" /><feMergeNode in="SourceGraphic" /></feMerge>
+    </filter>
+  </defs>
+  <g id="background">
+    <rect width="1280" height="720" fill="#F8FAFC" />
+  </g>
+  <g id="header">
+    <text x="60" y="72" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="36" font-weight="800" fill="#172033">系统架构：前端交互、后端服务和模型能力分层</text>
+    <text x="60" y="106" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="18" fill="#475569">产品闭环由浏览器工作台、FastAPI 接口、结构化模型、图像与语音服务共同完成。</text>
+  </g>
+  <g id="architecture">
+    <g id="layer-frontend">
+      <path fill="#E0F2FE" stroke="#CBD5E1" d="M96,148 H1184 A8,8 0 0 1 1192,156 V236 A8,8 0 0 1 1184,244 H96 A8,8 0 0 1 88,236 V156 A8,8 0 0 1 96,148 Z" />
+      <path fill="#FFFFFF" d="M120,172 H160 A8,8 0 0 1 168,180 V212 A8,8 0 0 1 160,220 H120 A8,8 0 0 1 112,212 V180 A8,8 0 0 1 120,172 Z" />
+      
+  <g transform="translate(124.0, 182.0) scale(1.1666666666666667)" fill="none" stroke="#2563EB" stroke-width="2">
+    <path d="M3 5a1 1 0 0 1 1 -1h16a1 1 0 0 1 1 1v10a1 1 0 0 1 -1 1h-16a1 1 0 0 1 -1 -1v-10" />
+    <path d="M7 20h10" />
+    <path d="M9 16v4" />
+    <path d="M15 16v4" />
+  </g>
+      <text x="194" y="184" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="21" font-weight="800" fill="#172033">前端工作台</text>
+      <text x="194" y="216" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="17" fill="#475569">画布、录音、上传、标签页预览、下载、讲解播放和光标动画</text>
+    </g>
+    <g id="layer-api">
+      <path fill="#FFFFFF" stroke="#CBD5E1" filter="url(#softShadow)" d="M96,268 H1184 A8,8 0 0 1 1192,276 V356 A8,8 0 0 1 1184,364 H96 A8,8 0 0 1 88,356 V276 A8,8 0 0 1 96,268 Z" />
+      <path fill="#CCFBF1" d="M120,292 H160 A8,8 0 0 1 168,300 V332 A8,8 0 0 1 160,340 H120 A8,8 0 0 1 112,332 V300 A8,8 0 0 1 120,292 Z" />
+      
+  <g transform="translate(124.0, 302.0) scale(1.1666666666666667)" fill="none" stroke="#0F766E" stroke-width="2">
+    <path d="M3 7a3 3 0 0 1 3 -3h12a3 3 0 0 1 3 3v2a3 3 0 0 1 -3 3h-12a3 3 0 0 1 -3 -3" />
+    <path d="M3 15a3 3 0 0 1 3 -3h12a3 3 0 0 1 3 3v2a3 3 0 0 1 -3 3h-12a3 3 0 0 1 -3 -3l0 -2" />
+    <path d="M7 8l0 .01" />
+    <path d="M7 16l0 .01" />
+  </g>
+      <text x="194" y="304" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="21" font-weight="800" fill="#172033">FastAPI 服务层</text>
+      <text x="194" y="336" font-family="Consolas, monospace" font-size="16" fill="#475569">/api/generate  /api/render-image  /api/narrate-image</text>
+      <text x="916" y="330" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="17" fill="#475569">统一接收草图、音频、文本和结构化结果</text>
+    </g>
+    <g id="layer-models">
+      <path fill="#FFFFFF" stroke="#CBD5E1" filter="url(#softShadow)" d="M96,388 H1184 A8,8 0 0 1 1192,396 V492 A8,8 0 0 1 1184,500 H96 A8,8 0 0 1 88,492 V396 A8,8 0 0 1 96,388 Z" />
+      <path fill="#FEF3C7" d="M120,418 H160 A8,8 0 0 1 168,426 V458 A8,8 0 0 1 160,466 H120 A8,8 0 0 1 112,458 V426 A8,8 0 0 1 120,418 Z" />
+      
+  <g transform="translate(124.0, 428.0) scale(1.1666666666666667)" fill="none" stroke="#F59E0B" stroke-width="2">
+    <path d="M6 21l15 -15l-3 -3l-15 15l3 3" />
+    <path d="M15 6l3 3" />
+    <path d="M9 3a2 2 0 0 0 2 2a2 2 0 0 0 -2 2a2 2 0 0 0 -2 -2a2 2 0 0 0 2 -2" />
+    <path d="M19 13a2 2 0 0 0 2 2a2 2 0 0 0 -2 2a2 2 0 0 0 -2 -2a2 2 0 0 0 2 -2" />
+  </g>
+      <text x="194" y="420" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="21" font-weight="800" fill="#172033">模型与生成服务</text>
+      <text x="194" y="452" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="17" fill="#475569">ASR 转写、多模态结构化、豆包草稿图、OpenAI 终稿图、OpenAI/豆包/Mock TTS</text>
+      <path fill="#F8FAFC" stroke="#CBD5E1" d="M202,468 H356 A8,8 0 0 1 364,476 V482 A8,8 0 0 1 356,490 H202 A8,8 0 0 1 194,482 V476 A8,8 0 0 1 202,468 Z" />
+      <text x="279" y="484" text-anchor="middle" font-family="Consolas, monospace" font-size="13" fill="#155E75">mock fallback</text>
+    </g>
+    <g id="layer-output">
+      <path fill="#CCFBF1" stroke="#0F766E" d="M96,524 H1184 A8,8 0 0 1 1192,532 V612 A8,8 0 0 1 1184,620 H96 A8,8 0 0 1 88,612 V532 A8,8 0 0 1 96,524 Z" />
+      <path fill="#FFFFFF" d="M120,548 H160 A8,8 0 0 1 168,556 V588 A8,8 0 0 1 160,596 H120 A8,8 0 0 1 112,588 V556 A8,8 0 0 1 120,548 Z" />
+      
+  <g transform="translate(124.0, 558.0) scale(1.1666666666666667)" fill="none" stroke="#0F766E" stroke-width="2">
+    <path d="M14 3v4a1 1 0 0 0 1 1h4" />
+    <path d="M11.5 21h-4.5a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v5m-5 6h7m-3 -3l3 3l-3 3" />
+  </g>
+      <text x="194" y="560" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="21" font-weight="800" fill="#172033">输出与导出层</text>
+      <text x="194" y="592" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="17" fill="#475569">Mermaid、SVG、JSON、AI 图像、讲解音频、浏览器录制 WebM</text>
+    </g>
+  </g>
+  <g id="side-note">
+    <path fill="#FFFFFF" stroke="#CBD5E1" d="M944,178 H1138 A8,8 0 0 1 1146,186 V214 A8,8 0 0 1 1138,222 H944 A8,8 0 0 1 936,214 V186 A8,8 0 0 1 944,178 Z" />
+    <text x="1041" y="206" text-anchor="middle" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="16" font-weight="800" fill="#155E75">用户看到的是闭环</text>
+    <path fill="#FFFFFF" stroke="#CBD5E1" d="M944,560 H1138 A8,8 0 0 1 1146,568 V596 A8,8 0 0 1 1138,604 H944 A8,8 0 0 1 936,596 V568 A8,8 0 0 1 944,560 Z" />
+    <text x="1041" y="588" text-anchor="middle" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="16" font-weight="800" fill="#0F766E">系统内部是分层</text>
+  </g>
+  <g id="footer">
+    <text x="60" y="680" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="12" fill="#94A3B8">SketchVoice · Architecture</text>
+    <text x="1220" y="680" text-anchor="end" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="12" fill="#94A3B8">06 / 14</text>
+  </g>
+</svg>

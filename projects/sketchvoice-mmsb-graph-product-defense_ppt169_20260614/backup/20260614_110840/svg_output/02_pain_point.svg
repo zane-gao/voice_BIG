@@ -1,0 +1,52 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720">
+  <defs>
+    <linearGradient id="leftWash" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#E0F2FE"/>
+      <stop offset="100%" stop-color="#CCFBF1"/>
+    </linearGradient>
+  </defs>
+  <g id="background">
+    <rect width="1280" height="720" fill="#F8FAFC"/>
+    <rect x="52" y="52" width="420" height="596" rx="8" fill="url(#leftWash)"/>
+  </g>
+  <g id="header">
+    <text x="532" y="84" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="36" font-weight="800" fill="#172033">产品出发点：科研讨论结束后，信息很难复用</text>
+    <text x="532" y="118" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="18" fill="#475569">真实表达是混合的，但可复用交付物需要结构化。</text>
+  </g>
+  <g id="scene">
+    <use data-icon="tabler-outline/pencil" x="116" y="142" width="54" height="54" fill="#155E75" stroke-width="2"/>
+    <use data-icon="tabler-outline/microphone" x="190" y="142" width="54" height="54" fill="#0F766E" stroke-width="2"/>
+    <text x="116" y="252" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="34" font-weight="800" fill="#155E75">
+      边说边画
+    </text>
+    <text x="116" y="302" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="34" font-weight="800" fill="#172033">
+      是科研表达的
+    </text>
+    <text x="116" y="352" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="34" font-weight="800" fill="#172033">
+      自然形态
+    </text>
+    <line x1="116" y1="394" x2="364" y2="394" stroke="#155E75" stroke-width="4"/>
+    <text x="116" y="444" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="20" fill="#475569">
+      但讨论结束后，用户要的不是一张草稿，
+    </text>
+    <text x="116" y="476" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="20" fill="#475569">
+      而是能继续编辑、展示和复用的结构。
+    </text>
+  </g>
+  <g id="pain-list">
+    <line x1="568" y1="182" x2="568" y2="560" stroke="#CBD5E1" stroke-width="2" stroke-dasharray="7,7"/>
+    <circle cx="568" cy="212" r="13" fill="#F59E0B"/>
+    <text x="604" y="206" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="24" font-weight="800" fill="#172033">草图留下结构，但语义不完整</text>
+    <text x="604" y="240" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="19" fill="#475569">模块位置、流程关系、并行或闭环能看出来；节点名称、箭头方向和关系标签经常缺失。</text>
+    <circle cx="568" cy="350" r="13" fill="#2563EB"/>
+    <text x="604" y="344" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="24" font-weight="800" fill="#172033">语音说清意图，但没有布局</text>
+    <text x="604" y="378" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="19" fill="#475569">讲解能补充节点、顺序和因果关系；但语音本身无法直接恢复二维图结构。</text>
+    <circle cx="568" cy="488" r="13" fill="#0F766E"/>
+    <text x="604" y="482" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="24" font-weight="800" fill="#172033">手工整理成本高，交付链路断开</text>
+    <text x="604" y="516" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="19" fill="#475569">用户还要补 Mermaid、图像、JSON 和讲解稿；产品机会就在这条断链上。</text>
+  </g>
+  <g id="footer">
+    <text x="52" y="680" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="12" fill="#94A3B8">SketchVoice · Product Story</text>
+    <text x="1228" y="680" text-anchor="end" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="12" fill="#94A3B8">02 / 14</text>
+  </g>
+</svg>

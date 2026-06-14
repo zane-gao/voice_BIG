@@ -1,0 +1,115 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720">
+  <defs>
+    <filter id="cardShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="4" />
+      <feOffset dx="0" dy="2" result="offsetBlur" />
+      <feFlood flood-color="#172033" flood-opacity="0.06" result="shadowColor" />
+      <feComposite in="shadowColor" in2="offsetBlur" operator="in" result="shadow" />
+      <feMerge><feMergeNode in="shadow" /><feMergeNode in="SourceGraphic" /></feMerge>
+    </filter>
+  </defs>
+  <g id="background">
+    <rect width="1280" height="720" fill="#F8FAFC" />
+  </g>
+  <g id="header">
+    <text x="60" y="72" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="36" font-weight="800" fill="#172033">产品能力：不只是生成图，而是生成“工作台”</text>
+    <text x="60" y="106" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="18" fill="#475569">价值来自完整操作面，而不是一次模型调用。</text>
+  </g>
+  <g id="grid">
+    <g id="cap-input">
+      <path fill="#FFFFFF" stroke="#CBD5E1" filter="url(#cardShadow)" d="M68,150 H412 A8,8 0 0 1 420,158 V332 A8,8 0 0 1 412,340 H68 A8,8 0 0 1 60,332 V158 A8,8 0 0 1 68,150 Z" />
+      <path fill="#E0F2FE" d="M96,176 H132 A8,8 0 0 1 140,184 V220 A8,8 0 0 1 132,228 H96 A8,8 0 0 1 88,220 V184 A8,8 0 0 1 96,176 Z" />
+      
+  <g transform="translate(100.0, 188.0) scale(1.1666666666666667)" fill="none" stroke="#2563EB" stroke-width="2">
+    <path d="M3 5a1 1 0 0 1 1 -1h16a1 1 0 0 1 1 1v10a1 1 0 0 1 -1 1h-16a1 1 0 0 1 -1 -1v-10" />
+    <path d="M7 20h10" />
+    <path d="M9 16v4" />
+    <path d="M15 16v4" />
+  </g>
+      <text x="160" y="198" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="22" font-weight="800" fill="#172033">输入工作台</text>
+      <text x="160" y="228" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="16" fill="#475569">画布、录音、上传音频、转写文本补充</text>
+      <line x1="88" y1="258" x2="392" y2="258" stroke="#CBD5E1" />
+      <text x="88" y="292" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="17" fill="#475569">用户不需要先整理成规范格式，直接把讨论过程放进系统。</text>
+    </g>
+    <g id="cap-structure">
+      <path fill="#FFFFFF" stroke="#CBD5E1" filter="url(#cardShadow)" d="M468,150 H812 A8,8 0 0 1 820,158 V332 A8,8 0 0 1 812,340 H468 A8,8 0 0 1 460,332 V158 A8,8 0 0 1 468,150 Z" />
+      <path fill="#CCFBF1" d="M496,176 H532 A8,8 0 0 1 540,184 V220 A8,8 0 0 1 532,228 H496 A8,8 0 0 1 488,220 V184 A8,8 0 0 1 496,176 Z" />
+      
+  <g transform="translate(500.0, 188.0) scale(1.1666666666666667)" fill="none" stroke="#0F766E" stroke-width="2">
+    <path d="M6 9a6 6 0 1 0 12 0a6 6 0 0 0 -12 0" />
+    <path d="M12 3c1.333 .333 2 2.333 2 6s-.667 5.667 -2 6" />
+    <path d="M12 3c-1.333 .333 -2 2.333 -2 6s.667 5.667 2 6" />
+    <path d="M6 9h12" />
+    <path d="M3 20h7" />
+    <path d="M14 20h7" />
+    <path d="M10 20a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+    <path d="M12 15v3" />
+  </g>
+      <text x="560" y="198" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="22" font-weight="800" fill="#172033">结构化建模</text>
+      <text x="560" y="228" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="16" fill="#475569">节点、边、方向、类型、置信度</text>
+      <line x1="488" y1="258" x2="792" y2="258" stroke="#CBD5E1" />
+      <text x="488" y="292" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="17" fill="#475569">核心不是“画得像”，而是恢复可编辑知识结构。</text>
+    </g>
+    <g id="cap-preview">
+      <path fill="#FFFFFF" stroke="#CBD5E1" filter="url(#cardShadow)" d="M868,150 H1212 A8,8 0 0 1 1220,158 V332 A8,8 0 0 1 1212,340 H868 A8,8 0 0 1 860,332 V158 A8,8 0 0 1 868,150 Z" />
+      <path fill="#E0F2FE" d="M896,176 H932 A8,8 0 0 1 940,184 V220 A8,8 0 0 1 932,228 H896 A8,8 0 0 1 888,220 V184 A8,8 0 0 1 896,176 Z" />
+      
+  <g transform="translate(900.0, 188.0) scale(1.1666666666666667)" fill="none" stroke="#2563EB" stroke-width="2">
+    <path d="M20 16v-8l3 8v-8" />
+    <path d="M15 8a2 2 0 0 1 2 2v4a2 2 0 1 1 -4 0v-4a2 2 0 0 1 2 -2" />
+    <path d="M1 8h3v6.5a1.5 1.5 0 0 1 -3 0v-.5" />
+    <path d="M7 15a1 1 0 0 0 1 1h1a1 1 0 0 0 1 -1v-2a1 1 0 0 0 -1 -1h-1a1 1 0 0 1 -1 -1v-2a1 1 0 0 1 1 -1h1a1 1 0 0 1 1 1" />
+  </g>
+      <text x="960" y="198" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="22" font-weight="800" fill="#172033">多视图预览</text>
+      <text x="960" y="228" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="16" fill="#475569">Mermaid / 图形 / AI 图像 / JSON</text>
+      <line x1="888" y1="258" x2="1192" y2="258" stroke="#CBD5E1" />
+      <text x="888" y="292" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="17" fill="#475569">同一个结构可以用不同形式检查、修改和下载。</text>
+    </g>
+    <g id="cap-image">
+      <path fill="#FFFFFF" stroke="#CBD5E1" filter="url(#cardShadow)" d="M68,380 H412 A8,8 0 0 1 420,388 V562 A8,8 0 0 1 412,570 H68 A8,8 0 0 1 60,562 V388 A8,8 0 0 1 68,380 Z" />
+      <path fill="#DCFCE7" d="M96,406 H132 A8,8 0 0 1 140,414 V450 A8,8 0 0 1 132,458 H96 A8,8 0 0 1 88,450 V414 A8,8 0 0 1 96,406 Z" />
+      
+  <g transform="translate(100.0, 418.0) scale(1.1666666666666667)" fill="none" stroke="#16A34A" stroke-width="2">
+    <path d="M15 8h.01" />
+    <path d="M3 6a3 3 0 0 1 3 -3h12a3 3 0 0 1 3 3v12a3 3 0 0 1 -3 3h-12a3 3 0 0 1 -3 -3v-12" />
+    <path d="M3 16l5 -5c.928 -.893 2.072 -.893 3 0l5 5" />
+    <path d="M14 14l1 -1c.928 -.893 2.072 -.893 3 0l3 3" />
+  </g>
+      <text x="160" y="428" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="22" font-weight="800" fill="#172033">草稿图与终稿图</text>
+      <text x="160" y="458" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="16" fill="#475569">豆包草稿图 + OpenAI 终稿图</text>
+      <line x1="88" y1="488" x2="392" y2="488" stroke="#CBD5E1" />
+      <text x="88" y="522" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="17" fill="#475569">把结构图进一步包装成论文或汇报可用的方法图。</text>
+    </g>
+    <g id="cap-narration">
+      <path fill="#FFFFFF" stroke="#CBD5E1" filter="url(#cardShadow)" d="M468,380 H812 A8,8 0 0 1 820,388 V562 A8,8 0 0 1 812,570 H468 A8,8 0 0 1 460,562 V388 A8,8 0 0 1 468,380 Z" />
+      <path fill="#FEF3C7" d="M496,406 H532 A8,8 0 0 1 540,414 V450 A8,8 0 0 1 532,458 H496 A8,8 0 0 1 488,450 V414 A8,8 0 0 1 496,406 Z" />
+      
+  <g transform="translate(500.0, 418.0) scale(1.1666666666666667)" fill="none" stroke="#F59E0B" stroke-width="2">
+    <path d="M18 8a3 3 0 0 1 0 6" />
+    <path d="M10 8v11a1 1 0 0 1 -1 1h-1a1 1 0 0 1 -1 -1v-5" />
+    <path d="M12 8l4.524 -3.77a.9 .9 0 0 1 1.476 .692v12.156a.9 .9 0 0 1 -1.476 .692l-4.524 -3.77h-8a1 1 0 0 1 -1 -1v-4a1 1 0 0 1 1 -1h8" />
+  </g>
+      <text x="560" y="428" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="22" font-weight="800" fill="#172033">终稿图讲解</text>
+      <text x="560" y="458" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="16" fill="#475569">分段脚本、TTS、光标坐标、WebM</text>
+      <line x1="488" y1="488" x2="792" y2="488" stroke="#CBD5E1" />
+      <text x="488" y="522" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="17" fill="#475569">输出不止是静态图，也能变成可播放讲解材料。</text>
+    </g>
+    <g id="cap-export">
+      <path fill="#FFFFFF" stroke="#CBD5E1" filter="url(#cardShadow)" d="M868,380 H1212 A8,8 0 0 1 1220,388 V562 A8,8 0 0 1 1212,570 H868 A8,8 0 0 1 860,562 V388 A8,8 0 0 1 868,380 Z" />
+      <path fill="#CCFBF1" d="M896,406 H932 A8,8 0 0 1 940,414 V450 A8,8 0 0 1 932,458 H896 A8,8 0 0 1 888,450 V414 A8,8 0 0 1 896,406 Z" />
+      
+  <g transform="translate(900.0, 418.0) scale(1.1666666666666667)" fill="none" stroke="#0F766E" stroke-width="2">
+    <path d="M14 3v4a1 1 0 0 0 1 1h4" />
+    <path d="M11.5 21h-4.5a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v5m-5 6h7m-3 -3l3 3l-3 3" />
+  </g>
+      <text x="960" y="428" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="22" font-weight="800" fill="#172033">下载与演示</text>
+      <text x="960" y="458" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="16" fill="#475569">SVG、JSON、Mermaid、图像、WebM</text>
+      <line x1="888" y1="488" x2="1192" y2="488" stroke="#CBD5E1" />
+      <text x="888" y="522" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="17" fill="#475569">Mock 模式保证课堂演示时即使无 key 也能跑通闭环。</text>
+    </g>
+  </g>
+  <g id="footer">
+    <text x="60" y="680" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="12" fill="#94A3B8">SketchVoice · Capability Map</text>
+    <text x="1220" y="680" text-anchor="end" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="12" fill="#94A3B8">04 / 14</text>
+  </g>
+</svg>

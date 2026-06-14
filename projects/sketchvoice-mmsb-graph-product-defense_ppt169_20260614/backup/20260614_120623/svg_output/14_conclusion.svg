@@ -1,0 +1,76 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720">
+  <defs>
+    <filter id="softShadow" x="-12%" y="-12%" width="124%" height="124%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="6"/>
+      <feOffset dx="0" dy="3" result="offsetBlur"/>
+      <feFlood flood-color="#172033" flood-opacity="0.09" result="shadowColor"/>
+      <feComposite in="shadowColor" in2="offsetBlur" operator="in" result="shadow"/>
+      <feMerge><feMergeNode in="shadow"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <marker id="arrowEnd" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#0F766E"/>
+    </marker>
+  </defs>
+  <g id="background">
+    <rect width="1280" height="720" fill="#F8FAFC"/>
+    <rect x="0" y="0" width="1280" height="18" fill="#155E75"/>
+  </g>
+  <g id="hero-summary">
+    <text x="640" y="110" text-anchor="middle" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="44" font-weight="800" fill="#172033">总结：产品闭环 + 方法支撑 + 可评测系统</text>
+    <text x="640" y="154" text-anchor="middle" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="20" fill="#475569">SketchVoice 将“语音 + 草图”的自然表达过程，转化为可编辑、可导出、可评价的知识图。</text>
+  </g>
+  <g id="product-flow">
+    <rect x="208" y="202" width="864" height="94" rx="8" fill="#FFFFFF" stroke="#CBD5E1" filter="url(#softShadow)"/>
+    <g id="flow-input">
+      <circle cx="292" cy="249" r="28" fill="#CCFBF1"/>
+      <use data-icon="tabler-outline/microphone" x="274" y="231" width="36" height="36" fill="#0F766E" stroke-width="2"/>
+      <text x="342" y="256" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="19" font-weight="800" fill="#172033">说清语义</text>
+    </g>
+    <path d="M 450 249 L 530 249" fill="none" stroke="#0F766E" stroke-width="3" marker-end="url(#arrowEnd)"/>
+    <g id="flow-structure">
+      <circle cx="586" cy="249" r="28" fill="#E0F2FE"/>
+      <use data-icon="tabler-outline/network" x="568" y="231" width="36" height="36" fill="#2563EB" stroke-width="2"/>
+      <text x="636" y="256" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="19" font-weight="800" fill="#172033">恢复结构</text>
+    </g>
+    <path d="M 742 249 L 822 249" fill="none" stroke="#0F766E" stroke-width="3" marker-end="url(#arrowEnd)"/>
+    <g id="flow-output">
+      <circle cx="878" cy="249" r="28" fill="#DCFCE7"/>
+      <use data-icon="tabler-outline/file-export" x="860" y="231" width="36" height="36" fill="#16A34A" stroke-width="2"/>
+      <text x="928" y="256" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="19" font-weight="800" fill="#172033">交付结果</text>
+    </g>
+  </g>
+  <g id="contributions">
+    <g id="contribution-product">
+      <rect x="84" y="346" width="342" height="196" rx="8" fill="#FFFFFF" stroke="#CBD5E1" filter="url(#softShadow)"/>
+      <use data-icon="tabler-outline/device-desktop" x="112" y="374" width="40" height="40" fill="#155E75" stroke-width="2"/>
+      <text x="170" y="404" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="24" font-weight="800" fill="#172033">产品层</text>
+      <text x="112" y="458" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="18" fill="#475569">构建 SketchVoice 方法图工作台，</text>
+      <text x="112" y="490" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="18" fill="#475569">支持草图、语音、文本到图结构的</text>
+      <text x="112" y="522" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="18" fill="#475569">连续交互与导出。</text>
+    </g>
+    <g id="contribution-method">
+      <rect x="469" y="346" width="342" height="196" rx="8" fill="#FFFFFF" stroke="#CBD5E1" filter="url(#softShadow)"/>
+      <use data-icon="tabler-outline/git-branch" x="497" y="374" width="40" height="40" fill="#0F766E" stroke-width="2"/>
+      <text x="555" y="404" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="24" font-weight="800" fill="#172033">方法层</text>
+      <text x="497" y="458" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="18" fill="#475569">提出语音引导知识草图结构化任务，</text>
+      <text x="497" y="490" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="18" fill="#475569">用 MMSB-Graph 将生成问题转化为</text>
+      <text x="497" y="522" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="18" fill="#475569">可解释图编辑路径。</text>
+    </g>
+    <g id="contribution-system">
+      <rect x="854" y="346" width="342" height="196" rx="8" fill="#FFFFFF" stroke="#CBD5E1" filter="url(#softShadow)"/>
+      <use data-icon="tabler-outline/chart-dots" x="882" y="374" width="40" height="40" fill="#2563EB" stroke-width="2"/>
+      <text x="940" y="404" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="24" font-weight="800" fill="#172033">系统层</text>
+      <text x="882" y="458" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="18" fill="#475569">打通输入、生成、展示、导出、评测</text>
+      <text x="882" y="490" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="18" fill="#475569">闭环，让产品结果可以被复用，</text>
+      <text x="882" y="522" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="18" fill="#475569">也可以被指标检验。</text>
+    </g>
+  </g>
+  <g id="closing-line">
+    <rect x="170" y="588" width="940" height="50" rx="8" fill="#155E75"/>
+    <text x="640" y="620" text-anchor="middle" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="20" font-weight="800" fill="#FFFFFF">一句话：把“边说边画”变成结构化知识资产，并给出可解释的恢复路径。</text>
+  </g>
+  <g id="footer">
+    <text x="60" y="680" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="12" fill="#94A3B8">SketchVoice 路 Conclusion</text>
+    <text x="1220" y="680" text-anchor="end" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="12" fill="#94A3B8">14 / 14</text>
+  </g>
+</svg>

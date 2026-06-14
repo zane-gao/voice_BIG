@@ -1,0 +1,63 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720">
+  <defs>
+    <linearGradient id="bridgeGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#155E75"/>
+      <stop offset="100%" stop-color="#0F766E"/>
+    </linearGradient>
+    <filter id="softShadow" x="-12%" y="-12%" width="124%" height="124%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="6"/>
+      <feOffset dx="0" dy="3" result="offsetBlur"/>
+      <feFlood flood-color="#172033" flood-opacity="0.08" result="shadowColor"/>
+      <feComposite in="shadowColor" in2="offsetBlur" operator="in" result="shadow"/>
+      <feMerge><feMergeNode in="shadow"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <g id="background">
+    <rect width="1280" height="720" fill="#F8FAFC"/>
+  </g>
+  <g id="header">
+    <text x="60" y="76" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="36" font-weight="800" fill="#172033">产品问题反推科研任务</text>
+    <text x="60" y="110" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="18" fill="#475569">只有把产品问题形式化为“结构恢复”，才能解释为什么必须联合草图和语音。</text>
+  </g>
+  <g id="big-claim">
+    <text x="82" y="224" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="43" font-weight="800" fill="#172033">
+      我们要恢复的
+    </text>
+    <text x="82" y="284" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="43" font-weight="800" fill="#155E75">
+      不是一张图片，
+    </text>
+    <text x="82" y="344" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="43" font-weight="800" fill="#172033">
+      而是可编辑的
+    </text>
+    <text x="82" y="404" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="43" font-weight="800" fill="#0F766E">
+      知识结构。
+    </text>
+    <rect x="84" y="452" width="390" height="6" rx="3" fill="url(#bridgeGrad)"/>
+    <text x="84" y="502" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="19" fill="#475569">
+      这就是从产品故事进入科研问题的关键转折。
+    </text>
+  </g>
+  <g id="task-panel">
+    <rect x="590" y="168" width="600" height="390" rx="8" fill="#FFFFFF" stroke="#CBD5E1" filter="url(#softShadow)"/>
+    <rect x="620" y="198" width="58" height="58" rx="8" fill="#E0F2FE"/>
+    <use data-icon="tabler-outline/target" x="633" y="211" width="32" height="32" fill="#155E75" stroke-width="2"/>
+    <text x="700" y="232" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="24" font-weight="800" fill="#172033">Speech-Guided Sketch-to-Knowledge-Graph</text>
+    <text x="700" y="262" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="17" fill="#475569">语音引导的知识草图结构化任务</text>
+    <line x1="620" y1="292" x2="1160" y2="292" stroke="#CBD5E1"/>
+    <text x="640" y="336" font-family="Consolas, monospace" font-size="23" font-weight="700" fill="#155E75">Input:  S + U</text>
+    <text x="640" y="370" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="18" fill="#475569">手绘草图提供空间结构，同步语音提供语义锚点。</text>
+    <path d="M 660 404 L 1120 404" stroke="#0F766E" stroke-width="4" marker-end="url(#arrowTask)"/>
+    <defs>
+      <marker id="arrowTask" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto">
+        <path d="M0,0 L10,5 L0,10 Z" fill="#0F766E"/>
+      </marker>
+    </defs>
+    <text x="640" y="454" font-family="Consolas, monospace" font-size="23" font-weight="700" fill="#155E75">Output: G_hat = (V, E)</text>
+    <text x="640" y="488" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="18" fill="#475569">节点包含标签、语义类型、解释和置信度。</text>
+    <text x="640" y="520" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="18" fill="#475569">边包含方向、关系类型、关系标签和置信度。</text>
+  </g>
+  <g id="footer">
+    <text x="60" y="680" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="12" fill="#94A3B8">SketchVoice · Problem Definition</text>
+    <text x="1220" y="680" text-anchor="end" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="12" fill="#94A3B8">05 / 14</text>
+  </g>
+</svg>

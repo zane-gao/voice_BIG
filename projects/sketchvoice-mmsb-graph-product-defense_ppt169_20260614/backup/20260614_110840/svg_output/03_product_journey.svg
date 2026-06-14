@@ -1,0 +1,83 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720">
+  <defs>
+    <filter id="cardShadow" x="-12%" y="-12%" width="124%" height="124%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="5"/>
+      <feOffset dx="0" dy="3" result="offsetBlur"/>
+      <feFlood flood-color="#172033" flood-opacity="0.08" result="shadowColor"/>
+      <feComposite in="shadowColor" in2="offsetBlur" operator="in" result="shadow"/>
+      <feMerge><feMergeNode in="shadow"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#155E75"/>
+    </marker>
+  </defs>
+  <g id="background">
+    <rect width="1280" height="720" fill="#F8FAFC"/>
+  </g>
+  <g id="header">
+    <text x="60" y="72" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="36" font-weight="800" fill="#172033">用户旅程：从画布和录音到多格式交付</text>
+    <text x="60" y="106" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="18" fill="#475569">产品闭环把一次口头讲解转化为一组可查看、可下载、可继续编辑的产物。</text>
+  </g>
+  <g id="pipeline">
+    <line x1="150" y1="360" x2="1130" y2="360" stroke="#155E75" stroke-width="4" marker-end="url(#arrow)"/>
+    <g id="stage-input">
+      <rect x="70" y="218" width="200" height="260" rx="8" fill="#FFFFFF" stroke="#CBD5E1" filter="url(#cardShadow)"/>
+      <rect x="88" y="238" width="52" height="52" rx="8" fill="#E0F2FE"/>
+      <use data-icon="tabler-outline/pencil" x="100" y="250" width="28" height="28" fill="#155E75" stroke-width="2"/>
+      <use data-icon="tabler-outline/microphone" x="148" y="250" width="28" height="28" fill="#0F766E" stroke-width="2"/>
+      <text x="92" y="328" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="22" font-weight="800" fill="#172033">输入</text>
+      <text x="92" y="368" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="17" fill="#475569">草图画布</text>
+      <text x="92" y="398" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="17" fill="#475569">录音或上传音频</text>
+      <text x="92" y="428" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="17" fill="#475569">文本补充</text>
+      <text x="232" y="456" text-anchor="end" font-family="Consolas, monospace" font-size="14" fill="#94A3B8">S + U</text>
+    </g>
+    <g id="stage-transcribe">
+      <rect x="300" y="218" width="200" height="260" rx="8" fill="#FFFFFF" stroke="#CBD5E1" filter="url(#cardShadow)"/>
+      <rect x="318" y="238" width="52" height="52" rx="8" fill="#CCFBF1"/>
+      <use data-icon="tabler-outline/wand" x="330" y="250" width="28" height="28" fill="#0F766E" stroke-width="2"/>
+      <text x="322" y="328" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="22" font-weight="800" fill="#172033">转写与补全</text>
+      <text x="322" y="368" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="17" fill="#475569">ASR 得到文本</text>
+      <text x="322" y="398" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="17" fill="#475569">用户可改转写</text>
+      <text x="322" y="428" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="17" fill="#475569">保留交互上下文</text>
+      <text x="462" y="456" text-anchor="end" font-family="Consolas, monospace" font-size="14" fill="#94A3B8">transcript</text>
+    </g>
+    <g id="stage-graph">
+      <rect x="530" y="218" width="200" height="260" rx="8" fill="#155E75" filter="url(#cardShadow)"/>
+      <rect x="548" y="238" width="52" height="52" rx="8" fill="#FFFFFF" fill-opacity="0.18"/>
+      <use data-icon="tabler-outline/network" x="560" y="250" width="28" height="28" fill="#FFFFFF" stroke-width="2"/>
+      <text x="552" y="328" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="22" font-weight="800" fill="#FFFFFF">结构化图</text>
+      <text x="552" y="368" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="17" fill="#E0F2FE">节点与边</text>
+      <text x="552" y="398" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="17" fill="#E0F2FE">关系方向</text>
+      <text x="552" y="428" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="17" fill="#E0F2FE">置信度</text>
+      <text x="692" y="456" text-anchor="end" font-family="Consolas, monospace" font-size="14" fill="#CCFBF1">G_hat</text>
+    </g>
+    <g id="stage-preview">
+      <rect x="760" y="218" width="200" height="260" rx="8" fill="#FFFFFF" stroke="#CBD5E1" filter="url(#cardShadow)"/>
+      <rect x="778" y="238" width="52" height="52" rx="8" fill="#E0F2FE"/>
+      <use data-icon="tabler-outline/device-desktop" x="790" y="250" width="28" height="28" fill="#2563EB" stroke-width="2"/>
+      <text x="782" y="328" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="22" font-weight="800" fill="#172033">预览</text>
+      <text x="782" y="368" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="17" fill="#475569">Mermaid</text>
+      <text x="782" y="398" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="17" fill="#475569">SVG 图形</text>
+      <text x="782" y="428" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="17" fill="#475569">JSON 标签页</text>
+      <text x="922" y="456" text-anchor="end" font-family="Consolas, monospace" font-size="14" fill="#94A3B8">editable</text>
+    </g>
+    <g id="stage-export">
+      <rect x="990" y="218" width="220" height="260" rx="8" fill="#FFFFFF" stroke="#CBD5E1" filter="url(#cardShadow)"/>
+      <rect x="1008" y="238" width="52" height="52" rx="8" fill="#DCFCE7"/>
+      <use data-icon="tabler-outline/file-export" x="1020" y="250" width="28" height="28" fill="#16A34A" stroke-width="2"/>
+      <text x="1012" y="328" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="22" font-weight="800" fill="#172033">交付</text>
+      <text x="1012" y="368" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="17" fill="#475569">下载 SVG / JSON</text>
+      <text x="1012" y="398" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="17" fill="#475569">终稿图</text>
+      <text x="1012" y="428" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="17" fill="#475569">讲解 WebM</text>
+      <text x="1170" y="456" text-anchor="end" font-family="Consolas, monospace" font-size="14" fill="#94A3B8">deliverables</text>
+    </g>
+  </g>
+  <g id="takeaway">
+    <rect x="260" y="560" width="760" height="54" rx="8" fill="#CCFBF1" stroke="#0F766E"/>
+    <text x="640" y="594" text-anchor="middle" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="22" font-weight="800" fill="#155E75">核心产品价值：把一次临时表达，变成可复用的结构资产</text>
+  </g>
+  <g id="footer">
+    <text x="60" y="680" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="12" fill="#94A3B8">SketchVoice · Product Journey</text>
+    <text x="1220" y="680" text-anchor="end" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="12" fill="#94A3B8">03 / 14</text>
+  </g>
+</svg>

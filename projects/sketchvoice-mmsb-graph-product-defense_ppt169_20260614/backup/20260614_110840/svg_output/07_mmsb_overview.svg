@@ -1,0 +1,77 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720">
+  <defs>
+    <filter id="softShadow" x="-12%" y="-12%" width="124%" height="124%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="5"/>
+      <feOffset dx="0" dy="3" result="offsetBlur"/>
+      <feFlood flood-color="#172033" flood-opacity="0.08" result="shadowColor"/>
+      <feComposite in="shadowColor" in2="offsetBlur" operator="in" result="shadow"/>
+      <feMerge><feMergeNode in="shadow"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#0F766E"/>
+    </marker>
+  </defs>
+  <g id="background">
+    <rect width="1280" height="720" fill="#F8FAFC"/>
+  </g>
+  <g id="header">
+    <text x="60" y="72" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="36" font-weight="800" fill="#172033">MMSB-Graph：让产品输出可解释、可修复</text>
+    <text x="60" y="106" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="18" fill="#475569">它不是替代产品，而是让产品生成的知识图更可靠、更可诊断。</text>
+  </g>
+  <g id="pipeline">
+    <line x1="150" y1="352" x2="1130" y2="352" stroke="#0F766E" stroke-width="4" marker-end="url(#arrow)"/>
+    <g id="stage-observe">
+      <rect x="62" y="210" width="206" height="255" rx="8" fill="#FFFFFF" stroke="#CBD5E1" filter="url(#softShadow)"/>
+      <text x="88" y="252" font-family="Consolas, monospace" font-size="17" font-weight="700" fill="#94A3B8">01</text>
+      <use data-icon="tabler-outline/layers-linked" x="180" y="228" width="34" height="34" fill="#155E75" stroke-width="2"/>
+      <text x="88" y="302" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="22" font-weight="800" fill="#172033">多模态观测</text>
+      <text x="88" y="342" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="17" fill="#475569">草图给结构</text>
+      <text x="88" y="372" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="17" fill="#475569">语音给语义</text>
+      <text x="88" y="422" font-family="Consolas, monospace" font-size="14" fill="#155E75">S, U</text>
+    </g>
+    <g id="stage-condition">
+      <rect x="292" y="210" width="206" height="255" rx="8" fill="#FFFFFF" stroke="#CBD5E1" filter="url(#softShadow)"/>
+      <text x="318" y="252" font-family="Consolas, monospace" font-size="17" font-weight="700" fill="#94A3B8">02</text>
+      <use data-icon="tabler-outline/network" x="410" y="228" width="34" height="34" fill="#2563EB" stroke-width="2"/>
+      <text x="318" y="302" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="22" font-weight="800" fill="#172033">条件图构建</text>
+      <text x="318" y="342" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="17" fill="#475569">草图图 `Gs`</text>
+      <text x="318" y="372" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="17" fill="#475569">语音图 `Gu`</text>
+      <text x="318" y="422" font-family="Consolas, monospace" font-size="14" fill="#155E75">candidate graphs</text>
+    </g>
+    <g id="stage-fuse">
+      <rect x="522" y="210" width="206" height="255" rx="8" fill="#155E75" filter="url(#softShadow)"/>
+      <text x="548" y="252" font-family="Consolas, monospace" font-size="17" font-weight="700" fill="#CCFBF1">03</text>
+      <use data-icon="tabler-outline/layers-linked" x="640" y="228" width="34" height="34" fill="#FFFFFF" stroke-width="2"/>
+      <text x="548" y="302" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="22" font-weight="800" fill="#FFFFFF">融合候选图</text>
+      <text x="548" y="342" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="17" fill="#E0F2FE">结构与语义对齐</text>
+      <text x="548" y="372" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="17" fill="#E0F2FE">生成初始 `Gf`</text>
+      <text x="548" y="422" font-family="Consolas, monospace" font-size="14" fill="#CCFBF1">Gf</text>
+    </g>
+    <g id="stage-bridge">
+      <rect x="752" y="210" width="206" height="255" rx="8" fill="#FFFFFF" stroke="#CBD5E1" filter="url(#softShadow)"/>
+      <text x="778" y="252" font-family="Consolas, monospace" font-size="17" font-weight="700" fill="#94A3B8">04</text>
+      <use data-icon="tabler-outline/git-branch" x="870" y="228" width="34" height="34" fill="#0F766E" stroke-width="2"/>
+      <text x="778" y="302" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="22" font-weight="800" fill="#172033">图编辑桥</text>
+      <text x="778" y="342" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="17" fill="#475569">插入、删除、修正</text>
+      <text x="778" y="372" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="17" fill="#475569">记录每步代价</text>
+      <text x="778" y="422" font-family="Consolas, monospace" font-size="14" fill="#155E75">edit path</text>
+    </g>
+    <g id="stage-output">
+      <rect x="982" y="210" width="236" height="255" rx="8" fill="#FFFFFF" stroke="#CBD5E1" filter="url(#softShadow)"/>
+      <text x="1008" y="252" font-family="Consolas, monospace" font-size="17" font-weight="700" fill="#94A3B8">05</text>
+      <use data-icon="tabler-outline/file-export" x="1120" y="228" width="34" height="34" fill="#16A34A" stroke-width="2"/>
+      <text x="1008" y="302" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="22" font-weight="800" fill="#172033">可编辑知识图</text>
+      <text x="1008" y="342" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="17" fill="#475569">结构可解释</text>
+      <text x="1008" y="372" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="17" fill="#475569">错误可定位</text>
+      <text x="1008" y="422" font-family="Consolas, monospace" font-size="14" fill="#155E75">Mermaid / JSON / SVG</text>
+    </g>
+  </g>
+  <g id="bottom-note">
+    <rect x="190" y="540" width="900" height="58" rx="8" fill="#CCFBF1" stroke="#0F766E"/>
+    <text x="640" y="576" text-anchor="middle" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="22" font-weight="800" fill="#155E75">从产品角度看，MMSB-Graph 是“减少用户修改成本”的方法层设计</text>
+  </g>
+  <g id="footer">
+    <text x="60" y="680" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="12" fill="#94A3B8">SketchVoice · MMSB-Graph Overview</text>
+    <text x="1220" y="680" text-anchor="end" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="12" fill="#94A3B8">07 / 14</text>
+  </g>
+</svg>

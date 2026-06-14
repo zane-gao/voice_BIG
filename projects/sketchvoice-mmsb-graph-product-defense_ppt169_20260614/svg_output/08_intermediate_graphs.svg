@@ -1,0 +1,63 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720">
+  <defs>
+    <filter id="softShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="5"/>
+      <feOffset dx="0" dy="3" result="offsetBlur"/>
+      <feFlood flood-color="#172033" flood-opacity="0.07" result="shadowColor"/>
+      <feComposite in="shadowColor" in2="offsetBlur" operator="in" result="shadow"/>
+      <feMerge><feMergeNode in="shadow"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <g id="background">
+    <rect width="1280" height="720" fill="#F8FAFC"/>
+  </g>
+  <g id="header">
+    <text x="60" y="72" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="36" font-weight="800" fill="#172033">三种中间图：把不完整信息显式拆开</text>
+    <text x="60" y="106" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="18" fill="#475569">`Gs`、`Gu`、`Gf` 让产品调试从黑箱输出变成可观察过程。</text>
+  </g>
+  <g id="pillars">
+    <g id="pillar-gs">
+      <rect x="82" y="158" width="330" height="410" rx="8" fill="#FFFFFF" stroke="#CBD5E1" filter="url(#softShadow)"/>
+      <rect x="82" y="158" width="330" height="96" rx="8" fill="#E0F2FE"/>
+      <use data-icon="tabler-outline/pencil" x="114" y="184" width="42" height="42" fill="#155E75" stroke-width="2"/>
+      <text x="176" y="207" font-family="Consolas, monospace" font-size="28" font-weight="700" fill="#155E75">Gs</text>
+      <text x="176" y="232" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="18" font-weight="800" fill="#172033">草图图</text>
+      <text x="114" y="304" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="20" font-weight="800" fill="#172033">优势</text>
+      <text x="114" y="340" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="18" fill="#475569">保留模块位置和空间结构</text>
+      <text x="114" y="372" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="18" fill="#475569">能表达分支、上下游、闭环</text>
+      <text x="114" y="432" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="20" font-weight="800" fill="#F59E0B">缺口</text>
+      <text x="114" y="468" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="18" fill="#475569">标签不稳、语义弱、方向可能错</text>
+    </g>
+    <g id="pillar-gu">
+      <rect x="475" y="158" width="330" height="410" rx="8" fill="#FFFFFF" stroke="#CBD5E1" filter="url(#softShadow)"/>
+      <rect x="475" y="158" width="330" height="96" rx="8" fill="#CCFBF1"/>
+      <use data-icon="tabler-outline/microphone" x="507" y="184" width="42" height="42" fill="#0F766E" stroke-width="2"/>
+      <text x="569" y="207" font-family="Consolas, monospace" font-size="28" font-weight="700" fill="#0F766E">Gu</text>
+      <text x="569" y="232" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="18" font-weight="800" fill="#172033">语音图</text>
+      <text x="507" y="304" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="20" font-weight="800" fill="#172033">优势</text>
+      <text x="507" y="340" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="18" fill="#475569">节点命名和语义更完整</text>
+      <text x="507" y="372" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="18" fill="#475569">能补充顺序、因果和设计意图</text>
+      <text x="507" y="432" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="20" font-weight="800" fill="#F59E0B">缺口</text>
+      <text x="507" y="468" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="18" fill="#475569">缺少二维布局，难直接变成图</text>
+    </g>
+    <g id="pillar-gf">
+      <rect x="868" y="158" width="330" height="410" rx="8" fill="#155E75" filter="url(#softShadow)"/>
+      <rect x="868" y="158" width="330" height="96" rx="8" fill="#0F766E"/>
+      <use data-icon="tabler-outline/layers-linked" x="900" y="184" width="42" height="42" fill="#FFFFFF" stroke-width="2"/>
+      <text x="962" y="207" font-family="Consolas, monospace" font-size="28" font-weight="700" fill="#FFFFFF">Gf</text>
+      <text x="962" y="232" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="18" font-weight="800" fill="#E0F2FE">融合图</text>
+      <text x="900" y="304" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="20" font-weight="800" fill="#FFFFFF">作用</text>
+      <text x="900" y="340" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="18" fill="#E0F2FE">把空间结构和语义锚点合并</text>
+      <text x="900" y="372" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="18" fill="#E0F2FE">作为图编辑桥的初始候选</text>
+      <text x="900" y="432" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="20" font-weight="800" fill="#FFFFFF">产品意义</text>
+      <text x="900" y="468" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="18" fill="#E0F2FE">可定位错误来自视觉、语音还是融合</text>
+    </g>
+  </g>
+  <g id="takeaway">
+    <text x="640" y="632" text-anchor="middle" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="22" font-weight="800" fill="#155E75">显式中间图让“模型为什么这么画”有了可解释入口</text>
+  </g>
+  <g id="footer">
+    <text x="60" y="680" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="12" fill="#94A3B8">SketchVoice · Intermediate Graphs</text>
+    <text x="1220" y="680" text-anchor="end" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="12" fill="#94A3B8">08 / 14</text>
+  </g>
+</svg>

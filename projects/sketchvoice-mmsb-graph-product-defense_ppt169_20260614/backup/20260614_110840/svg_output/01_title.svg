@@ -1,0 +1,53 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720">
+  <defs>
+    <linearGradient id="tealBlue" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#155E75"/>
+      <stop offset="100%" stop-color="#0F766E"/>
+    </linearGradient>
+    <filter id="softShadow" x="-15%" y="-15%" width="130%" height="130%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="8"/>
+      <feOffset dx="0" dy="4" result="offsetBlur"/>
+      <feFlood flood-color="#172033" flood-opacity="0.10" result="shadowColor"/>
+      <feComposite in="shadowColor" in2="offsetBlur" operator="in" result="shadow"/>
+      <feMerge><feMergeNode in="shadow"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <g id="background">
+    <rect width="1280" height="720" fill="#F8FAFC"/>
+    <circle cx="1110" cy="120" r="170" fill="#E0F2FE"/>
+    <circle cx="1120" cy="122" r="102" fill="#CCFBF1" fill-opacity="0.85"/>
+    <rect x="52" y="54" width="78" height="8" rx="4" fill="url(#tealBlue)"/>
+  </g>
+  <g id="title-block">
+    <text x="92" y="190" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="64" font-weight="800" fill="#172033">
+      SketchVoice
+    </text>
+    <text x="92" y="258" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="44" font-weight="800" fill="#155E75">
+      把“边说边画”变成可编辑知识图
+    </text>
+    <text x="96" y="318" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="24" fill="#475569">
+      语音引导的知识草图结构化任务与 MMSB-Graph 方法
+    </text>
+    <rect x="96" y="354" width="586" height="48" rx="8" fill="#FFFFFF" stroke="#CBD5E1" filter="url(#softShadow)"/>
+    <text x="122" y="385" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="18" fill="#475569">
+      产品闭环：草图 + 语音 → 结构化图 → 可编辑输出 → 可评测结果
+    </text>
+  </g>
+  <g id="flow-motif">
+    <rect x="760" y="236" width="360" height="70" rx="8" fill="#FFFFFF" stroke="#CBD5E1" filter="url(#softShadow)"/>
+    <use data-icon="tabler-outline/pencil" x="792" y="253" width="34" height="34" fill="#155E75" stroke-width="2"/>
+    <text x="846" y="279" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="20" font-weight="700" fill="#172033">草图画布</text>
+    <rect x="830" y="342" width="360" height="70" rx="8" fill="#FFFFFF" stroke="#CBD5E1" filter="url(#softShadow)"/>
+    <use data-icon="tabler-outline/microphone" x="862" y="359" width="34" height="34" fill="#0F766E" stroke-width="2"/>
+    <text x="916" y="385" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="20" font-weight="700" fill="#172033">语音讲解</text>
+    <rect x="760" y="448" width="360" height="76" rx="8" fill="#155E75"/>
+    <use data-icon="tabler-outline/network" x="792" y="468" width="34" height="34" fill="#FFFFFF" stroke-width="2"/>
+    <text x="846" y="496" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="21" font-weight="800" fill="#FFFFFF">结构化知识图</text>
+    <path d="M 940 312 C 940 330 940 330 940 342" fill="none" stroke="#94A3B8" stroke-width="3" stroke-dasharray="7,6"/>
+    <path d="M 940 418 C 940 436 940 436 940 448" fill="none" stroke="#94A3B8" stroke-width="3" stroke-dasharray="7,6"/>
+  </g>
+  <g id="footer">
+    <text x="92" y="650" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="15" fill="#94A3B8">课程结项答辩 · 2026</text>
+    <text x="1188" y="650" text-anchor="end" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="12" fill="#94A3B8">01 / 14</text>
+  </g>
+</svg>

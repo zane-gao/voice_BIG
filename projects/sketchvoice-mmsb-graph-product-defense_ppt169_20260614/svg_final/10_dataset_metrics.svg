@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720">
+  <defs>
+    <filter id="softShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="4" />
+      <feOffset dx="0" dy="2" result="offsetBlur" />
+      <feFlood flood-color="#172033" flood-opacity="0.06" result="shadowColor" />
+      <feComposite in="shadowColor" in2="offsetBlur" operator="in" result="shadow" />
+      <feMerge><feMergeNode in="shadow" /><feMergeNode in="SourceGraphic" /></feMerge>
+    </filter>
+  </defs>
+  <g id="background">
+    <rect width="1280" height="720" fill="#F8FAFC" />
+  </g>
+  <g id="header">
+    <text x="60" y="72" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="36" font-weight="800" fill="#172033">数据与评测：用可控样例验证链路</text>
+    <text x="60" y="106" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="18" fill="#475569">评测不是只看图像好不好看，而是看结构是否正确、语音是否覆盖、修改成本是否下降。</text>
+  </g>
+  <g id="dataset-card">
+    <path fill="#155E75" filter="url(#softShadow)" d="M78,150 H452 A8,8 0 0 1 460,158 V582 A8,8 0 0 1 452,590 H78 A8,8 0 0 1 70,582 V158 A8,8 0 0 1 78,150 Z" />
+    
+  <g transform="translate(106.0, 190.0) scale(1.9166666666666667)" fill="none" stroke="#FFFFFF" stroke-width="2">
+    <path d="M4 6a8 3 0 1 0 16 0a8 3 0 1 0 -16 0" />
+    <path d="M4 6v6a8 3 0 0 0 16 0v-6" />
+    <path d="M4 12v6a8 3 0 0 0 16 0v-6" />
+  </g>
+    <text x="176" y="220" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="26" font-weight="800" fill="#FFFFFF">24 个知识草图样例</text>
+    <text x="106" y="290" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="21" font-weight="800" fill="#CCFBF1">覆盖结构</text>
+    <text x="106" y="326" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="18" fill="#E0F2FE">线性流程 / 分支结构 / 反馈闭环</text>
+    <text x="106" y="358" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="18" fill="#E0F2FE">模型架构图 / 实验流程图</text>
+    <line x1="106" y1="394" x2="424" y2="394" stroke="#CCFBF1" stroke-opacity="0.55" />
+    <text x="106" y="436" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="21" font-weight="800" fill="#CCFBF1">每例包含</text>
+    <text x="106" y="472" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="18" fill="#E0F2FE">草图、语音、转写、标准节点边</text>
+    <text x="106" y="504" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="18" fill="#E0F2FE">语音锚点、草图区坐标、难度标签</text>
+  </g>
+  <g id="metric-grid">
+    <g id="metric-node">
+      <path fill="#FFFFFF" stroke="#CBD5E1" filter="url(#softShadow)" d="M508,150 H702 A8,8 0 0 1 710,158 V254 A8,8 0 0 1 702,262 H508 A8,8 0 0 1 500,254 V158 A8,8 0 0 1 508,150 Z" />
+      <text x="526" y="190" font-family="Consolas, monospace" font-size="23" font-weight="700" fill="#155E75">Node F1</text>
+      <text x="526" y="226" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="16" fill="#475569">节点恢复是否正确</text>
+    </g>
+    <g id="metric-edge">
+      <path fill="#FFFFFF" stroke="#CBD5E1" filter="url(#softShadow)" d="M743,150 H937 A8,8 0 0 1 945,158 V254 A8,8 0 0 1 937,262 H743 A8,8 0 0 1 735,254 V158 A8,8 0 0 1 743,150 Z" />
+      <text x="761" y="190" font-family="Consolas, monospace" font-size="23" font-weight="700" fill="#155E75">Edge F1</text>
+      <text x="761" y="226" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="16" fill="#475569">边关系是否完整</text>
+    </g>
+    <g id="metric-direction">
+      <path fill="#FFFFFF" stroke="#CBD5E1" filter="url(#softShadow)" d="M978,150 H1172 A8,8 0 0 1 1180,158 V254 A8,8 0 0 1 1172,262 H978 A8,8 0 0 1 970,254 V158 A8,8 0 0 1 978,150 Z" />
+      <text x="996" y="190" font-family="Consolas, monospace" font-size="22" font-weight="700" fill="#155E75">Direction</text>
+      <text x="996" y="226" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="16" fill="#475569">因果方向是否正确</text>
+    </g>
+    <g id="metric-ged">
+      <path fill="#FFFFFF" stroke="#CBD5E1" filter="url(#softShadow)" d="M508,294 H702 A8,8 0 0 1 710,302 V398 A8,8 0 0 1 702,406 H508 A8,8 0 0 1 500,398 V302 A8,8 0 0 1 508,294 Z" />
+      <text x="526" y="334" font-family="Consolas, monospace" font-size="23" font-weight="700" fill="#155E75">GED</text>
+      <text x="526" y="370" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="16" fill="#475569">离标准图还有多远</text>
+    </g>
+    <g id="metric-speech">
+      <path fill="#FFFFFF" stroke="#CBD5E1" filter="url(#softShadow)" d="M743,294 H937 A8,8 0 0 1 945,302 V398 A8,8 0 0 1 937,406 H743 A8,8 0 0 1 735,398 V302 A8,8 0 0 1 743,294 Z" />
+      <text x="761" y="334" font-family="Consolas, monospace" font-size="22" font-weight="700" fill="#155E75">Speech</text>
+      <text x="761" y="370" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="16" fill="#475569">语音语义覆盖程度</text>
+    </g>
+    <g id="metric-layout">
+      <path fill="#FFFFFF" stroke="#CBD5E1" filter="url(#softShadow)" d="M978,294 H1172 A8,8 0 0 1 1180,302 V398 A8,8 0 0 1 1172,406 H978 A8,8 0 0 1 970,398 V302 A8,8 0 0 1 978,294 Z" />
+      <text x="996" y="334" font-family="Consolas, monospace" font-size="22" font-weight="700" fill="#155E75">Layout</text>
+      <text x="996" y="370" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="16" fill="#475569">草图布局保持程度</text>
+    </g>
+    <g id="metric-edit">
+      <path fill="#CCFBF1" stroke="#0F766E" filter="url(#softShadow)" d="M508,438 H819 A8,8 0 0 1 827,446 V542 A8,8 0 0 1 819,550 H508 A8,8 0 0 1 500,542 V446 A8,8 0 0 1 508,438 Z" />
+      <text x="526" y="478" font-family="Consolas, monospace" font-size="23" font-weight="700" fill="#155E75">Edit Cost</text>
+      <text x="526" y="514" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="17" fill="#475569">用户还需要改多少</text>
+    </g>
+    <g id="metric-energy">
+      <path fill="#CCFBF1" stroke="#0F766E" filter="url(#softShadow)" d="M860,438 H1172 A8,8 0 0 1 1180,446 V542 A8,8 0 0 1 1172,550 H860 A8,8 0 0 1 852,542 V446 A8,8 0 0 1 860,438 Z" />
+      <text x="878" y="478" font-family="Consolas, monospace" font-size="23" font-weight="700" fill="#155E75">Path Energy</text>
+      <text x="878" y="514" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="17" fill="#475569">修复过程是否自然</text>
+    </g>
+  </g>
+  <g id="footer">
+    <text x="60" y="680" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="12" fill="#94A3B8">SketchVoice · Evaluation Protocol</text>
+    <text x="1220" y="680" text-anchor="end" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="12" fill="#94A3B8">10 / 14</text>
+  </g>
+</svg>

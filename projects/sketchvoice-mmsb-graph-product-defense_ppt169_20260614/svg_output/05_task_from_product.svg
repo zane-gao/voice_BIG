@@ -1,0 +1,79 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720">
+  <defs>
+    <linearGradient id="flowGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#155E75"/>
+      <stop offset="100%" stop-color="#0F766E"/>
+    </linearGradient>
+    <filter id="softShadow" x="-12%" y="-12%" width="124%" height="124%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="5"/>
+      <feOffset dx="0" dy="3" result="offsetBlur"/>
+      <feFlood flood-color="#172033" flood-opacity="0.08" result="shadowColor"/>
+      <feComposite in="shadowColor" in2="offsetBlur" operator="in" result="shadow"/>
+      <feMerge><feMergeNode in="shadow"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <marker id="arrowDemo" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#155E75"/>
+    </marker>
+  </defs>
+  <g id="background">
+    <rect width="1280" height="720" fill="#F8FAFC"/>
+  </g>
+  <g id="header">
+    <text x="60" y="76" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="36" font-weight="800" fill="#172033">现场演示流程：从一张草图到可讲解交付物</text>
+    <text x="60" y="110" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="18" fill="#475569">演示重点不是单次生成图片，而是展示输入、结构化、渲染、讲解和下载的完整链路。</text>
+  </g>
+  <g id="demo-pipeline">
+    <rect x="66" y="166" width="1148" height="312" rx="8" fill="#FFFFFF" stroke="#CBD5E1" filter="url(#softShadow)"/>
+    <line x1="178" y1="318" x2="1082" y2="318" stroke="#CBD5E1" stroke-width="3" stroke-dasharray="8,6"/>
+    <g id="step-sketch">
+      <circle cx="150" cy="318" r="46" fill="#E0F2FE" stroke="#155E75" stroke-width="2"/>
+      <use data-icon="tabler-outline/pencil" x="128" y="296" width="44" height="44" fill="#155E75" stroke-width="2"/>
+      <text x="150" y="404" text-anchor="middle" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="20" font-weight="800" fill="#172033">画草图</text>
+      <text x="150" y="434" text-anchor="middle" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="15" fill="#475569">科研流程骨架</text>
+    </g>
+    <line x1="205" y1="318" x2="290" y2="318" stroke="#155E75" stroke-width="3" marker-end="url(#arrowDemo)"/>
+    <g id="step-voice">
+      <circle cx="340" cy="318" r="46" fill="#CCFBF1" stroke="#0F766E" stroke-width="2"/>
+      <use data-icon="tabler-outline/microphone" x="318" y="296" width="44" height="44" fill="#0F766E" stroke-width="2"/>
+      <text x="340" y="404" text-anchor="middle" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="20" font-weight="800" fill="#172033">补语音</text>
+      <text x="340" y="434" text-anchor="middle" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="15" fill="#475569">节点、方向、意图</text>
+    </g>
+    <line x1="395" y1="318" x2="480" y2="318" stroke="#155E75" stroke-width="3" marker-end="url(#arrowDemo)"/>
+    <g id="step-structure">
+      <circle cx="530" cy="318" r="46" fill="#FFFFFF" stroke="#2563EB" stroke-width="2"/>
+      <use data-icon="tabler-outline/network" x="508" y="296" width="44" height="44" fill="#2563EB" stroke-width="2"/>
+      <text x="530" y="404" text-anchor="middle" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="20" font-weight="800" fill="#172033">生成结构图</text>
+      <text x="530" y="434" text-anchor="middle" font-family="Consolas, monospace" font-size="15" fill="#475569">Mermaid / JSON</text>
+    </g>
+    <line x1="585" y1="318" x2="670" y2="318" stroke="#155E75" stroke-width="3" marker-end="url(#arrowDemo)"/>
+    <g id="step-render">
+      <circle cx="720" cy="318" r="46" fill="#DCFCE7" stroke="#16A34A" stroke-width="2"/>
+      <use data-icon="tabler-outline/photo" x="698" y="296" width="44" height="44" fill="#16A34A" stroke-width="2"/>
+      <text x="720" y="404" text-anchor="middle" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="20" font-weight="800" fill="#172033">生成终稿图</text>
+      <text x="720" y="434" text-anchor="middle" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="15" fill="#475569">论文风格方法图</text>
+    </g>
+    <line x1="775" y1="318" x2="860" y2="318" stroke="#155E75" stroke-width="3" marker-end="url(#arrowDemo)"/>
+    <g id="step-narrate">
+      <circle cx="910" cy="318" r="46" fill="#FEF3C7" stroke="#F59E0B" stroke-width="2"/>
+      <use data-icon="tabler-outline/speakerphone" x="888" y="296" width="44" height="44" fill="#F59E0B" stroke-width="2"/>
+      <text x="910" y="404" text-anchor="middle" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="20" font-weight="800" fill="#172033">生成讲解</text>
+      <text x="910" y="434" text-anchor="middle" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="15" fill="#475569">光标跟随段落</text>
+    </g>
+    <line x1="965" y1="318" x2="1050" y2="318" stroke="#155E75" stroke-width="3" marker-end="url(#arrowDemo)"/>
+    <g id="step-export">
+      <circle cx="1100" cy="318" r="46" fill="url(#flowGrad)" stroke="#0F766E" stroke-width="2"/>
+      <use data-icon="tabler-outline/file-export" x="1078" y="296" width="44" height="44" fill="#FFFFFF" stroke-width="2"/>
+      <text x="1100" y="404" text-anchor="middle" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="20" font-weight="800" fill="#172033">下载交付</text>
+      <text x="1100" y="434" text-anchor="middle" font-family="Consolas, monospace" font-size="15" fill="#475569">SVG / JSON / WebM</text>
+    </g>
+  </g>
+  <g id="demo-script">
+    <rect x="94" y="520" width="1092" height="76" rx="8" fill="#155E75"/>
+    <text x="122" y="550" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="20" font-weight="800" fill="#FFFFFF">推荐现场演示口径</text>
+    <text x="122" y="580" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="18" fill="#E0F2FE">画一个“输入数据 → 模型 → 评测指标”的简单草图，再用语音补充中间步骤，最后展示 Mermaid、SVG、JSON、终稿图和讲解 WebM。</text>
+  </g>
+  <g id="footer">
+    <text x="60" y="680" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="12" fill="#94A3B8">SketchVoice · Live Demo Flow</text>
+    <text x="1220" y="680" text-anchor="end" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="12" fill="#94A3B8">05 / 14</text>
+  </g>
+</svg>

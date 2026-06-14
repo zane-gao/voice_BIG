@@ -5,6 +5,7 @@ import hashlib
 import json
 import time
 from io import BytesIO
+from pathlib import Path
 from typing import Literal
 
 import httpx
@@ -121,7 +122,7 @@ class ImageRenderService:
                     model,
                     prompt,
                     start,
-                    [f"豆包草稿图生成失败，已回退 mock：{type(exc).__name__}"],
+                    [f"豆包草稿图生成失败，已回退 mock：{describe_image_error(exc)}"],
                 )
             raise
 
@@ -175,7 +176,7 @@ class ImageRenderService:
                     model,
                     prompt,
                     start,
-                    [f"OpenAI 终稿图生成失败，已回退 mock：{type(exc).__name__}"],
+                    [f"OpenAI 终稿图生成失败，已回退 mock：{describe_image_error(exc)}"],
                 )
             raise
 
@@ -253,6 +254,23 @@ def compact(value: str, limit: int) -> str:
     return " ".join(value.split())[:limit]
 
 
+def describe_image_error(exc: Exception) -> str:
+    if isinstance(exc, httpx.HTTPStatusError):
+        status = exc.response.status_code
+        detail = exc.response.text
+        try:
+            body = exc.response.json()
+            error = body.get("error") if isinstance(body, dict) else None
+            if isinstance(error, dict):
+                code = error.get("code") or error.get("type") or ""
+                message = error.get("message") or detail
+                detail = f"{code}: {message}" if code else str(message)
+        except Exception:
+            pass
+        return compact(f"HTTP {status} {detail}", 500)
+    return type(exc).__name__
+
+
 def image_data_url(sketch_bytes: bytes | None, sketch_content_type: str | None) -> str | None:
     if not sketch_bytes:
         return None
@@ -289,6 +307,34 @@ def strip_data_url(value: str) -> str:
     return value
 
 
+FONT_CANDIDATES = [
+    Path("C:/Windows/Fonts/msyh.ttc"),
+    Path("C:/Windows/Fonts/simhei.ttf"),
+    Path("C:/Windows/Fonts/simsun.ttc"),
+    Path("C:/Windows/Fonts/Deng.ttf"),
+    Path("/System/Library/Fonts/PingFang.ttc"),
+    Path("/System/Library/Fonts/STHeiti Light.ttc"),
+    Path("/usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc"),
+    Path("/usr/share/fonts/truetype/noto/NotoSansCJK-Regular.ttc"),
+]
+
+
+def load_ui_font(size: int) -> ImageFont.ImageFont:
+    for path in FONT_CANDIDATES:
+        if not path.exists():
+            continue
+        try:
+            return ImageFont.truetype(str(path), size)
+        except Exception:
+            continue
+    return ImageFont.load_default()
+
+
+def wrap_cjk_text(value: str, line_length: int) -> str:
+    text = compact(value, 120)
+    return "\n".join(text[index : index + line_length] for index in range(0, len(text), line_length))
+
+
 def make_mock_image(*, mode: ImageMode, prompt: str) -> tuple[str, str]:
     width, height = (960, 540) if mode == "draft" else (1280, 720)
     bg = (252, 253, 255)
@@ -298,12 +344,9 @@ def make_mock_image(*, mode: ImageMode, prompt: str) -> tuple[str, str]:
     accent = (245, 158, 11) if mode == "draft" else (15, 118, 110)
     muted = (100, 116, 139)
     text = (17, 24, 39)
-    try:
-        font_title = ImageFont.truetype("/System/Library/Fonts/PingFang.ttc", 34)
-        font_body = ImageFont.truetype("/System/Library/Fonts/PingFang.ttc", 20)
-        font_small = ImageFont.truetype("/System/Library/Fonts/PingFang.ttc", 16)
-    except Exception:
-        font_title = font_body = font_small = ImageFont.load_default()
+    font_title = load_ui_font(34)
+    font_body = load_ui_font(20)
+    font_small = load_ui_font(16)
 
     draw.rounded_rectangle((36, 36, width - 36, height - 36), radius=18, outline=(216, 226, 238), width=2, fill=(255, 255, 255))
     draw.text((64, 60), title, fill=text, font=font_title)
@@ -320,7 +363,7 @@ def make_mock_image(*, mode: ImageMode, prompt: str) -> tuple[str, str]:
     draw.line((260, 219, width // 2 - 90, 270), fill=muted, width=3)
     draw.line((260, 339, width // 2 - 90, 308), fill=muted, width=3)
     draw.line((width // 2 + 80, 279, width - 260, 279), fill=muted, width=3)
-    draw.text((64, height - 92), compact(prompt, 90), fill=muted, font=font_small)
+    draw.multiline_text((64, height - 100), wrap_cjk_text(prompt, 54), fill=muted, font=font_small, spacing=6)
     buffer = BytesIO()
     fmt = "JPEG" if mode == "draft" else "PNG"
     image.save(buffer, format=fmt, quality=88)

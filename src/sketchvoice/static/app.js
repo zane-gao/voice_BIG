@@ -399,7 +399,8 @@ async function renderImage(mode) {
     const result = await response.json();
     if (isDraft && seq !== draftRequestSeq) return;
     updateImageResult(result);
-    setMessage(isDraft ? "豆包草稿图已更新。" : "OpenAI 终稿图已更新。");
+    const warningText = imageWarningText(result);
+    setMessage(warningText || (isDraft ? "豆包草稿图已更新。" : "OpenAI 终稿图已更新。"));
   } catch (error) {
     if (error.name === "AbortError") return;
     if (isDraft) {
@@ -420,7 +421,9 @@ function updateImageResult(result) {
   const frame = image.closest(".image-frame");
   image.src = `data:${result.mime_type};base64,${result.image_b64}`;
   frame.classList.add("has-image");
-  status.textContent = `${result.cached ? "缓存命中" : "完成"} · ${result.timings_ms.total ?? "--"} ms`;
+  const usedMock = String(result.provider || "").includes("mock");
+  const stateText = usedMock ? "回退 Mock" : result.cached ? "缓存命中" : "完成";
+  status.textContent = `${stateText} · ${result.timings_ms.total ?? "--"} ms`;
   meta.textContent = `${result.provider} · ${result.model}`;
   if (isDraft) {
     lastDraftResult = result;
@@ -428,6 +431,10 @@ function updateImageResult(result) {
     lastFinalResult = result;
     clearNarrationState("终稿图已更新，可生成语音讲解。");
   }
+}
+
+function imageWarningText(result) {
+  return Array.isArray(result.warnings) && result.warnings.length ? result.warnings.join("；") : "";
 }
 
 function b64ToBlob(base64, mimeType) {

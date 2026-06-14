@@ -1,0 +1,73 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720">
+  <defs>
+    <filter id="softShadow" x="-12%" y="-12%" width="124%" height="124%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="5"/>
+      <feOffset dx="0" dy="3" result="offsetBlur"/>
+      <feFlood flood-color="#172033" flood-opacity="0.08" result="shadowColor"/>
+      <feComposite in="shadowColor" in2="offsetBlur" operator="in" result="shadow"/>
+      <feMerge><feMergeNode in="shadow"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#155E75"/>
+    </marker>
+  </defs>
+  <g id="background">
+    <rect width="1280" height="720" fill="#F8FAFC"/>
+  </g>
+  <g id="header">
+    <text x="60" y="72" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="36" font-weight="800" fill="#172033">图编辑桥：逐步恢复，而不是一次猜完</text>
+    <text x="60" y="106" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="18" fill="#475569">编辑路径让结构恢复过程可解释、可追踪、可评估修改代价。</text>
+  </g>
+  <g id="flow">
+    <g id="graph-start">
+      <rect x="70" y="188" width="180" height="180" rx="8" fill="#FFFFFF" stroke="#CBD5E1" filter="url(#softShadow)"/>
+      <text x="160" y="230" text-anchor="middle" font-family="Consolas, monospace" font-size="24" font-weight="700" fill="#155E75">Gf</text>
+      <circle cx="130" cy="286" r="14" fill="#E0F2FE" stroke="#155E75"/>
+      <circle cx="188" cy="286" r="14" fill="#CCFBF1" stroke="#0F766E"/>
+      <circle cx="160" cy="326" r="14" fill="#FEF3C7" stroke="#F59E0B"/>
+      <line x1="144" y1="286" x2="174" y2="286" stroke="#94A3B8" stroke-width="2"/>
+      <line x1="188" y1="300" x2="166" y2="314" stroke="#94A3B8" stroke-width="2"/>
+      <text x="160" y="350" text-anchor="middle" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="16" fill="#475569">融合候选图</text>
+    </g>
+    <line x1="254" y1="278" x2="334" y2="278" stroke="#155E75" stroke-width="3" marker-end="url(#arrow)"/>
+    <g id="op-insert-node">
+      <rect x="344" y="198" width="150" height="160" rx="8" fill="#FFFFFF" stroke="#CBD5E1" filter="url(#softShadow)"/>
+      <text x="419" y="236" text-anchor="middle" font-family="Consolas, monospace" font-size="18" font-weight="700" fill="#94A3B8">edit 1</text>
+      <text x="419" y="282" text-anchor="middle" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="20" font-weight="800" fill="#172033">插入节点</text>
+      <text x="419" y="316" text-anchor="middle" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="15" fill="#475569">补缺失概念</text>
+    </g>
+    <line x1="498" y1="278" x2="578" y2="278" stroke="#155E75" stroke-width="3" marker-end="url(#arrow)"/>
+    <g id="op-insert-edge">
+      <rect x="588" y="198" width="150" height="160" rx="8" fill="#FFFFFF" stroke="#CBD5E1" filter="url(#softShadow)"/>
+      <text x="663" y="236" text-anchor="middle" font-family="Consolas, monospace" font-size="18" font-weight="700" fill="#94A3B8">edit 2</text>
+      <text x="663" y="282" text-anchor="middle" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="20" font-weight="800" fill="#172033">插入边</text>
+      <text x="663" y="316" text-anchor="middle" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="15" fill="#475569">补流程关系</text>
+    </g>
+    <line x1="742" y1="278" x2="822" y2="278" stroke="#155E75" stroke-width="3" marker-end="url(#arrow)"/>
+    <g id="op-fix-direction">
+      <rect x="832" y="198" width="170" height="160" rx="8" fill="#155E75" filter="url(#softShadow)"/>
+      <text x="917" y="236" text-anchor="middle" font-family="Consolas, monospace" font-size="18" font-weight="700" fill="#CCFBF1">edit 3</text>
+      <text x="917" y="282" text-anchor="middle" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="20" font-weight="800" fill="#FFFFFF">修正方向</text>
+      <text x="917" y="316" text-anchor="middle" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="15" fill="#E0F2FE">纠正因果流向</text>
+    </g>
+    <line x1="1006" y1="278" x2="1086" y2="278" stroke="#155E75" stroke-width="3" marker-end="url(#arrow)"/>
+    <g id="graph-target">
+      <rect x="1096" y="188" width="134" height="180" rx="8" fill="#DCFCE7" stroke="#16A34A" filter="url(#softShadow)"/>
+      <text x="1163" y="230" text-anchor="middle" font-family="Consolas, monospace" font-size="24" font-weight="700" fill="#0F766E">G*</text>
+      <use data-icon="tabler-outline/network" x="1142" y="266" width="42" height="42" fill="#0F766E" stroke-width="2"/>
+      <text x="1163" y="350" text-anchor="middle" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="16" fill="#475569">目标图</text>
+    </g>
+  </g>
+  <g id="cost-panel">
+    <rect x="92" y="440" width="1096" height="128" rx="8" fill="#FFFFFF" stroke="#CBD5E1"/>
+    <text x="122" y="482" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="22" font-weight="800" fill="#172033">每一步都可以计算代价</text>
+    <text x="122" y="520" font-family="Consolas, monospace" font-size="20" font-weight="700" fill="#155E75">c(Gt, Gt+1) = structure + semantic + direction + layout - speech_coverage</text>
+    <text x="122" y="550" font-family="Consolas, monospace" font-size="18" fill="#0F766E">E(G0:T) = 1/T Σ c(Gt, Gt+1)²</text>
+    <text x="868" y="500" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="18" font-weight="800" fill="#F59E0B">产品含义</text>
+    <text x="868" y="532" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="17" fill="#475569">可以追踪错误来源，估计用户修改负担。</text>
+  </g>
+  <g id="footer">
+    <text x="60" y="680" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="12" fill="#94A3B8">SketchVoice · Graph Editing Bridge</text>
+    <text x="1220" y="680" text-anchor="end" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="12" fill="#94A3B8">09 / 14</text>
+  </g>
+</svg>
