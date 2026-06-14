@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720">
+  <defs>
+    <filter id="softShadow" x="-12%" y="-12%" width="124%" height="124%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="5"/>
+      <feOffset dx="0" dy="3" result="offsetBlur"/>
+      <feFlood flood-color="#172033" flood-opacity="0.08" result="shadowColor"/>
+      <feComposite in="shadowColor" in2="offsetBlur" operator="in" result="shadow"/>
+      <feMerge><feMergeNode in="shadow"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <g id="background">
+    <rect width="1280" height="720" fill="#F8FAFC"/>
+  </g>
+  <g id="header">
+    <text x="60" y="70" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="36" font-weight="800" fill="#172033">数据与实验：把 demo 标注成可评测样例</text>
+    <text x="60" y="106" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="18" fill="#475569">我们不是只做几个展示样例，而是把输入、标准图、锚点和指标组织成可复现实验协议。</text>
+  </g>
+  <g id="dataset-panel">
+    <rect x="64" y="150" width="390" height="420" rx="8" fill="#155E75" filter="url(#softShadow)"/>
+    <use data-icon="tabler-outline/database" x="98" y="188" width="44" height="44" fill="#FFFFFF" stroke-width="2"/>
+    <text x="160" y="217" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="27" font-weight="800" fill="#FFFFFF">24 个知识草图样例</text>
+    <text x="98" y="284" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="19" font-weight="800" fill="#CCFBF1">覆盖五类结构</text>
+    <text x="98" y="318" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="16" fill="#E0F2FE">线性流程、多分支融合、反馈闭环、</text>
+    <text x="98" y="346" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="16" fill="#E0F2FE">模型架构、实验流程。</text>
+    <line x1="98" y1="382" x2="420" y2="382" stroke="#CCFBF1" stroke-opacity="0.55"/>
+    <text x="98" y="424" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="19" font-weight="800" fill="#CCFBF1">每个样例标注</text>
+    <text x="98" y="458" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="16" fill="#E0F2FE">gold nodes / gold edges / speech anchors</text>
+    <text x="98" y="486" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="16" fill="#E0F2FE">sketch regions / layout coordinates / difficulty</text>
+    <rect x="98" y="516" width="272" height="34" rx="8" fill="#CCFBF1"/>
+    <text x="234" y="539" text-anchor="middle" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="15" font-weight="800" fill="#155E75">把产品样例变成科研数据</text>
+  </g>
+  <g id="baseline-table">
+    <rect x="492" y="150" width="724" height="246" rx="8" fill="#FFFFFF" stroke="#CBD5E1" filter="url(#softShadow)"/>
+    <rect x="492" y="150" width="724" height="44" rx="8" fill="#155E75"/>
+    <text x="522" y="179" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="17" font-weight="800" fill="#FFFFFF">对照方法</text>
+    <text x="742" y="179" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="17" font-weight="800" fill="#FFFFFF">验证意义</text>
+    <line x1="492" y1="239" x2="1216" y2="239" stroke="#CBD5E1"/>
+    <line x1="492" y1="284" x2="1216" y2="284" stroke="#CBD5E1"/>
+    <line x1="492" y1="329" x2="1216" y2="329" stroke="#CBD5E1"/>
+    <line x1="670" y1="194" x2="670" y2="396" stroke="#CBD5E1"/>
+    <text x="522" y="224" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="16" font-weight="800" fill="#172033">Sketch-only</text>
+    <text x="696" y="224" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="15" fill="#475569">只看空间结构，验证草图单模态短板。</text>
+    <text x="522" y="269" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="16" font-weight="800" fill="#172033">Speech-only</text>
+    <text x="696" y="269" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="15" fill="#475569">只看语义顺序，验证语音补关系的价值。</text>
+    <text x="522" y="314" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="16" font-weight="800" fill="#172033">Early Fusion</text>
+    <text x="696" y="314" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="15" fill="#475569">简单合并两模态，验证 one-shot 融合不足。</text>
+    <text x="522" y="359" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="16" font-weight="800" fill="#172033">Greedy / MMSB</text>
+    <text x="696" y="359" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="15" fill="#475569">比较局部修复与全局约束编辑路径。</text>
+  </g>
+  <g id="metric-panel">
+    <rect x="492" y="428" width="724" height="142" rx="8" fill="#FFFFFF" stroke="#CBD5E1" filter="url(#softShadow)"/>
+    <text x="522" y="468" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="20" font-weight="800" fill="#172033">指标组合</text>
+    <text x="522" y="504" font-family="Consolas, monospace" font-size="16" font-weight="700" fill="#155E75">Node F1 · Edge F1 · Direction Accuracy · Normalized GED</text>
+    <text x="522" y="536" font-family="Consolas, monospace" font-size="16" font-weight="700" fill="#0F766E">Speech Coverage · Layout Preservation · Edit Cost · Path Energy</text>
+    <rect x="918" y="454" width="238" height="40" rx="8" fill="#FEF3C7"/>
+    <text x="1037" y="480" text-anchor="middle" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="15" font-weight="800" fill="#F59E0B">当前是合成条件图可控验证</text>
+  </g>
+  <g id="footer">
+    <text x="60" y="680" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="12" fill="#94A3B8">SketchVoice · Evaluation Dataset and Protocol</text>
+    <text x="1220" y="680" text-anchor="end" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="12" fill="#94A3B8">11 / 14</text>
+  </g>
+</svg>

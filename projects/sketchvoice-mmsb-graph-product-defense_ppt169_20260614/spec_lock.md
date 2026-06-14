@@ -6,7 +6,7 @@
 
 ## mode
 - mode: custom
-- mode_behavior: Three-act product-defense narrative. Act 1 starts from user workflow and product pain, Act 2 introduces MMSB-Graph as the structural engine, Act 3 closes with evaluation, explainability, project knowledge graph, and multi-dimensional value. Titles should be claim-like and speaker notes should connect product value to research support.
+- mode_behavior: Three-act product-defense narrative. Act 1 starts from user workflow and product pain, Act 2 presents the research problem, related-work gap, formal task, MMSB-Graph method, evaluation protocol, and truthful result boundary, Act 3 closes with project knowledge graph and multi-dimensional value. Titles should be claim-like and speaker notes should connect product value to research support.
 
 ## visual_style
 - visual_style: soft-rounded
@@ -46,6 +46,28 @@
 
 ## images
 - mmsb_diagnostics: images/mmsb_diagnostics.png | no-crop
+- formula_07_main: images/formula_07_main.png | no-crop
+- formula_09_mapping: images/formula_09_mapping.png | no-crop
+- formula_09_s: images/formula_09_s.png | no-crop
+- formula_09_u: images/formula_09_u.png | no-crop
+- formula_09_graph: images/formula_09_graph.png | no-crop
+- formula_10_gs: images/formula_10_gs.png | no-crop
+- formula_10_gu: images/formula_10_gu.png | no-crop
+- formula_10_gf: images/formula_10_gf.png | no-crop
+- formula_10_path: images/formula_10_path.png | no-crop
+- formula_10_ghat: images/formula_10_ghat.png | no-crop
+- formula_10_cost: images/formula_10_cost.png | no-crop
+- formula_10_energy: images/formula_10_energy.png | no-crop
+- formula_11_metrics_1: images/formula_11_metrics_1.png | no-crop
+- formula_11_metrics_2: images/formula_11_metrics_2.png | no-crop
+- formula_12_sketch: images/formula_12_sketch.png | no-crop
+- formula_12_speech: images/formula_12_speech.png | no-crop
+- formula_12_node: images/formula_12_node.png | no-crop
+- formula_12_edge: images/formula_12_edge.png | no-crop
+- formula_12_greedy: images/formula_12_greedy.png | no-crop
+- formula_12_mmsb: images/formula_12_mmsb.png | no-crop
+- formula_13_metrics: images/formula_13_metrics.png | no-crop
+- formula_14_metrics: images/formula_14_metrics.png | no-crop
 
 ## page_rhythm
 - P01: anchor
@@ -70,9 +92,9 @@
 - P06: layered_architecture
 - P08: hub_inward_arrows
 - P09: process_flow
-- P10: icon_grid
+- P10: process_flow
 - P11: basic_table
-- P12: circular_stages
+- P12: basic_table
 - P13: mind_map
 
 ## forbidden

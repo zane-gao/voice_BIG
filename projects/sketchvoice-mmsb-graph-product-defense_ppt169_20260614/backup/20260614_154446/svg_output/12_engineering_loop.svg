@@ -1,0 +1,104 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720">
+  <defs>
+    <filter id="softShadow" x="-12%" y="-12%" width="124%" height="124%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="5"/>
+      <feOffset dx="0" dy="3" result="offsetBlur"/>
+      <feFlood flood-color="#172033" flood-opacity="0.08" result="shadowColor"/>
+      <feComposite in="shadowColor" in2="offsetBlur" operator="in" result="shadow"/>
+      <feMerge><feMergeNode in="shadow"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <g id="background">
+    <rect width="1280" height="720" fill="#F8FAFC"/>
+  </g>
+  <g id="header">
+    <text x="60" y="70" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="36" font-weight="800" fill="#172033">结果边界：验证的是图桥行为，不是大规模 SOTA</text>
+    <text x="60" y="106" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="18" fill="#475569">我们已经做出了可评测成果，但必须把可控验证、真实场景和下一步训练清楚区分。</text>
+    <rect x="948" y="34" width="272" height="34" rx="8" fill="#FEF3C7" stroke="#F59E0B"/>
+    <text x="1084" y="57" text-anchor="middle" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="15" font-weight="800" fill="#172033">合成条件图可控验证</text>
+  </g>
+  <g id="result-table">
+    <rect x="60" y="146" width="690" height="414" rx="8" fill="#FFFFFF" stroke="#CBD5E1" filter="url(#softShadow)"/>
+    <g id="table-title">
+      <use data-icon="tabler-outline/chart-dots" x="88" y="173" width="30" height="30" fill="#155E75" stroke-width="2"/>
+      <text x="132" y="197" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="23" font-weight="800" fill="#172033">对照结果说明</text>
+      <text x="528" y="197" font-family="Consolas, monospace" font-size="14" font-weight="700" fill="#0F766E">structure recovery</text>
+    </g>
+    <line x1="88" y1="220" x2="722" y2="220" stroke="#CBD5E1"/>
+    <g id="table-head">
+      <rect x="88" y="236" width="634" height="36" rx="8" fill="#E0F2FE"/>
+      <text x="112" y="260" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="15" font-weight="800" fill="#155E75">方法</text>
+      <text x="272" y="260" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="15" font-weight="800" fill="#155E75">关键结果</text>
+      <text x="462" y="260" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="15" font-weight="800" fill="#155E75">科研含义</text>
+    </g>
+    <g id="row-1">
+      <line x1="88" y1="292" x2="722" y2="292" stroke="#CBD5E1"/>
+      <text x="112" y="312" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="16" font-weight="800" fill="#172033">Sketch-only</text>
+      <text x="272" y="312" font-family="Consolas, monospace" font-size="15" font-weight="700" fill="#2563EB">Edge F1 0.387</text>
+      <text x="462" y="309" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="15" fill="#475569">草图保留空间先验，</text>
+      <text x="462" y="331" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="15" fill="#475569">但语义与方向不足。</text>
+    </g>
+    <g id="row-2">
+      <line x1="88" y1="352" x2="722" y2="352" stroke="#CBD5E1"/>
+      <text x="112" y="372" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="16" font-weight="800" fill="#172033">Speech-only</text>
+      <text x="272" y="372" font-family="Consolas, monospace" font-size="15" font-weight="700" fill="#2563EB">Edge F1 0.564</text>
+      <text x="462" y="369" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="15" fill="#475569">语音能补关系，</text>
+      <text x="462" y="391" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="15" fill="#475569">但缺少二维布局约束。</text>
+    </g>
+    <g id="row-3">
+      <line x1="88" y1="412" x2="722" y2="412" stroke="#CBD5E1"/>
+      <text x="112" y="432" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="16" font-weight="800" fill="#172033">Early Fusion</text>
+      <text x="272" y="429" font-family="Consolas, monospace" font-size="15" font-weight="700" fill="#2563EB">Node 0.929</text>
+      <text x="272" y="451" font-family="Consolas, monospace" font-size="15" font-weight="700" fill="#2563EB">Edge 0.577</text>
+      <text x="462" y="429" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="15" fill="#475569">简单融合能补节点，</text>
+      <text x="462" y="451" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="15" fill="#475569">结构冲突仍会残留。</text>
+    </g>
+    <g id="row-4">
+      <line x1="88" y1="478" x2="722" y2="478" stroke="#CBD5E1"/>
+      <text x="112" y="499" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="16" font-weight="800" fill="#172033">Greedy Repair</text>
+      <text x="272" y="499" font-family="Consolas, monospace" font-size="15" font-weight="700" fill="#2563EB">Edge F1 0.842</text>
+      <text x="462" y="496" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="15" fill="#475569">局部修复有效，</text>
+      <text x="462" y="518" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="15" fill="#475569">但缺少全局路径诊断。</text>
+    </g>
+    <g id="row-5">
+      <rect x="88" y="526" width="634" height="24" rx="8" fill="#CCFBF1"/>
+      <text x="112" y="544" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="15" font-weight="800" fill="#155E75">MMSB-Graph</text>
+      <text x="272" y="544" font-family="Consolas, monospace" font-size="14" font-weight="700" fill="#0F766E">N/E/Dir 1.000 · GED 0</text>
+      <text x="462" y="544" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="14" font-weight="800" fill="#155E75">验证图桥可修复、可诊断。</text>
+    </g>
+  </g>
+  <g id="right-panels">
+    <g id="boundary-panel">
+      <rect x="790" y="146" width="430" height="190" rx="8" fill="#FFFFFF" stroke="#CBD5E1" filter="url(#softShadow)"/>
+      <use data-icon="tabler-outline/test-pipe" x="820" y="174" width="30" height="30" fill="#F59E0B" stroke-width="2"/>
+      <text x="862" y="198" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="23" font-weight="800" fill="#172033">真实边界</text>
+      <line x1="820" y1="220" x2="1188" y2="220" stroke="#CBD5E1"/>
+      <circle cx="832" cy="252" r="4" fill="#F59E0B"/>
+      <text x="850" y="258" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="16" fill="#475569">当前不调用真实 ASR/VLM 大模型链路。</text>
+      <circle cx="832" cy="288" r="4" fill="#F59E0B"/>
+      <text x="850" y="294" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="16" fill="#475569">结果说明的是受控候选图上的编辑桥行为。</text>
+      <circle cx="832" cy="324" r="4" fill="#F59E0B"/>
+      <text x="850" y="330" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="16" fill="#475569">不能外推为真实世界端到端泛化性能。</text>
+    </g>
+    <g id="future-panel">
+      <rect x="790" y="370" width="430" height="190" rx="8" fill="#FFFFFF" stroke="#CBD5E1" filter="url(#softShadow)"/>
+      <use data-icon="tabler-outline/bulb" x="820" y="398" width="30" height="30" fill="#16A34A" stroke-width="2"/>
+      <text x="862" y="422" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="23" font-weight="800" fill="#172033">未来深化</text>
+      <line x1="820" y1="444" x2="1188" y2="444" stroke="#CBD5E1"/>
+      <circle cx="832" cy="476" r="4" fill="#16A34A"/>
+      <text x="850" y="482" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="16" fill="#475569">接入真实 ASR/VLM 与真人草图采集。</text>
+      <circle cx="832" cy="512" r="4" fill="#16A34A"/>
+      <text x="850" y="518" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="16" fill="#475569">记录用户修改轨迹，训练 edit policy。</text>
+      <circle cx="832" cy="548" r="4" fill="#16A34A"/>
+      <text x="850" y="554" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="16" fill="#475569">用路径能量做排序、诊断和主动交互。</text>
+    </g>
+  </g>
+  <g id="bottom-takeaway">
+    <rect x="148" y="606" width="984" height="50" rx="8" fill="#155E75"/>
+    <text x="640" y="637" text-anchor="middle" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="18" font-weight="800" fill="#FFFFFF">价值不在夸大数字，而在把语音草图恢复变成可定义、可评测、可诊断、可继续训练的科研问题。</text>
+  </g>
+  <g id="footer">
+    <text x="60" y="680" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="12" fill="#94A3B8">SketchVoice · Results Boundary</text>
+    <text x="1220" y="680" text-anchor="end" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="12" fill="#94A3B8">12 / 14</text>
+  </g>
+</svg>

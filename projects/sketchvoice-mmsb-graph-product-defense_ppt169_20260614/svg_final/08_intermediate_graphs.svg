@@ -7,109 +7,79 @@
       <feComposite in="shadowColor" in2="offsetBlur" operator="in" result="shadow" />
       <feMerge><feMergeNode in="shadow" /><feMergeNode in="SourceGraphic" /></feMerge>
     </filter>
-    <marker id="arrowTeal" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto">
-      <path d="M0,0 L10,5 L0,10 Z" fill="#0F766E" />
-    </marker>
-    <marker id="arrowBlue" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto">
-      <path d="M0,0 L10,5 L0,10 Z" fill="#2563EB" />
-    </marker>
-    <marker id="arrowAmber" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto">
-      <path d="M0,0 L10,5 L0,10 Z" fill="#F59E0B" />
-    </marker>
-    <marker id="arrowWhite" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto">
-      <path d="M0,0 L10,5 L0,10 Z" fill="#FFFFFF" />
-    </marker>
   </defs>
   <g id="background">
     <rect width="1280" height="720" fill="#F8FAFC" />
   </g>
   <g id="header">
-    <text x="60" y="70" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="36" font-weight="800" fill="#172033">MMSB-Graph：把多模态输入放进同一图状态空间</text>
-    <text x="60" y="106" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="18" fill="#475569">核心不是直接“画好看”，而是在离散知识图空间里求一条低代价、可解释的结构恢复路径。</text>
+    <text x="60" y="70" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="36" font-weight="800" fill="#172033">相关工作：三条路线都没有同时覆盖我们的场景</text>
+    <text x="60" y="106" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="18" fill="#475569">研究空白不在“能不能生成图”，而在同步语音反馈、可编辑结构表示和用户修改成本诊断的结合。</text>
   </g>
-  <g id="constraint-sources">
-    <g id="source-sketch">
-      <path fill="#FFFFFF" stroke="#CBD5E1" filter="url(#softShadow)" d="M78,168 H342 A8,8 0 0 1 350,176 V278 A8,8 0 0 1 342,286 H78 A8,8 0 0 1 70,278 V176 A8,8 0 0 1 78,168 Z" />
-      <path fill="#2563EB" d="M74,168 H74 A4,4 0 0 1 78,172 V282 A4,4 0 0 1 74,286 H74 A4,4 0 0 1 70,282 V172 A4,4 0 0 1 74,168 Z" />
+  <g id="routes">
+    <g id="route-sketch">
+      <path fill="#FFFFFF" stroke="#CBD5E1" filter="url(#softShadow)" d="M72,156 H416 A8,8 0 0 1 424,164 V460 A8,8 0 0 1 416,468 H72 A8,8 0 0 1 64,460 V164 A8,8 0 0 1 72,156 Z" />
+      <path fill="#2563EB" d="M69,156 H419 A5,5 0 0 1 424,161 V161 A5,5 0 0 1 419,166 H69 A5,5 0 0 1 64,161 V161 A5,5 0 0 1 69,156 Z" />
       
-  <g transform="translate(100.0, 196.0) scale(1.6666666666666667)" fill="none" stroke="#2563EB" stroke-width="2">
+  <g transform="translate(96.0, 194.0) scale(1.6666666666666667)" fill="none" stroke="#2563EB" stroke-width="2">
     <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
     <path d="M13.5 6.5l4 4" />
   </g>
-      <text x="158" y="211" font-family="Consolas, monospace" font-size="22" font-weight="700" fill="#2563EB">Gs</text>
-      <text x="158" y="238" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="18" font-weight="800" fill="#172033">草图边缘约束</text>
-      <text x="100" y="270" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="15" fill="#475569">位置、邻接、箭头粗方向</text>
+      <text x="154" y="220" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="24" font-weight="800" fill="#172033">草图 → 结构图</text>
+      <text x="96" y="268" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="18" font-weight="800" fill="#155E75">代表问题</text>
+      <text x="96" y="300" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="16" fill="#475569">SketchAgent / Sketch2Diagram</text>
+      <text x="96" y="332" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="16" fill="#475569">关注手绘草图到机器可读图。</text>
+      <line x1="96" y1="360" x2="392" y2="360" stroke="#CBD5E1" />
+      <text x="96" y="394" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="18" font-weight="800" fill="#F59E0B">缺口</text>
+      <text x="96" y="426" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="16" fill="#475569">主要依赖视觉草图，较少建模</text>
+      <text x="96" y="452" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="16" fill="#475569">同步语音带来的语义反馈。</text>
     </g>
-    <g id="source-speech">
-      <path fill="#FFFFFF" stroke="#CBD5E1" filter="url(#softShadow)" d="M78,326 H342 A8,8 0 0 1 350,334 V436 A8,8 0 0 1 342,444 H78 A8,8 0 0 1 70,436 V334 A8,8 0 0 1 78,326 Z" />
-      <path fill="#0F766E" d="M74,326 H74 A4,4 0 0 1 78,330 V440 A4,4 0 0 1 74,444 H74 A4,4 0 0 1 70,440 V330 A4,4 0 0 1 74,326 Z" />
+    <g id="route-code">
+      <path fill="#FFFFFF" stroke="#CBD5E1" filter="url(#softShadow)" d="M468,156 H812 A8,8 0 0 1 820,164 V460 A8,8 0 0 1 812,468 H468 A8,8 0 0 1 460,460 V164 A8,8 0 0 1 468,156 Z" />
+      <path fill="#0F766E" d="M465,156 H815 A5,5 0 0 1 820,161 V161 A5,5 0 0 1 815,166 H465 A5,5 0 0 1 460,161 V161 A5,5 0 0 1 465,156 Z" />
       
-  <g transform="translate(100.0, 354.0) scale(1.6666666666666667)" fill="none" stroke="#0F766E" stroke-width="2">
-    <path d="M9 5a3 3 0 0 1 3 -3a3 3 0 0 1 3 3v5a3 3 0 0 1 -3 3a3 3 0 0 1 -3 -3l0 -5" />
-    <path d="M5 10a7 7 0 0 0 14 0" />
-    <path d="M8 21l8 0" />
-    <path d="M12 17l0 4" />
+  <g transform="translate(492.0, 194.0) scale(1.6666666666666667)" fill="none" stroke="#0F766E" stroke-width="2">
+    <path d="M7 8l-4 4l4 4" />
+    <path d="M17 8l4 4l-4 4" />
+    <path d="M14 4l-4 16" />
   </g>
-      <text x="158" y="369" font-family="Consolas, monospace" font-size="22" font-weight="700" fill="#0F766E">Gu</text>
-      <text x="158" y="396" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="18" font-weight="800" fill="#172033">语音语义约束</text>
-      <text x="100" y="428" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="15" fill="#475569">节点标签、顺序、关系意图</text>
+      <text x="550" y="220" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="24" font-weight="800" fill="#172033">图像 → 可编辑代码</text>
+      <text x="492" y="268" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="18" font-weight="800" fill="#155E75">代表问题</text>
+      <text x="492" y="300" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="16" fill="#475569">Flowchart2Mermaid</text>
+      <text x="492" y="332" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="16" fill="#475569">强调输出 Mermaid 等结构化表示。</text>
+      <line x1="492" y1="360" x2="788" y2="360" stroke="#CBD5E1" />
+      <text x="492" y="394" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="18" font-weight="800" fill="#F59E0B">缺口</text>
+      <text x="492" y="426" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="16" fill="#475569">多处理已有静态流程图，难覆盖</text>
+      <text x="492" y="452" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="16" fill="#475569">实时草图与口头讲述的开放场景。</text>
     </g>
-    <g id="source-fusion">
-      <path fill="#FFFFFF" stroke="#CBD5E1" filter="url(#softShadow)" d="M78,484 H342 A8,8 0 0 1 350,492 V594 A8,8 0 0 1 342,602 H78 A8,8 0 0 1 70,594 V492 A8,8 0 0 1 78,484 Z" />
-      <path fill="#F59E0B" d="M74,484 H74 A4,4 0 0 1 78,488 V598 A4,4 0 0 1 74,602 H74 A4,4 0 0 1 70,598 V488 A4,4 0 0 1 74,484 Z" />
+    <g id="route-bridge">
+      <path fill="#FFFFFF" stroke="#CBD5E1" filter="url(#softShadow)" d="M864,156 H1208 A8,8 0 0 1 1216,164 V460 A8,8 0 0 1 1208,468 H864 A8,8 0 0 1 856,460 V164 A8,8 0 0 1 864,156 Z" />
+      <path fill="#F59E0B" d="M861,156 H1211 A5,5 0 0 1 1216,161 V161 A5,5 0 0 1 1211,166 H861 A5,5 0 0 1 856,161 V161 A5,5 0 0 1 861,156 Z" />
       
-  <g transform="translate(100.0, 512.0) scale(1.6666666666666667)" fill="none" stroke="#F59E0B" stroke-width="2">
-    <path d="M19 8.268a2 2 0 0 1 1 1.732v8a2 2 0 0 1 -2 2h-8a2 2 0 0 1 -2 -2v-8a2 2 0 0 1 2 -2h3" />
-    <path d="M5 15.734a2 2 0 0 1 -1 -1.734v-8a2 2 0 0 1 2 -2h8a2 2 0 0 1 2 2v8a2 2 0 0 1 -2 2h-3" />
+  <g transform="translate(888.0, 194.0) scale(1.6666666666666667)" fill="none" stroke="#F59E0B" stroke-width="2">
+    <path d="M5 18a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
+    <path d="M5 6a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
+    <path d="M15 6a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
+    <path d="M7 8l0 8" />
+    <path d="M9 18h6a2 2 0 0 0 2 -2v-5" />
+    <path d="M14 14l3 -3l3 3" />
   </g>
-      <text x="158" y="527" font-family="Consolas, monospace" font-size="22" font-weight="700" fill="#F59E0B">Gf</text>
-      <text x="158" y="554" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="18" font-weight="800" fill="#172033">早期融合候选</text>
-      <text x="100" y="586" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="15" fill="#475569">初始图与多模态锚点</text>
+      <text x="946" y="220" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="24" font-weight="800" fill="#172033">图结构桥 / SB</text>
+      <text x="888" y="268" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="18" font-weight="800" fill="#155E75">理论启发</text>
+      <text x="888" y="300" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="16" fill="#475569">Schrödinger Bridge / DDSBM</text>
+      <text x="888" y="332" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="16" fill="#475569">把生成看成分布间动态迁移。</text>
+      <line x1="888" y1="360" x2="1184" y2="360" stroke="#CBD5E1" />
+      <text x="888" y="394" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="18" font-weight="800" fill="#F59E0B">迁移点</text>
+      <text x="888" y="426" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="16" fill="#475569">我们不是像素级扩散，而是在</text>
+      <text x="888" y="452" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="16" fill="#475569">离散知识图空间做编辑迁移。</text>
     </g>
   </g>
-  <g id="bridge-model">
-    <path d="M 354 226 C 452 226 455 330 536 352" fill="none" stroke="#2563EB" stroke-width="3" marker-end="url(#arrowBlue)" />
-    <path d="M 354 384 C 450 384 464 374 536 362" fill="none" stroke="#0F766E" stroke-width="3" marker-end="url(#arrowTeal)" />
-    <path d="M 354 542 C 452 542 455 398 536 372" fill="none" stroke="#F59E0B" stroke-width="3" marker-end="url(#arrowAmber)" />
-    <path fill="#155E75" filter="url(#softShadow)" d="M548,178 H892 A8,8 0 0 1 900,186 V534 A8,8 0 0 1 892,542 H548 A8,8 0 0 1 540,534 V186 A8,8 0 0 1 548,178 Z" />
-    <text x="720" y="228" text-anchor="middle" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="28" font-weight="800" fill="#FFFFFF">离散图编辑桥</text>
-    <text x="720" y="260" text-anchor="middle" font-family="Consolas, monospace" font-size="17" font-weight="700" fill="#CCFBF1">P(G0:T) in graph state space</text>
-    <g id="graph-path">
-      <circle cx="618" cy="350" r="24" fill="#E0F2FE" stroke="#FFFFFF" stroke-width="2" />
-      <circle cx="686" cy="350" r="24" fill="#CCFBF1" stroke="#FFFFFF" stroke-width="2" />
-      <circle cx="754" cy="350" r="24" fill="#FEF3C7" stroke="#FFFFFF" stroke-width="2" />
-      <circle cx="822" cy="350" r="24" fill="#DCFCE7" stroke="#FFFFFF" stroke-width="2" />
-      <line x1="642" y1="350" x2="662" y2="350" stroke="#FFFFFF" stroke-width="3" marker-end="url(#arrowWhite)" />
-      <line x1="710" y1="350" x2="730" y2="350" stroke="#FFFFFF" stroke-width="3" marker-end="url(#arrowWhite)" />
-      <line x1="778" y1="350" x2="798" y2="350" stroke="#FFFFFF" stroke-width="3" marker-end="url(#arrowWhite)" />
-      <text x="618" y="414" text-anchor="middle" font-family="Consolas, monospace" font-size="16" fill="#E0F2FE">G0</text>
-      <text x="686" y="414" text-anchor="middle" font-family="Consolas, monospace" font-size="16" fill="#E0F2FE">G1</text>
-      <text x="754" y="414" text-anchor="middle" font-family="Consolas, monospace" font-size="16" fill="#E0F2FE">...</text>
-      <text x="822" y="414" text-anchor="middle" font-family="Consolas, monospace" font-size="16" fill="#E0F2FE">GT</text>
-    </g>
-    <text x="576" y="470" font-family="Consolas, monospace" font-size="17" font-weight="700" fill="#FFFFFF">min_P KL(P||R) + λs Cs + λu Cu + λf Cf</text>
-    <text x="576" y="505" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="15" fill="#E0F2FE">R 是允许节点/边编辑的参考过程，三个 λ 控制草图、语音、融合约束权重。</text>
-  </g>
-  <g id="target-distribution">
-    <path d="M 904 360 C 960 360 976 360 1018 360" fill="none" stroke="#0F766E" stroke-width="3" marker-end="url(#arrowTeal)" />
-    <path fill="#FFFFFF" stroke="#CBD5E1" filter="url(#softShadow)" d="M1028,208 H1202 A8,8 0 0 1 1210,216 V504 A8,8 0 0 1 1202,512 H1028 A8,8 0 0 1 1020,504 V216 A8,8 0 0 1 1028,208 Z" />
-    
-  <g transform="translate(1094.0, 246.0) scale(2.0)" fill="none" stroke="#16A34A" stroke-width="2">
-    <path d="M11 12a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
-    <path d="M7 12a5 5 0 1 0 10 0a5 5 0 1 0 -10 0" />
-    <path d="M3 12a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" />
-  </g>
-    <text x="1115" y="330" text-anchor="middle" font-family="Consolas, monospace" font-size="26" font-weight="700" fill="#0F766E">G*</text>
-    <text x="1115" y="363" text-anchor="middle" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="19" font-weight="800" fill="#172033">目标知识图</text>
-    <text x="1115" y="404" text-anchor="middle" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="15" fill="#475569">节点、边、方向、标签</text>
-    <text x="1115" y="432" text-anchor="middle" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="15" fill="#475569">同时对齐标准结构</text>
-  </g>
-  <g id="bottom-takeaway">
-    <path fill="#FFFFFF" stroke="#CBD5E1" d="M428,584 H932 A8,8 0 0 1 940,592 V630 A8,8 0 0 1 932,638 H428 A8,8 0 0 1 420,630 V592 A8,8 0 0 1 428,584 Z" />
-    <text x="680" y="618" text-anchor="middle" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="19" font-weight="800" fill="#155E75">科研价值：把产品输出转成可优化、可约束、可诊断的图分布问题</text>
+  <g id="position">
+    <path fill="#155E75" filter="url(#softShadow)" d="M126,522 H1154 A8,8 0 0 1 1162,530 V600 A8,8 0 0 1 1154,608 H126 A8,8 0 0 1 118,600 V530 A8,8 0 0 1 126,522 Z" />
+    <text x="640" y="556" text-anchor="middle" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="23" font-weight="800" fill="#FFFFFF">我们的切入点：Sketch + Speech → Structured Knowledge Graph → Graph Editing Diagnosis</text>
+    <text x="640" y="590" text-anchor="middle" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="17" fill="#E0F2FE">补上同步语音反馈，并把最终结果和用户修改成本都放进可评测的图编辑路径中。</text>
   </g>
   <g id="footer">
-    <text x="60" y="680" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="12" fill="#94A3B8">SketchVoice · MMSB-Graph Model</text>
+    <text x="60" y="680" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="12" fill="#94A3B8">SketchVoice · Related Work Gap</text>
     <text x="1220" y="680" text-anchor="end" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="12" fill="#94A3B8">08 / 14</text>
   </g>
 </svg>

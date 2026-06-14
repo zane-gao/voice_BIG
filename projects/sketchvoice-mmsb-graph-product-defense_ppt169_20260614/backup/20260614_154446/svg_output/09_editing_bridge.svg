@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720">
+  <defs>
+    <filter id="softShadow" x="-12%" y="-12%" width="124%" height="124%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="5"/>
+      <feOffset dx="0" dy="3" result="offsetBlur"/>
+      <feFlood flood-color="#172033" flood-opacity="0.08" result="shadowColor"/>
+      <feComposite in="shadowColor" in2="offsetBlur" operator="in" result="shadow"/>
+      <feMerge><feMergeNode in="shadow"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <marker id="arrowPrimary" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#155E75"/>
+    </marker>
+  </defs>
+  <g id="background">
+    <rect width="1280" height="720" fill="#F8FAFC"/>
+  </g>
+  <g id="header">
+    <text x="60" y="70" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="36" font-weight="800" fill="#172033">任务定义：Speech-Guided Sketch-to-Knowledge-Graph</text>
+    <text x="60" y="106" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="18" fill="#475569">把“画得像不像”转化为“结构是否恢复正确”，这是科研问题成立的关键。</text>
+  </g>
+  <g id="formal-flow">
+    <g id="input-sketch">
+      <rect x="70" y="150" width="250" height="128" rx="8" fill="#FFFFFF" stroke="#CBD5E1" filter="url(#softShadow)"/>
+      <use data-icon="tabler-outline/pencil" x="96" y="184" width="38" height="38" fill="#2563EB" stroke-width="2"/>
+      <text x="152" y="205" font-family="Consolas, monospace" font-size="24" font-weight="700" fill="#2563EB">S</text>
+      <text x="152" y="235" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="18" font-weight="800" fill="#172033">手绘知识草图</text>
+      <text x="96" y="262" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="14" fill="#475569">框、箭头、空间布局、手写文字</text>
+    </g>
+    <g id="input-speech">
+      <rect x="70" y="314" width="250" height="128" rx="8" fill="#FFFFFF" stroke="#CBD5E1" filter="url(#softShadow)"/>
+      <use data-icon="tabler-outline/microphone" x="96" y="348" width="38" height="38" fill="#0F766E" stroke-width="2"/>
+      <text x="152" y="369" font-family="Consolas, monospace" font-size="24" font-weight="700" fill="#0F766E">U</text>
+      <text x="152" y="399" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="18" font-weight="800" fill="#172033">同步语音描述</text>
+      <text x="96" y="426" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="14" fill="#475569">节点名称、顺序、关系、动机</text>
+    </g>
+    <line x1="324" y1="296" x2="430" y2="296" stroke="#155E75" stroke-width="4" marker-end="url(#arrowPrimary)"/>
+    <g id="task-box">
+      <rect x="438" y="178" width="380" height="236" rx="8" fill="#155E75" filter="url(#softShadow)"/>
+      <use data-icon="tabler-outline/target" x="594" y="210" width="46" height="46" fill="#FFFFFF" stroke-width="2"/>
+      <text x="628" y="286" text-anchor="middle" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="27" font-weight="800" fill="#FFFFFF">结构恢复函数</text>
+      <text x="628" y="324" text-anchor="middle" font-family="Consolas, monospace" font-size="22" font-weight="700" fill="#CCFBF1">F(S,U) = G_hat</text>
+      <text x="628" y="360" text-anchor="middle" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="15" fill="#E0F2FE">不是图像生成，而是节点、边、方向和布局的联合预测。</text>
+    </g>
+    <line x1="822" y1="296" x2="928" y2="296" stroke="#155E75" stroke-width="4" marker-end="url(#arrowPrimary)"/>
+    <g id="output-graph">
+      <rect x="936" y="150" width="274" height="292" rx="8" fill="#FFFFFF" stroke="#CBD5E1" filter="url(#softShadow)"/>
+      <use data-icon="tabler-outline/network" x="1048" y="184" width="46" height="46" fill="#16A34A" stroke-width="2"/>
+      <text x="1073" y="260" text-anchor="middle" font-family="Consolas, monospace" font-size="25" font-weight="700" fill="#0F766E">G_hat=(V_hat,E_hat)</text>
+      <text x="966" y="304" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="17" font-weight="800" fill="#172033">节点属性</text>
+      <text x="966" y="332" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="14" fill="#475569">标签、语义类型、解释、置信度</text>
+      <text x="966" y="372" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="17" font-weight="800" fill="#172033">边属性</text>
+      <text x="966" y="400" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="14" fill="#475569">起点、终点、关系类型、方向</text>
+    </g>
+  </g>
+  <g id="evaluation-targets">
+    <rect x="70" y="502" width="1140" height="92" rx="8" fill="#FFFFFF" stroke="#CBD5E1" filter="url(#softShadow)"/>
+    <text x="100" y="536" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="19" font-weight="800" fill="#155E75">评测目标</text>
+    <text x="100" y="570" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="16" fill="#475569">节点是否正确、边是否正确、方向是否正确、语音关键概念是否覆盖、草图布局是否保持、用户后续修改成本是否降低。</text>
+    <rect x="912" y="526" width="246" height="34" rx="8" fill="#CCFBF1"/>
+    <text x="1035" y="549" text-anchor="middle" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="16" font-weight="800" fill="#155E75">结构预测问题，而非美观评分</text>
+  </g>
+  <g id="footer">
+    <text x="60" y="680" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="12" fill="#94A3B8">SketchVoice · Formal Task</text>
+    <text x="1220" y="680" text-anchor="end" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="12" fill="#94A3B8">09 / 14</text>
+  </g>
+</svg>

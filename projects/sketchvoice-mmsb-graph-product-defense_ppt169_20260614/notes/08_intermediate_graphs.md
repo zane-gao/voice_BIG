@@ -1,1 +1,1 @@
-这一页把 MMSB-Graph 的模型假设讲清楚：草图图、语音图和融合图不是三个孤立结果，而是同一个图状态空间里的多边缘约束。我们要求的也不是一次性猜出最终图，而是在参考编辑过程 R 下，找到同时满足草图、语音和融合约束的低代价路径。
+相关工作可以分成三路。第一路是草图到结构图，比如 SketchAgent 或 Sketch2Diagram，它们能利用视觉结构，但通常没有同步语音。第二路是静态图到可编辑代码，比如 Flowchart2Mermaid，场景相对封闭。第三路是 Schrödinger Bridge 或 DDSBM 这类图结构迁移方法，它们给了我们理论支点，但不是直接解决这个语音草图任务。所以我们的切入点，是 Sketch + Speech 到 Structured Knowledge Graph，再进一步做 Graph Editing Diagnosis。

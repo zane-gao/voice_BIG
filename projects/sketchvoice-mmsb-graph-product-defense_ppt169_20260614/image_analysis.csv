@@ -1,2 +1,22 @@
 No,Filename,Width,Height,AspectRatio,PixelAspectRatio,RatioSource,UsageCount,DisplayRatioVariants,AssetKind,SvgRenderable,PptxNativeSupported,SizeKB,Category,ImageArea_SxS,TextArea_SxS
-1,mmsb_diagnostics.png,3514,1309,2.68,2.68,pixel,1,,bitmap,True,True,314.2,Ultra-wide,812x302,328x600
+1,formula_07_main.png,475,60,7.92,7.92,pixel,1,,bitmap,True,True,3.8,Ultra-wide,1160x147,1160x433
+2,formula_09_graph.png,236,60,3.93,3.93,pixel,1,,bitmap,True,True,2.8,Ultra-wide,1160x295,1160x285
+3,formula_09_mapping.png,268,60,4.47,4.47,pixel,1,,bitmap,True,True,3.2,Ultra-wide,1160x260,1160x320
+4,formula_10_cost.png,1600,51,31.37,31.37,pixel,1,,bitmap,True,True,9.3,Ultra-wide,1160x37,1160x543
+5,formula_10_energy.png,617,142,4.35,4.35,pixel,1,,bitmap,True,True,7.4,Ultra-wide,1160x267,1160x313
+6,formula_10_gf.png,56,50,1.12,1.12,pixel,1,,bitmap,True,True,1.1,Near square,672x600,468x600
+7,formula_10_ghat.png,36,48,0.75,0.75,pixel,1,,bitmap,True,True,0.9,Portrait,450x600,690x600
+8,formula_10_gs.png,51,43,1.19,1.19,pixel,1,,bitmap,True,True,1.0,Near square,712x600,428x600
+9,formula_10_gu.png,56,43,1.30,1.30,pixel,1,,bitmap,True,True,1.1,Standard landscape,781x600,359x600
+10,formula_10_path.png,438,51,8.59,8.59,pixel,1,,bitmap,True,True,2.9,Ultra-wide,1160x135,1160x445
+11,formula_11_metrics_1.png,1236,47,26.30,26.30,pixel,1,,bitmap,True,True,8.6,Ultra-wide,1160x44,1160x536
+12,formula_11_metrics_2.png,1367,46,29.72,29.72,pixel,1,,bitmap,True,True,8.9,Ultra-wide,1160x39,1160x541
+13,formula_12_edge.png,348,46,7.57,7.57,pixel,1,,bitmap,True,True,3.6,Ultra-wide,1160x153,1160x427
+14,formula_12_greedy.png,346,46,7.52,7.52,pixel,1,,bitmap,True,True,3.9,Ultra-wide,1160x154,1160x426
+15,formula_12_mmsb.png,746,50,14.92,14.92,pixel,1,,bitmap,True,True,5.7,Ultra-wide,1160x78,1160x502
+16,formula_12_node.png,351,43,8.16,8.16,pixel,1,,bitmap,True,True,3.6,Ultra-wide,1160x142,1160x438
+17,formula_12_sketch.png,348,46,7.57,7.57,pixel,1,,bitmap,True,True,4.1,Ultra-wide,1160x153,1160x427
+18,formula_12_speech.png,348,46,7.57,7.57,pixel,1,,bitmap,True,True,3.9,Ultra-wide,1160x153,1160x427
+19,formula_13_metrics.png,696,50,13.92,13.92,pixel,1,,bitmap,True,True,6.2,Ultra-wide,1160x83,1160x497
+20,formula_14_metrics.png,401,50,8.02,8.02,pixel,1,,bitmap,True,True,4.3,Ultra-wide,1160x145,1160x435
+21,mmsb_diagnostics.png,3514,1309,2.68,2.68,pixel,1,,bitmap,True,True,314.2,Ultra-wide,812x302,328x600

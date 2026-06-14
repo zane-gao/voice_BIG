@@ -7,98 +7,60 @@
       <feComposite in="shadowColor" in2="offsetBlur" operator="in" result="shadow" />
       <feMerge><feMergeNode in="shadow" /><feMergeNode in="SourceGraphic" /></feMerge>
     </filter>
-    <marker id="arrowMain" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto">
+    <marker id="arrowPrimary" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto">
       <path d="M0,0 L10,5 L0,10 Z" fill="#155E75" />
-    </marker>
-    <marker id="arrowAccent" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto">
-      <path d="M0,0 L10,5 L0,10 Z" fill="#0F766E" />
     </marker>
   </defs>
   <g id="background">
     <rect width="1280" height="720" fill="#F8FAFC" />
   </g>
   <g id="header">
-    <text x="60" y="70" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="36" font-weight="800" fill="#172033">训练与推理：先把编辑路径变成可计算对象</text>
-    <text x="60" y="106" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="18" fill="#475569">当前实现验证图桥和指标链路；同一套路径表示也能扩展为可监督训练与能量重排序。</text>
+    <text x="60" y="70" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="36" font-weight="800" fill="#172033">任务定义：Speech-Guided Sketch-to-Knowledge-Graph</text>
+    <text x="60" y="106" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="18" fill="#475569">把“画得像不像”转化为“结构是否恢复正确”，这是科研问题成立的关键。</text>
   </g>
-  <g id="top-method-cards">
-    <g id="current-implementation">
-      <path fill="#FFFFFF" stroke="#CBD5E1" filter="url(#softShadow)" d="M78,146 H602 A8,8 0 0 1 610,154 V256 A8,8 0 0 1 602,264 H78 A8,8 0 0 1 70,256 V154 A8,8 0 0 1 78,146 Z" />
+  <g id="formal-flow">
+    <g id="input-sketch">
+      <path fill="#FFFFFF" stroke="#CBD5E1" filter="url(#softShadow)" d="M78,150 H312 A8,8 0 0 1 320,158 V270 A8,8 0 0 1 312,278 H78 A8,8 0 0 1 70,270 V158 A8,8 0 0 1 78,150 Z" />
       
-  <g transform="translate(100.0, 178.0) scale(1.6666666666666667)" fill="none" stroke="#155E75" stroke-width="2">
-    <path d="M20 8.04l-12.122 12.124a2.857 2.857 0 1 1 -4.041 -4.04l12.122 -12.124" />
-    <path d="M7 13h8" />
-    <path d="M19 15l1.5 1.6a2 2 0 1 1 -3 0l1.5 -1.6" />
-    <path d="M15 3l6 6" />
+  <g transform="translate(96.0, 184.0) scale(1.5833333333333333)" fill="none" stroke="#2563EB" stroke-width="2">
+    <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
+    <path d="M13.5 6.5l4 4" />
   </g>
-      <text x="158" y="190" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="22" font-weight="800" fill="#172033">当前实现：确定性图编辑桥</text>
-      <text x="158" y="222" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="16" fill="#475569">用 gold graph 构造受控 sanity check，验证任务、指标和路径代价可运行。</text>
-      <path fill="#E0F2FE" d="M108,232 H286 A8,8 0 0 1 294,240 V248 A8,8 0 0 1 286,256 H108 A8,8 0 0 1 100,248 V240 A8,8 0 0 1 108,232 Z" />
-      <text x="197" y="250" text-anchor="middle" font-family="Consolas, monospace" font-size="13" font-weight="700" fill="#155E75">not large-scale training</text>
+      <image href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAkCAYAAACe0YppAAACYklEQVR42q2Y0XGbQBBAn6iAKDQQaUwBsjsw6kA4BRiLDqISMnIHVmggER0gdxCrgJsRKcCMRx0oP4vn5gbBcbAzDBxiebe7d7uLJpfLBRcJk8oHHoAYmMkBUAIHoFBZkDforYH5xAUcJtUW+CHDA3AETjKeAxGwkN9SlQWl6C2ANyDuBRbFV8AHdsBGZcH5yrMRsJfhNzn/E90v1uAwqVbyojNwr7LgaBmOV+ADmIoXSpUFc88SGmnQWxsogHjjSXM9EhY8C+gMKGQY1/GyFZnkQbtVWIGBFznnKgsOuMleuz50gmUxRTL8ibvUXjrXHuuyODVcNhT86bEu8IOh6CofenxtwL6cpwPBU2uLZQ9+TkBWt6vM9Pi2ghsy0saVKrvhVr/nWS4KgLUkeFd42Qe8Nfd0mFSFpM9B0pmrw6Q6aSXPlDor/e673WzAMyllvsX7cplEPhisrfAtsO6RMOI2L/Stx3rXEXU8XleycjC4JZcvr0zkqLLgdnRwgzfWDTshboq5x0iisuCssuBZrNfle9Pzo4GNLLUz0mU7OEwq38jRrrJvKDStFv/SSuEQ+Wus7k7wylAaQ8pWsGyNMYq+Gdeiy+JoRCvvtOs/XeBl2yrsKanWmXbG+K5hti6JRG/erzYPnhZf3+wsHbNX3Ydv2pp/ryG+iwGFfi+hyiWL0QVeansuB/biMmtLw6R6EwNylQVxl45nxPVelHKgkDYn6oCu5fNzATzbQAEmN4/v9cdyqrJgZ7xwK7EvteMEfBWXrrQW6KlP+zO5eXxfAUuVBWnLKk21vxt8CUnp2m8B/AfdogR5LJbsvwAAAABJRU5ErkJggg==" x="147" y="178" width="30" height="36" />
+      <text x="152" y="235" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="18" font-weight="800" fill="#172033">手绘知识草图</text>
+      <text x="96" y="262" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="14" fill="#475569">框、箭头、空间布局、手写文字</text>
     </g>
-    <g id="trainable-extension">
-      <path fill="#FFFFFF" stroke="#CBD5E1" filter="url(#softShadow)" d="M678,146 H1202 A8,8 0 0 1 1210,154 V256 A8,8 0 0 1 1202,264 H678 A8,8 0 0 1 670,256 V154 A8,8 0 0 1 678,146 Z" />
+    <g id="input-speech">
+      <path fill="#FFFFFF" stroke="#CBD5E1" filter="url(#softShadow)" d="M78,314 H312 A8,8 0 0 1 320,322 V434 A8,8 0 0 1 312,442 H78 A8,8 0 0 1 70,434 V322 A8,8 0 0 1 78,314 Z" />
       
-  <g transform="translate(700.0, 178.0) scale(1.6666666666666667)" fill="none" stroke="#0F766E" stroke-width="2">
-    <path d="M3 12h1m8 -9v1m8 8h1m-15.4 -6.4l.7 .7m12.1 -.7l-.7 .7" />
-    <path d="M9 16a5 5 0 1 1 6 0a3.5 3.5 0 0 0 -1 3a2 2 0 0 1 -4 0a3.5 3.5 0 0 0 -1 -3" />
-    <path d="M9.7 17l4.6 0" />
+  <g transform="translate(96.0, 348.0) scale(1.5833333333333333)" fill="none" stroke="#0F766E" stroke-width="2">
+    <path d="M9 5a3 3 0 0 1 3 -3a3 3 0 0 1 3 3v5a3 3 0 0 1 -3 3a3 3 0 0 1 -3 -3l0 -5" />
+    <path d="M5 10a7 7 0 0 0 14 0" />
+    <path d="M8 21l8 0" />
+    <path d="M12 17l0 4" />
   </g>
-      <text x="758" y="190" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="22" font-weight="800" fill="#172033">可训练扩展：从路径学习策略</text>
-      <text x="758" y="222" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="16" fill="#475569">把人工修正轨迹、候选图和编辑序列转成 edit policy / energy reranker。</text>
-      <path fill="#CCFBF1" d="M708,232 H914 A8,8 0 0 1 922,240 V248 A8,8 0 0 1 914,256 H708 A8,8 0 0 1 700,248 V240 A8,8 0 0 1 708,232 Z" />
-      <text x="811" y="250" text-anchor="middle" font-family="Consolas, monospace" font-size="13" font-weight="700" fill="#0F766E">future trainable signal</text>
+      <image href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACIAAAAjCAYAAADxG9hnAAAB4UlEQVR42s2YzU0DMRCFPywKWEEHoYNAByQdhBaS496wqAA5Nx9DBxA6SKgAlA6yHQDuYDkwQcZsvL/JMpfIa8/o+c3zRDMneZ6T6HQKLPg2R7klwMYZexk9pNNPOetKYq1PZbEGZvLxHJgAg8Ahk3Nbz6fMNHAJXAHDYM9JjAx4PMnzvOgmI2Dlg3DGXtDCEp0a4FaWc2es9vfVHr8Q/YL29ii/zyGIGJBxsH7uAMiZly6qAhn5uXTGZh0AGcdiqYJchmlZ042NgKd9m6qEDQLRtrFhLJaqoI/WjMgrjMZSR9RH5ox1lYAcWB/RWOo/6KMISC/6KGPkaPr4BaRPfYSM9KaPEEhv+ogxclR9/ADpWx8+I73qwwfSqz72MXJ0fQCo/6CPHSNXwbfXDtIyEH0s6wC5OAAjEwBnbC1GkoL+pa3NgHkdBxV2YVXFFUnLVJqz+7pAth2Jk0SnCWAAXfdCKtREwSuqYy/yZOd1HZXUDF8Xg4ZsLMT3pom/Kui+7hqAWAJT4LppMfxpwiXYZKd6Z+xDxXqxknby2hm7aZrTX9OARKcrr9w/OGNnEQBaWFgDN21f25+xRDA+cMAbsAHepfiNRAuZvI4uGnT2zUcSue1Y/gJ2U58PYWBZp2pWsS9Bj831K3iffgAAAABJRU5ErkJggg==" x="147" y="342" width="34" height="35" />
+      <text x="152" y="399" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="18" font-weight="800" fill="#172033">同步语音描述</text>
+      <text x="96" y="426" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="14" fill="#475569">节点名称、顺序、关系、动机</text>
     </g>
-  </g>
-  <g id="inference-flow">
-    <g id="step-candidates">
-      <path fill="#FFFFFF" stroke="#CBD5E1" filter="url(#softShadow)" d="M78,314 H276 A8,8 0 0 1 284,322 V436 A8,8 0 0 1 276,444 H78 A8,8 0 0 1 70,436 V322 A8,8 0 0 1 78,314 Z" />
+    <line x1="324" y1="296" x2="430" y2="296" stroke="#155E75" stroke-width="4" marker-end="url(#arrowPrimary)" />
+    <g id="task-box">
+      <path fill="#155E75" filter="url(#softShadow)" d="M446,178 H810 A8,8 0 0 1 818,186 V406 A8,8 0 0 1 810,414 H446 A8,8 0 0 1 438,406 V186 A8,8 0 0 1 446,178 Z" />
       
-  <g transform="translate(94.0, 338.0) scale(1.4166666666666667)" fill="none" stroke="#2563EB" stroke-width="2">
-    <path d="M19 8.268a2 2 0 0 1 1 1.732v8a2 2 0 0 1 -2 2h-8a2 2 0 0 1 -2 -2v-8a2 2 0 0 1 2 -2h3" />
-    <path d="M5 15.734a2 2 0 0 1 -1 -1.734v-8a2 2 0 0 1 2 -2h8a2 2 0 0 1 2 2v8a2 2 0 0 1 -2 2h-3" />
+  <g transform="translate(594.0, 210.0) scale(1.9166666666666667)" fill="none" stroke="#FFFFFF" stroke-width="2">
+    <path d="M11 12a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+    <path d="M7 12a5 5 0 1 0 10 0a5 5 0 1 0 -10 0" />
+    <path d="M3 12a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" />
   </g>
-      <text x="146" y="362" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="19" font-weight="800" fill="#172033">候选图构建</text>
-      <text x="94" y="402" font-family="Consolas, monospace" font-size="16" font-weight="700" fill="#2563EB">Gs, Gu, Gf</text>
-      <text x="94" y="428" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="14" fill="#475569">统一到 MethodGraph</text>
+      <text x="628" y="286" text-anchor="middle" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="27" font-weight="800" fill="#FFFFFF">结构恢复函数</text>
+      <image href="data:image/png;base64,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" x="494" y="296" width="268" height="60" />
+      <text x="628" y="360" text-anchor="middle" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="15" fill="#E0F2FE">不是图像生成，而是节点、边、方向和布局的联合预测。</text>
     </g>
-    <line x1="288" y1="379" x2="348" y2="379" stroke="#155E75" stroke-width="3" marker-end="url(#arrowMain)" />
-    <g id="step-actions">
-      <path fill="#FFFFFF" stroke="#CBD5E1" filter="url(#softShadow)" d="M364,314 H562 A8,8 0 0 1 570,322 V436 A8,8 0 0 1 562,444 H364 A8,8 0 0 1 356,436 V322 A8,8 0 0 1 364,314 Z" />
+    <line x1="822" y1="296" x2="928" y2="296" stroke="#155E75" stroke-width="4" marker-end="url(#arrowPrimary)" />
+    <g id="output-graph">
+      <path fill="#FFFFFF" stroke="#CBD5E1" filter="url(#softShadow)" d="M944,150 H1202 A8,8 0 0 1 1210,158 V434 A8,8 0 0 1 1202,442 H944 A8,8 0 0 1 936,434 V158 A8,8 0 0 1 944,150 Z" />
       
-  <g transform="translate(380.0, 338.0) scale(1.4166666666666667)" fill="none" stroke="#155E75" stroke-width="2">
-    <path d="M5 18a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
-    <path d="M5 6a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
-    <path d="M15 6a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
-    <path d="M7 8l0 8" />
-    <path d="M9 18h6a2 2 0 0 0 2 -2v-5" />
-    <path d="M14 14l3 -3l3 3" />
-  </g>
-      <text x="432" y="362" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="19" font-weight="800" fill="#172033">编辑动作空间</text>
-      <text x="380" y="402" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="14" fill="#475569">插入/删除节点</text>
-      <text x="380" y="426" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="14" fill="#475569">插入/删除边，修正方向</text>
-    </g>
-    <line x1="574" y1="379" x2="634" y2="379" stroke="#155E75" stroke-width="3" marker-end="url(#arrowMain)" />
-    <g id="step-cost">
-      <path fill="#155E75" filter="url(#softShadow)" d="M650,314 H848 A8,8 0 0 1 856,322 V436 A8,8 0 0 1 848,444 H650 A8,8 0 0 1 642,436 V322 A8,8 0 0 1 650,314 Z" />
-      
-  <g transform="translate(666.0, 338.0) scale(1.4166666666666667)" fill="none" stroke="#FFFFFF" stroke-width="2">
-    <path d="M3 3v18h18" />
-    <path d="M7 9a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
-    <path d="M17 7a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
-    <path d="M12 15a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
-    <path d="M10.16 10.62l2.34 2.88" />
-    <path d="M15.088 13.328l2.837 -4.586" />
-  </g>
-      <text x="718" y="362" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="19" font-weight="800" fill="#FFFFFF">代价函数排序</text>
-      <text x="666" y="402" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="14" fill="#E0F2FE">结构、语义、方向、布局</text>
-      <text x="666" y="426" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="14" fill="#E0F2FE">减去语音覆盖奖励</text>
-    </g>
-    <line x1="860" y1="379" x2="920" y2="379" stroke="#155E75" stroke-width="3" marker-end="url(#arrowMain)" />
-    <g id="step-output">
-      <path fill="#DCFCE7" stroke="#16A34A" filter="url(#softShadow)" d="M936,314 H1202 A8,8 0 0 1 1210,322 V436 A8,8 0 0 1 1202,444 H936 A8,8 0 0 1 928,436 V322 A8,8 0 0 1 936,314 Z" />
-      
-  <g transform="translate(952.0, 338.0) scale(1.4166666666666667)" fill="none" stroke="#0F766E" stroke-width="2">
+  <g transform="translate(1048.0, 184.0) scale(1.9166666666666667)" fill="none" stroke="#16A34A" stroke-width="2">
     <path d="M6 9a6 6 0 1 0 12 0a6 6 0 0 0 -12 0" />
     <path d="M12 3c1.333 .333 2 2.333 2 6s-.667 5.667 -2 6" />
     <path d="M12 3c-1.333 .333 -2 2.333 -2 6s.667 5.667 2 6" />
@@ -108,25 +70,22 @@
     <path d="M10 20a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
     <path d="M12 15v3" />
   </g>
-      <text x="1004" y="362" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="19" font-weight="800" fill="#172033">输出图与编辑轨迹</text>
-      <text x="952" y="402" font-family="Consolas, monospace" font-size="16" font-weight="700" fill="#0F766E">G_hat, G0:T, E(path)</text>
-      <text x="952" y="428" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="14" fill="#475569">既能交付，也能诊断</text>
+      <image href="data:image/png;base64,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" x="955" y="228" width="236" height="60" />
+      <text x="966" y="304" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="17" font-weight="800" fill="#172033">节点属性</text>
+      <text x="966" y="332" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="14" fill="#475569">标签、语义类型、解释、置信度</text>
+      <text x="966" y="372" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="17" font-weight="800" fill="#172033">边属性</text>
+      <text x="966" y="400" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="14" fill="#475569">起点、终点、关系类型、方向</text>
     </g>
   </g>
-  <g id="math-panel">
-    <path fill="#FFFFFF" stroke="#CBD5E1" d="M78,490 H802 A8,8 0 0 1 810,498 V596 A8,8 0 0 1 802,604 H78 A8,8 0 0 1 70,596 V498 A8,8 0 0 1 78,490 Z" />
-    <text x="100" y="526" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="20" font-weight="800" fill="#172033">单步编辑代价与路径能量</text>
-    <text x="100" y="558" font-family="Consolas, monospace" font-size="17" font-weight="700" fill="#155E75">c(Gt,Gt+1)=c_GED+λlabel c_label+λdir c_direction+λlayout c_layout-λspeech r_coverage</text>
-    <text x="100" y="590" font-family="Consolas, monospace" font-size="17" font-weight="700" fill="#0F766E">E(G0:T)=1/T Σ c(Gt,Gt+1)^2</text>
-  </g>
-  <g id="research-value">
-    <path fill="#FFFFFF" stroke="#CBD5E1" d="M854,490 H1202 A8,8 0 0 1 1210,498 V596 A8,8 0 0 1 1202,604 H854 A8,8 0 0 1 846,596 V498 A8,8 0 0 1 854,490 Z" />
-    <text x="876" y="526" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="20" font-weight="800" fill="#172033">科研价值不止一个分数</text>
-    <text x="876" y="558" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="16" fill="#475569">路径长度解释残余错误规模；路径能量解释</text>
-    <text x="876" y="584" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="16" fill="#475569">修复是否自然；用户修改可反哺训练。</text>
+  <g id="evaluation-targets">
+    <path fill="#FFFFFF" stroke="#CBD5E1" filter="url(#softShadow)" d="M78,502 H1202 A8,8 0 0 1 1210,510 V586 A8,8 0 0 1 1202,594 H78 A8,8 0 0 1 70,586 V510 A8,8 0 0 1 78,502 Z" />
+    <text x="100" y="536" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="19" font-weight="800" fill="#155E75">评测目标</text>
+    <text x="100" y="570" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="16" fill="#475569">节点是否正确、边是否正确、方向是否正确、语音关键概念是否覆盖、草图布局是否保持、用户后续修改成本是否降低。</text>
+    <path fill="#CCFBF1" d="M920,526 H1150 A8,8 0 0 1 1158,534 V552 A8,8 0 0 1 1150,560 H920 A8,8 0 0 1 912,552 V534 A8,8 0 0 1 920,526 Z" />
+    <text x="1035" y="549" text-anchor="middle" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="16" font-weight="800" fill="#155E75">结构预测问题，而非美观评分</text>
   </g>
   <g id="footer">
-    <text x="60" y="680" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="12" fill="#94A3B8">SketchVoice · Training and Inference</text>
+    <text x="60" y="680" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="12" fill="#94A3B8">SketchVoice · Formal Task</text>
     <text x="1220" y="680" text-anchor="end" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="12" fill="#94A3B8">09 / 14</text>
   </g>
 </svg>

@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720">
+  <defs>
+    <filter id="softShadow" x="-12%" y="-12%" width="124%" height="124%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="5"/>
+      <feOffset dx="0" dy="3" result="offsetBlur"/>
+      <feFlood flood-color="#172033" flood-opacity="0.08" result="shadowColor"/>
+      <feComposite in="shadowColor" in2="offsetBlur" operator="in" result="shadow"/>
+      <feMerge><feMergeNode in="shadow"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <marker id="arrowMain" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#0F766E"/>
+    </marker>
+  </defs>
+  <g id="background">
+    <rect width="1280" height="720" fill="#F8FAFC"/>
+  </g>
+  <g id="header">
+    <text x="60" y="70" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="36" font-weight="800" fill="#172033">科研定位：语音引导的知识草图结构化</text>
+    <text x="60" y="106" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="18" fill="#475569">我们研究的不是“语音转文字 + 大模型画图”，而是多模态知识结构恢复问题。</text>
+  </g>
+  <g id="problem-equation">
+    <rect x="92" y="148" width="1096" height="104" rx="8" fill="#155E75" filter="url(#softShadow)"/>
+    <text x="640" y="195" text-anchor="middle" font-family="Consolas, monospace" font-size="30" font-weight="700" fill="#FFFFFF">Input: S + U  →  Output: G_hat = (V_hat, E_hat)</text>
+    <text x="640" y="228" text-anchor="middle" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="18" fill="#E0F2FE">S 是手绘知识草图，U 是同步语音描述，G_hat 是可编辑、可评测、可渲染的结构化知识图。</text>
+  </g>
+  <g id="modality-complement">
+    <g id="sketch-prior">
+      <rect x="70" y="304" width="350" height="178" rx="8" fill="#FFFFFF" stroke="#CBD5E1" filter="url(#softShadow)"/>
+      <rect x="70" y="304" width="350" height="8" rx="4" fill="#2563EB"/>
+      <use data-icon="tabler-outline/pencil" x="100" y="334" width="40" height="40" fill="#2563EB" stroke-width="2"/>
+      <text x="158" y="360" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="23" font-weight="800" fill="#172033">草图：空间先验</text>
+      <text x="100" y="406" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="17" fill="#475569">能表达上下游、并行分支、层级</text>
+      <text x="100" y="434" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="17" fill="#475569">和反馈闭环，但文字和箭头不稳。</text>
+    </g>
+    <g id="speech-anchor">
+      <rect x="465" y="304" width="350" height="178" rx="8" fill="#FFFFFF" stroke="#CBD5E1" filter="url(#softShadow)"/>
+      <rect x="465" y="304" width="350" height="8" rx="4" fill="#0F766E"/>
+      <use data-icon="tabler-outline/microphone" x="495" y="334" width="40" height="40" fill="#0F766E" stroke-width="2"/>
+      <text x="553" y="360" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="23" font-weight="800" fill="#172033">语音：语义锚点</text>
+      <text x="495" y="406" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="17" fill="#475569">能补充节点名称、顺序、因果</text>
+      <text x="495" y="434" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="17" fill="#475569">和设计意图，但没有二维布局。</text>
+    </g>
+    <g id="kg-target">
+      <rect x="860" y="304" width="350" height="178" rx="8" fill="#FFFFFF" stroke="#CBD5E1" filter="url(#softShadow)"/>
+      <rect x="860" y="304" width="350" height="8" rx="4" fill="#16A34A"/>
+      <use data-icon="tabler-outline/network" x="890" y="334" width="40" height="40" fill="#16A34A" stroke-width="2"/>
+      <text x="948" y="360" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="23" font-weight="800" fill="#172033">目标：结构化图</text>
+      <text x="890" y="406" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="17" fill="#475569">恢复节点、边、方向、语义标签、</text>
+      <text x="890" y="434" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="17" fill="#475569">置信度和布局关系，而非只生成图像。</text>
+    </g>
+  </g>
+  <g id="hypotheses">
+    <rect x="90" y="534" width="1100" height="78" rx="8" fill="#FFFFFF" stroke="#CBD5E1"/>
+    <text x="120" y="566" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="18" font-weight="800" fill="#155E75">研究假设</text>
+    <text x="120" y="596" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="17" fill="#475569">H1 语音补全草图中缺失或难识别的节点标签；H2 口头叙述顺序纠正模糊边方向；H3 显式图编辑路径降低用户修改成本并提供路径能量诊断。</text>
+  </g>
+  <g id="footer">
+    <text x="60" y="680" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="12" fill="#94A3B8">SketchVoice · Research Positioning</text>
+    <text x="1220" y="680" text-anchor="end" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="12" fill="#94A3B8">07 / 14</text>
+  </g>
+</svg>

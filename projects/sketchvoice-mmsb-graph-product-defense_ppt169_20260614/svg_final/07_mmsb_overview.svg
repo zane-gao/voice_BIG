@@ -1,9 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720">
   <defs>
-    <linearGradient id="bridgeGrad" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0%" stop-color="#155E75" />
-      <stop offset="100%" stop-color="#0F766E" />
-    </linearGradient>
     <filter id="softShadow" x="-12%" y="-12%" width="124%" height="124%">
       <feGaussianBlur in="SourceAlpha" stdDeviation="5" />
       <feOffset dx="0" dy="3" result="offsetBlur" />
@@ -11,7 +7,7 @@
       <feComposite in="shadowColor" in2="offsetBlur" operator="in" result="shadow" />
       <feMerge><feMergeNode in="shadow" /><feMergeNode in="SourceGraphic" /></feMerge>
     </filter>
-    <marker id="arrowTask" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto">
+    <marker id="arrowMain" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto">
       <path d="M0,0 L10,5 L0,10 Z" fill="#0F766E" />
     </marker>
   </defs>
@@ -19,45 +15,69 @@
     <rect width="1280" height="720" fill="#F8FAFC" />
   </g>
   <g id="header">
-    <text x="60" y="72" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="36" font-weight="800" fill="#172033">科研侧：把产品需求抽象成结构恢复任务</text>
-    <text x="60" y="106" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="18" fill="#475569">从产品角度看是“语音画图工具”，从科研角度看是语音引导的知识草图结构化。</text>
+    <text x="60" y="70" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="36" font-weight="800" fill="#172033">科研定位：语音引导的知识草图结构化</text>
+    <text x="60" y="106" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="18" fill="#475569">我们研究的不是“语音转文字 + 大模型画图”，而是多模态知识结构恢复问题。</text>
   </g>
-  <g id="bridge-claim">
-    <path fill="#FFFFFF" stroke="#CBD5E1" filter="url(#softShadow)" d="M78,150 H562 A8,8 0 0 1 570,158 V562 A8,8 0 0 1 562,570 H78 A8,8 0 0 1 70,562 V158 A8,8 0 0 1 78,150 Z" />
-    <text x="104" y="208" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="38" font-weight="800" fill="#172033">关键转折</text>
-    <text x="104" y="270" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="34" font-weight="800" fill="#155E75">不是把草图</text>
-    <text x="104" y="318" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="34" font-weight="800" fill="#155E75">直接画漂亮，</text>
-    <text x="104" y="382" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="34" font-weight="800" fill="#0F766E">而是恢复</text>
-    <text x="104" y="430" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="34" font-weight="800" fill="#0F766E">可编辑知识结构。</text>
-    <path fill="url(#bridgeGrad)" d="M107,478 H481 A3,3 0 0 1 484,481 V481 A3,3 0 0 1 481,484 H107 A3,3 0 0 1 104,481 V481 A3,3 0 0 1 107,478 Z" />
-    <text x="104" y="526" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="18" fill="#475569">草图负责二维布局，语音负责语义锚点，系统恢复结构化图表示。</text>
+  <g id="problem-equation">
+    <path fill="#155E75" filter="url(#softShadow)" d="M100,148 H1180 A8,8 0 0 1 1188,156 V244 A8,8 0 0 1 1180,252 H100 A8,8 0 0 1 92,244 V156 A8,8 0 0 1 100,148 Z" />
+    <text x="280" y="194" text-anchor="middle" font-family="Consolas, monospace" font-size="25" font-weight="700" fill="#E0F2FE">Input</text>
+    <image href="data:image/png;base64,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" x="402" y="166" width="475" height="60" />
+    <text x="1000" y="194" text-anchor="middle" font-family="Consolas, monospace" font-size="25" font-weight="700" fill="#E0F2FE">Output</text>
+    <text x="640" y="232" text-anchor="middle" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="18" fill="#E0F2FE">S 是手绘知识草图，U 是同步语音描述，输出是可编辑、可评测、可渲染的结构化知识图。</text>
   </g>
-  <g id="task-panel">
-    <path fill="#FFFFFF" stroke="#CBD5E1" filter="url(#softShadow)" d="M628,150 H1202 A8,8 0 0 1 1210,158 V562 A8,8 0 0 1 1202,570 H628 A8,8 0 0 1 620,562 V158 A8,8 0 0 1 628,150 Z" />
-    <path fill="#E0F2FE" d="M658,184 H702 A8,8 0 0 1 710,192 V236 A8,8 0 0 1 702,244 H658 A8,8 0 0 1 650,236 V192 A8,8 0 0 1 658,184 Z" />
-    
-  <g transform="translate(664.0, 198.0) scale(1.3333333333333333)" fill="none" stroke="#155E75" stroke-width="2">
-    <path d="M11 12a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
-    <path d="M7 12a5 5 0 1 0 10 0a5 5 0 1 0 -10 0" />
-    <path d="M3 12a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" />
+  <g id="modality-complement">
+    <g id="sketch-prior">
+      <path fill="#FFFFFF" stroke="#CBD5E1" filter="url(#softShadow)" d="M78,304 H412 A8,8 0 0 1 420,312 V474 A8,8 0 0 1 412,482 H78 A8,8 0 0 1 70,474 V312 A8,8 0 0 1 78,304 Z" />
+      <path fill="#2563EB" d="M74,304 H416 A4,4 0 0 1 420,308 V308 A4,4 0 0 1 416,312 H74 A4,4 0 0 1 70,308 V308 A4,4 0 0 1 74,304 Z" />
+      
+  <g transform="translate(100.0, 334.0) scale(1.6666666666666667)" fill="none" stroke="#2563EB" stroke-width="2">
+    <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
+    <path d="M13.5 6.5l4 4" />
   </g>
-    <text x="732" y="211" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="24" font-weight="800" fill="#172033">Speech-Guided Sketch-to-Knowledge-Graph</text>
-    <text x="732" y="244" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="17" fill="#475569">语音引导的知识草图结构化任务</text>
-    <line x1="650" y1="278" x2="1180" y2="278" stroke="#CBD5E1" />
-    <text x="660" y="324" font-family="Consolas, monospace" font-size="23" font-weight="700" fill="#155E75">Input:  S + U</text>
-    <text x="660" y="356" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="18" fill="#475569">S 是手绘草图，提供模块位置、箭头和空间关系。</text>
-    <text x="660" y="386" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="18" fill="#475569">U 是同步语音，提供节点名称、关系方向和设计意图。</text>
-    <line x1="682" y1="418" x2="1136" y2="418" stroke="#0F766E" stroke-width="4" marker-end="url(#arrowTask)" />
-    <text x="660" y="470" font-family="Consolas, monospace" font-size="23" font-weight="700" fill="#155E75">Output: G_hat = (V, E)</text>
-    <text x="660" y="502" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="18" fill="#475569">节点包含标签、类型、解释和置信度；边包含方向、关系类型和置信度。</text>
-    <text x="660" y="532" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="18" fill="#475569">评测从“像不像”转为结构是否恢复正确、修改成本是否下降。</text>
+      <text x="158" y="360" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="23" font-weight="800" fill="#172033">草图：空间先验</text>
+      <text x="100" y="406" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="17" fill="#475569">能表达上下游、并行分支、层级</text>
+      <text x="100" y="434" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="17" fill="#475569">和反馈闭环，但文字和箭头不稳。</text>
+    </g>
+    <g id="speech-anchor">
+      <path fill="#FFFFFF" stroke="#CBD5E1" filter="url(#softShadow)" d="M473,304 H807 A8,8 0 0 1 815,312 V474 A8,8 0 0 1 807,482 H473 A8,8 0 0 1 465,474 V312 A8,8 0 0 1 473,304 Z" />
+      <path fill="#0F766E" d="M469,304 H811 A4,4 0 0 1 815,308 V308 A4,4 0 0 1 811,312 H469 A4,4 0 0 1 465,308 V308 A4,4 0 0 1 469,304 Z" />
+      
+  <g transform="translate(495.0, 334.0) scale(1.6666666666666667)" fill="none" stroke="#0F766E" stroke-width="2">
+    <path d="M9 5a3 3 0 0 1 3 -3a3 3 0 0 1 3 3v5a3 3 0 0 1 -3 3a3 3 0 0 1 -3 -3l0 -5" />
+    <path d="M5 10a7 7 0 0 0 14 0" />
+    <path d="M8 21l8 0" />
+    <path d="M12 17l0 4" />
   </g>
-  <g id="research-hypotheses">
-    <path fill="#CCFBF1" stroke="#0F766E" d="M128,600 H1152 A8,8 0 0 1 1160,608 V636 A8,8 0 0 1 1152,644 H128 A8,8 0 0 1 120,636 V608 A8,8 0 0 1 128,600 Z" />
-    <text x="640" y="628" text-anchor="middle" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="19" font-weight="800" fill="#155E75">三个假设：语音补节点标签，叙述顺序纠正边方向，显式编辑路径降低用户修改成本。</text>
+      <text x="553" y="360" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="23" font-weight="800" fill="#172033">语音：语义锚点</text>
+      <text x="495" y="406" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="17" fill="#475569">能补充节点名称、顺序、因果</text>
+      <text x="495" y="434" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="17" fill="#475569">和设计意图，但没有二维布局。</text>
+    </g>
+    <g id="kg-target">
+      <path fill="#FFFFFF" stroke="#CBD5E1" filter="url(#softShadow)" d="M868,304 H1202 A8,8 0 0 1 1210,312 V474 A8,8 0 0 1 1202,482 H868 A8,8 0 0 1 860,474 V312 A8,8 0 0 1 868,304 Z" />
+      <path fill="#16A34A" d="M864,304 H1206 A4,4 0 0 1 1210,308 V308 A4,4 0 0 1 1206,312 H864 A4,4 0 0 1 860,308 V308 A4,4 0 0 1 864,304 Z" />
+      
+  <g transform="translate(890.0, 334.0) scale(1.6666666666666667)" fill="none" stroke="#16A34A" stroke-width="2">
+    <path d="M6 9a6 6 0 1 0 12 0a6 6 0 0 0 -12 0" />
+    <path d="M12 3c1.333 .333 2 2.333 2 6s-.667 5.667 -2 6" />
+    <path d="M12 3c-1.333 .333 -2 2.333 -2 6s.667 5.667 2 6" />
+    <path d="M6 9h12" />
+    <path d="M3 20h7" />
+    <path d="M14 20h7" />
+    <path d="M10 20a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+    <path d="M12 15v3" />
+  </g>
+      <text x="948" y="360" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="23" font-weight="800" fill="#172033">目标：结构化图</text>
+      <text x="890" y="406" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="17" fill="#475569">恢复节点、边、方向、语义标签、</text>
+      <text x="890" y="434" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="17" fill="#475569">置信度和布局关系，而非只生成图像。</text>
+    </g>
+  </g>
+  <g id="hypotheses">
+    <path fill="#FFFFFF" stroke="#CBD5E1" d="M98,534 H1182 A8,8 0 0 1 1190,542 V604 A8,8 0 0 1 1182,612 H98 A8,8 0 0 1 90,604 V542 A8,8 0 0 1 98,534 Z" />
+    <text x="120" y="566" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="18" font-weight="800" fill="#155E75">研究假设</text>
+    <text x="120" y="596" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="17" fill="#475569">H1 语音补全草图中缺失或难识别的节点标签；H2 口头叙述顺序纠正模糊边方向；H3 显式图编辑路径降低用户修改成本并提供路径能量诊断。</text>
   </g>
   <g id="footer">
-    <text x="60" y="680" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="12" fill="#94A3B8">SketchVoice · Research Task Definition</text>
+    <text x="60" y="680" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="12" fill="#94A3B8">SketchVoice · Research Positioning</text>
     <text x="1220" y="680" text-anchor="end" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="12" fill="#94A3B8">07 / 14</text>
   </g>
 </svg>

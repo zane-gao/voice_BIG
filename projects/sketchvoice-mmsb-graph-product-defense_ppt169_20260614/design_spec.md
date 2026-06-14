@@ -16,7 +16,7 @@
 | **Use Case** | 课程结项答辩，8-12 分钟，强调产品闭环和科研支撑 |
 | **Created Date** | 2026-06-14 |
 
-Eight confirmations were approved by the user: `ppt169`, 14 pages, course-defense audience, product story first, blue-green restrained palette, built-in `tabler-outline` icons, CJK-first typography, mixed formula policy, existing report figure only.
+Eight confirmations were approved by the user: `ppt169`, 14 pages, course-defense audience, product story first, blue-green restrained palette, built-in `tabler-outline` icons, CJK-first typography, existing report figure only. Formula handling was upgraded on request to render all visible formula-worthy expressions through LaTeX assets.
 
 ---
 
@@ -37,7 +37,7 @@ Eight confirmations were approved by the user: `ppt169`, 14 pages, course-defens
 ### Theme Style
 
 - **Mode**: custom
-- **Mode behavior**: Three-act product-defense narrative. Act 1 starts from a real user workflow and product pain: people explain research by drawing and speaking, but the result is hard to reuse. Act 2 introduces MMSB-Graph as the structural engine that makes the product reliable, editable, and diagnosable. Act 3 closes with evaluation, engineering loop, boundary, and contributions. Titles should sound like claims rather than chapter labels.
+- **Mode behavior**: Three-act product-defense narrative. Act 1 starts from user workflow and product pain. Act 2 presents the research problem, related-work gap, formal task, MMSB-Graph method, evaluation protocol, and truthful result boundary. Act 3 closes with project knowledge graph and multi-dimensional value. Titles should sound like claims rather than chapter labels.
 - **Visual style**: soft-rounded
 - **Theme**: Light theme
 - **Tone**: 产品答辩感、清晰、克制、可演示，同时保留科研可信度。
@@ -108,7 +108,7 @@ Baseline: Body font size = 20px.
 | Annotation / caption | 0.7-0.85x | 14-16px | Regular |
 | Page number / footnote | 0.6x | 12px | Regular |
 
-Formula policy: `mixed`. This deck keeps simple notation editable as text (`G_hat = (V, E)`, `c(Gt, Gt+1)`, `E(G0:T) = 1/T Σ c^2`) and does not require rendered formula PNG assets.
+Formula policy: `render-all for formula-worthy expressions`. All visible mathematical expressions are written in canonical LaTeX and rendered as transparent PNG assets, for example `\hat{G}=(\hat{V},\hat{E})`, `c(G_t,G_{t+1})`, and `E(G_{0:T})=\frac{1}{T}\sum_{t=0}^{T-1}c(G_t,G_{t+1})^2`.
 
 ---
 
@@ -178,19 +178,19 @@ Formula policy: `mixed`. This deck keeps simple notation editable as text (`G_ha
 | 浏览器工作台 | `tabler-outline/device-desktop` | P04, P06 |
 | 可导出结果 | `tabler-outline/file-export` | P03, P04 |
 | JSON/代码输出 | `tabler-outline/json` | P04, P06 |
-| 图像生成 | `tabler-outline/photo` | P04, P12 |
-| 语音讲解 | `tabler-outline/speakerphone` | P04, P12 |
-| 数据集 | `tabler-outline/database` | P10 |
-| 评测结果 | `tabler-outline/chart-dots` | P10, P11 |
-| 实验验证 | `tabler-outline/test-pipe` | P11 |
-| 多模态融合 | `tabler-outline/layers-linked` | P07, P08 |
+| 图像生成 | `tabler-outline/photo` | P04 |
+| 语音讲解 | `tabler-outline/speakerphone` | P04 |
+| 数据集 | `tabler-outline/database` | P11 |
+| 评测结果 | `tabler-outline/chart-dots` | P11, P12 |
+| 实验验证 | `tabler-outline/test-pipe` | P12 |
+| 多模态融合 | `tabler-outline/layers-linked` | P08, P10 |
 | 服务端架构 | `tabler-outline/server` | P06 |
-| 图编辑路径 | `tabler-outline/git-branch` | P09 |
+| 图编辑路径 | `tabler-outline/git-branch` | P10 |
 | 目标任务 | `tabler-outline/target` | P05, P14 |
 | 核心贡献 | `tabler-outline/bulb` | P14 |
 | 自动生成 | `tabler-outline/wand` | P03, P04 |
 | 演示与答辩 | `tabler-outline/presentation` | P01 |
-| 视频讲解 | `tabler-outline/video` | P04, P12 |
+| 视频讲解 | `tabler-outline/video` | P04 |
 
 ---
 
@@ -204,12 +204,12 @@ Catalog read: 71 templates
 | P04 | icon_grid | `templates/charts/icon_grid.svg` | "Pick for 4-9 parallel features/capabilities/services as icon cards — feature grid, service lineup, benefits matrix, brand values, product highlights. Skip for sequential ordering (use numbered_steps) or hierarchical layers (use pyramid_chart)." | Product capability map |
 | P05 | pipeline_with_stages | `templates/charts/pipeline_with_stages.svg` | "Pick for 3-5 horizontal pipeline stages, each = title + 1-line description + output artifact, connected by arrows (data pipelines, ETL, build pipelines). Skip if any stage lacks an artifact (use process_flow or numbered_steps)." | Live demo flow from sketch to WebM |
 | P06 | layered_architecture | `templates/charts/layered_architecture.svg` | "Pick for 3-4 horizontal architecture layers (presentation/service/data), 2-4 module cards per layer, each card = title + 1-line description (description required, even if source brief). Skip if no per-module descriptions (use icon_grid) or no horizontal layering (use module_composition)." | System architecture |
-| P07 | vertical_list | `templates/charts/vertical_list.svg` | "Pick for 3-6 numbered key points each with a short description — design principles, core tenets, action items, key takeaways, recommendations, executive summary points. Skip for icon-style cards (use icon_grid) or sequential steps (use numbered_steps)." | Research task definition bridge |
-| P08 | hub_inward_arrows | `templates/charts/hub_inward_arrows.svg` | "Pick for 1 center subject + 4-5 surrounding forces with arrows pointing inward — Porter's Five Forces (central rivalry, threat of new entrants/substitutes, bargaining power of buyers/suppliers), threat-model with central asset, pressure-on-core diagrams. Skip for outward radiation from center capability (use hub_spoke) or non-directional cluster (use mind_map)." | MMSB-Graph multi-constraint model |
-| P09 | process_flow | `templates/charts/process_flow.svg` | "Pick for 3-8 sequential steps connected by simple arrows — approval workflows, customer onboarding, request handling, lifecycle stages. Skip if cyclical (use circular_stages) or stages produce named outputs (use pipeline_with_stages)." | Graph editing bridge |
-| P10 | icon_grid | `templates/charts/icon_grid.svg` | "Pick for 4-9 parallel features/capabilities/services as icon cards — feature grid, service lineup, benefits matrix, brand values, product highlights. Skip for sequential ordering (use numbered_steps) or hierarchical layers (use pyramid_chart)." | Dataset and metric overview |
-| P11 | basic_table | `templates/charts/basic_table.svg` | "Pick for plain tabular text/number grid, 3-8 columns. Skip if cells need visual bars (use consulting_table) or qualitative scores (use harvey_balls_table)." | Method comparison results |
-| P12 | circular_stages | `templates/charts/circular_stages.svg` | "Pick for 4-6 stage closed loop where stages compose a cycle — PDCA, flywheel compounding loops (Attract → Engage → Delight), lifecycle, continuous improvement. Skip for linear flow (use process_flow), one-shot sequence (use numbered_steps), or wedge-based central topic (use segmented_wheel)." | Engineering product loop |
+| P07 | vertical_list | `templates/charts/vertical_list.svg` | "Pick for 3-6 numbered key points each with a short description — design principles, core tenets, action items, key takeaways, recommendations, executive summary points. Skip for icon-style cards (use icon_grid) or sequential steps (use numbered_steps)." | Research positioning and modality assumptions |
+| P08 | hub_inward_arrows | `templates/charts/hub_inward_arrows.svg` | "Pick for 1 center subject + 4-5 surrounding forces with arrows pointing inward — Porter's Five Forces (central rivalry, threat of new entrants/substitutes, bargaining power of buyers/suppliers), threat-model with central asset, pressure-on-core diagrams. Skip for outward radiation from center capability (use hub_spoke) or non-directional cluster (use mind_map)." | Related-work gap and research opening |
+| P09 | process_flow | `templates/charts/process_flow.svg` | "Pick for 3-8 sequential steps connected by simple arrows — approval workflows, customer onboarding, request handling, lifecycle stages. Skip if cyclical (use circular_stages) or stages produce named outputs (use pipeline_with_stages)." | Formal task definition |
+| P10 | process_flow | `templates/charts/process_flow.svg` | "Pick for 3-8 sequential steps connected by simple arrows — approval workflows, customer onboarding, request handling, lifecycle stages. Skip if cyclical (use circular_stages) or stages produce named outputs (use pipeline_with_stages)." | MMSB-Graph method and edit-cost formulation |
+| P11 | basic_table | `templates/charts/basic_table.svg` | "Pick for plain tabular text/number grid, 3-8 columns. Skip if cells need visual bars (use consulting_table) or qualitative scores (use harvey_balls_table)." | Dataset, protocol, baselines, and metrics |
+| P12 | basic_table | `templates/charts/basic_table.svg` | "Pick for plain tabular text/number grid, 3-8 columns. Skip if cells need visual bars (use consulting_table) or qualitative scores (use harvey_balls_table)." | Controlled results, limits, and future work |
 | P13 | mind_map | `templates/charts/mind_map.svg` | "Pick for one core topic radiating into 3-6 brainstorm branches. Skip for capability hub-and-spoke (use hub_spoke) or strict hierarchy (use top_down_tree)." | Project knowledge graph |
 
 **Runners-up considered**
@@ -225,8 +225,30 @@ Catalog read: 71 templates
 | Filename | Dimensions | Ratio | Purpose | Type | Layout pattern | Acquire Via | Status | Reference | text_policy | page_role |
 | -------- | ---------- | ----- | ------- | ---- | -------------- | ----------- | ------ | --------- | ----------- | --------- |
 | mmsb_diagnostics.png | 3514x1309 | 2.68 | Report diagnostic figure for structural recovery, GED distribution, and bridge load | Diagram | #6 Bottom-band image + top title + middle text + #70 Image with thin colored matte frame | user | Existing | `report/figures/mmsb_diagnostics.png` copied into project images | none | local |
+| formula_07_main.png | 475x60 | 7.92 | P07 formal task formula | Latex Formula | formula-block | formula | Rendered | `S + U \longrightarrow \hat{G}=(\hat{V},\hat{E})` | none | research |
+| formula_09_mapping.png | 268x60 | 4.47 | P09 mapping formula | Latex Formula | formula-block | formula | Rendered | `F(S,U)=\hat{G}` | none | research |
+| formula_09_s.png | 30x36 | 0.83 | P09 sketch input variable | Latex Formula | formula-inline | formula | Rendered | `S` | none | research |
+| formula_09_u.png | 34x35 | 0.97 | P09 speech input variable | Latex Formula | formula-inline | formula | Rendered | `U` | none | research |
+| formula_09_graph.png | 236x60 | 3.93 | P09 output graph formula | Latex Formula | formula-block | formula | Rendered | `\hat{G}=(\hat{V},\hat{E})` | none | research |
+| formula_10_gs.png | 51x43 | 1.19 | P10 sketch graph symbol | Latex Formula | formula-inline | formula | Rendered | `G_s` | none | research |
+| formula_10_gu.png | 56x43 | 1.30 | P10 speech graph symbol | Latex Formula | formula-inline | formula | Rendered | `G_u` | none | research |
+| formula_10_gf.png | 56x50 | 1.12 | P10 fused graph symbol | Latex Formula | formula-inline | formula | Rendered | `G_f` | none | research |
+| formula_10_path.png | 438x51 | 8.59 | P10 graph path formula | Latex Formula | formula-block | formula | Rendered | `G_{0:T}=\{G_0,\ldots,G_T\}` | none | research |
+| formula_10_ghat.png | 36x48 | 0.75 | P10 output graph symbol | Latex Formula | formula-inline | formula | Rendered | `\hat{G}` | none | research |
+| formula_10_cost.png | 952x124 | 7.68 | P10 edit cost formula | Latex Formula | formula-block | formula | Rendered | `\begin{aligned}c(G_t,G_{t+1})=&\ c_{\mathrm{GED}}+\lambda_{\mathrm{label}}c_{\mathrm{label}}+\lambda_{\mathrm{dir}}c_{\mathrm{direction}}\\&+\lambda_{\mathrm{layout}}c_{\mathrm{layout}}-\lambda_{\mathrm{speech}}r_{\mathrm{coverage}}\end{aligned}` | none | research |
+| formula_10_energy.png | 617x142 | 4.35 | P10 path energy formula | Latex Formula | formula-block | formula | Rendered | `E(G_{0:T})=\frac{1}{T}\sum_{t=0}^{T-1}c(G_t,G_{t+1})^2` | none | research |
+| formula_11_metrics_1.png | 527x55 | 9.58 | P11 structural metrics formula line | Latex Formula | formula-block | formula | Rendered | `F_1^{N}\cdot F_1^{E}\cdot A_{\mathrm{dir}}\cdot GED_{\mathrm{norm}}` | none | research |
+| formula_11_metrics_2.png | 634x52 | 12.19 | P11 usability metrics formula line | Latex Formula | formula-block | formula | Rendered | `C_{\mathrm{speech}}\cdot P_{\mathrm{layout}}\cdot C_{\mathrm{edit}}\cdot E(G_{0:T})` | none | research |
+| formula_12_sketch.png | 348x46 | 7.57 | P12 sketch-only result | Latex Formula | formula-inline | formula | Rendered | `\mathrm{Edge}\ F_1=0.387` | none | research |
+| formula_12_speech.png | 348x46 | 7.57 | P12 speech-only result | Latex Formula | formula-inline | formula | Rendered | `\mathrm{Edge}\ F_1=0.564` | none | research |
+| formula_12_node.png | 351x43 | 8.16 | P12 early-fusion node result | Latex Formula | formula-inline | formula | Rendered | `\mathrm{Node}\ F_1=0.929` | none | research |
+| formula_12_edge.png | 348x46 | 7.57 | P12 early-fusion edge result | Latex Formula | formula-inline | formula | Rendered | `\mathrm{Edge}\ F_1=0.577` | none | research |
+| formula_12_greedy.png | 346x46 | 7.52 | P12 greedy result | Latex Formula | formula-inline | formula | Rendered | `\mathrm{Edge}\ F_1=0.842` | none | research |
+| formula_12_mmsb.png | 493x50 | 9.86 | P12 MMSB-Graph result | Latex Formula | formula-inline | formula | Rendered | `N/E/D=1,\ \mathrm{GED}=0` | none | research |
+| formula_13_metrics.png | 330x45 | 7.33 | P13 evaluation node formula | Latex Formula | formula-inline | formula | Rendered | `F_1,\ \mathrm{GED},\ \mathrm{Cost}` | none | closing |
+| formula_14_metrics.png | 401x50 | 8.02 | P14 evaluation value formula | Latex Formula | formula-inline | formula | Rendered | `\mathrm{GED},\ F_1,\ E(G_{0:T})` | none | closing |
 
-No AI-generated images are used. The deck has only one image-bearing page, so the image-as-canvas coverage rule does not apply.
+No AI-generated images are used. Formula assets are deterministic LaTeX renders produced from `images/formula_manifest.json`.
 
 ---
 
@@ -282,56 +304,55 @@ No AI-generated images are used. The deck has only one image-bearing page, so th
 - **Visualization**: layered_architecture.
 - **Content**: 前端负责画布、录音、上传、标签页预览、下载和光标讲解；后端暴露 `/api/generate`、`/api/render-image`、`/api/narrate-image`；模型侧负责 ASR、多模态结构化、图像生成和 TTS；输出层统一为 Mermaid、SVG、JSON、终稿图和 WebM。
 
-#### Slide 07 - 科研侧：把产品需求抽象成结构恢复任务
+#### Slide 07 - 科研定位：语音引导的知识草图结构化
 
-- **Layout**: Left claim block, right formal task definition, bottom hypothesis strip.
-- **Title**: 科研侧：把产品需求抽象成结构恢复任务
-- **Core message**: 从产品角度看是“语音画图工具”，从科研角度看是语音引导的知识草图结构化。
+- **Layout**: Three-column modality cards with a formal input-output definition and hypothesis strip.
+- **Title**: 科研定位：语音引导的知识草图结构化
+- **Core message**: 这不是“语音生成图片”，而是从手绘草图与同步语音中恢复可编辑知识图。
 - **Visualization**: vertical_list.
-- **Content**: 给定手绘草图 `S` 与同步语音 `U`，目标是重建知识图 `G_hat = (V, E)`。草图提供模块位置、箭头和空间关系；语音提供节点名称、关系方向和设计意图。三个核心假设是：语音能补全节点标签，口头叙述顺序能纠正边方向，显式编辑路径能降低用户修改成本。
+- **Content**: 输入是手绘知识草图 `$S$` 与同步语音描述 `$U$`，输出是 `$\hat{G}=(\hat{V},\hat{E})$`。草图提供空间先验，语音提供语义锚点和关系顺序；研究假设包括语音补全节点标签、口头顺序纠正边方向、显式图编辑路径降低用户修改成本并提供诊断信号。
 
-#### Slide 08 - MMSB-Graph：把多模态输入放进同一图状态空间
+#### Slide 08 - 相关工作：三条路线都没有同时覆盖我们的场景
 
-- **Layout**: Left-side constraint sources, central bridge model, right-side target distribution.
-- **Title**: MMSB-Graph：把多模态输入放进同一图状态空间
-- **Core message**: 核心不是直接“画好看”，而是在离散知识图空间里求一条低代价、可解释的结构恢复路径。
+- **Layout**: Three related-work cards plus a bottom positioning strip.
+- **Title**: 相关工作：三条路线都没有同时覆盖我们的场景
+- **Core message**: 现有工作分别处理草图结构、静态图代码化或图迁移理论，但缺少同步语音下的知识图结构恢复与诊断。
 - **Visualization**: hub_inward_arrows.
-- **Content**: `Gs` 提供草图边缘约束，保留位置、邻接和箭头粗方向；`Gu` 提供语音语义约束，补充标签、顺序和关系意图；`Gf` 形成早期融合候选。MMSB-Graph 把这些边缘约束统一进图状态空间，求解 `min_P KL(P||R) + λs Cs + λu Cu + λf Cf`，其中 `R` 是允许节点和边编辑的参考过程。目标不是一个单点预测，而是一条从 `G0` 到 `GT` 的可解释路径。
+- **Content**: SketchAgent/Sketch2Diagram 代表草图到结构图路线，但缺同步语音；Flowchart2Mermaid 代表静态图到可编辑代码路线，但场景封闭；Schrödinger Bridge / DDSBM 提供离散图结构迁移理论支点。我们的切入点是 Sketch + Speech → Structured Knowledge Graph → Graph Editing Diagnosis。
 
-#### Slide 09 - 训练与推理：先把编辑路径变成可计算对象
+#### Slide 09 - 任务定义：Speech-Guided Sketch-to-Knowledge-Graph
 
-- **Layout**: Trainable extension left/right cards with process and math panels.
-- **Title**: 训练与推理：先把编辑路径变成可计算对象
-- **Core message**: 当前实现验证图桥和指标链路；同一套路径表示也能扩展为可监督训练与能量重排序。
+- **Layout**: Input-to-output process flow with metric bar.
+- **Title**: 任务定义：Speech-Guided Sketch-to-Knowledge-Graph
+- **Core message**: 将产品链路形式化为可比较、可复现实验的结构恢复任务。
 - **Visualization**: process_flow.
-- **Content**: 现阶段代码用确定性图编辑桥和 gold graph 做可控 sanity check，验证任务定义、指标和路径代价可运行；可训练扩展则可以把人工修正轨迹、候选图和编辑序列转成 edit policy 或 energy reranker。编辑动作空间包括插入节点、删除节点、插入边、删除边与修正方向。单步代价 `c(Gt, Gt+1)` 由结构变化、语义距离、方向惩罚、布局保持和语音覆盖组成；路径能量 `E(G0:T) = 1/T Σ c(Gt, Gt+1)^2` 既是诊断量，也能作为学习信号。
+- **Content**: 手绘草图包含框、箭头、布局和手写文字；同步语音包含节点名、关系顺序和设计意图。系统恢复候选节点、候选边、方向、标签和布局，最终输出 Mermaid/SVG/JSON/论文风格图像。评测关注 `$\mathrm{Node}\ F_1$`、`$\mathrm{Edge}\ F_1$`、`$\mathrm{Direction\ Accuracy}$`、`$\mathrm{Speech\ Coverage}$`、`$\mathrm{Layout\ Preservation}$`、`$\mathrm{Normalized\ GED}$` 和 `$\mathrm{Edit\ Cost}$`。
 
 ### Part 3: Evaluation, loop, and final value
 
-#### Slide 10 - 数据与评测：用可控样例验证链路
+#### Slide 10 - MMSB-Graph：多模态约束下的离散图编辑桥
 
-- **Layout**: Dataset summary plus metric grid.
-- **Title**: 数据与评测：用可控样例验证链路
-- **Core message**: 评测不是只看“图像好不好看”，而是看结构是否正确、语音是否覆盖、修改成本是否下降。
-- **Visualization**: icon_grid.
-- **Content**: 构建 24 个知识草图样例，覆盖线性流程、分支结构、反馈闭环、模型架构图和实验流程图。指标包括 Node F1、Edge F1、Direction Accuracy、Normalized GED、Speech Coverage、Layout Preservation、Edit Cost、Path Energy。
+- **Layout**: Method process flow plus edit action and cost panels.
+- **Title**: MMSB-Graph：多模态约束下的离散图编辑桥
+- **Core message**: 核心不是 one-shot generation，而是把候选图沿低代价编辑路径修复为目标知识图。
+- **Visualization**: process_flow.
+- **Content**: 方法链路为 `$S \rightarrow G_s$`、`$U \rightarrow G_u$`、`$(G_s,G_u)\rightarrow G_f$`、`$G_f \rightarrow \hat{G}$`。编辑动作包括删多余节点、插缺失节点、删错误边、插目标边与修方向。代价函数由 `$c_{\mathrm{GED}}$`、标签距离、方向惩罚、布局保持和语音覆盖奖励组成，路径能量用于解释修复难度。
 
-#### Slide 11 - 实验结果：多模态编辑路径带来结构一致性
+#### Slide 11 - 数据与实验：把 demo 标注成可评测样例
 
-- **Layout**: Top metric table, bottom diagnostic image band.
-- **Title**: 实验结果：多模态编辑路径带来结构一致性
-- **Core message**: 在可控验证中，MMSB-Graph 同时提升节点、边和方向恢复，并把人工修改成本降到最低。
+- **Layout**: Dataset card, baseline table, metric grid, and controlled-validation warning.
+- **Title**: 数据与实验：把 demo 标注成可评测样例
+- **Core message**: 我们把原型演示转化为 24 个带金标准的可控知识草图样例，并建立多指标评测协议。
 - **Visualization**: basic_table.
-- **Content**: Sketch only 的 Edge F1 为 0.387，Speech only 提升到 0.564，Early Fusion 提升节点但边仍不稳，Greedy Repair 能局部修复，MMSB-Graph 达到 Node/Edge F1 1.000、Normalized GED 0、manual edit cost 0。诊断图用于展示结构恢复、GED 和桥路径负载。
-- **Image**: `mmsb_diagnostics.png`.
+- **Content**: 样例覆盖线性流程、多分支融合、反馈闭环、模型架构和实验流程；每例包含草图、语音、转写、目标节点边、语音锚点、草图区、布局坐标与难度标签。对照包括 Sketch-only、Speech-only、Early Fusion、Greedy Repair 和 MMSB-Graph。当前实验是合成条件图可控验证，不调用真实 VLM/ASR。
 
-#### Slide 12 - 可解释性：让生成结果能被追问、定位和改进
+#### Slide 12 - 结果边界：验证的是图桥行为，不是大规模 SOTA
 
-- **Layout**: Diagnostic loop with evidence panel.
-- **Title**: 可解释性：让生成结果能被追问、定位和改进
-- **Core message**: 科研价值来自可诊断的结构恢复过程，而不是只输出一张看起来正确的图。
-- **Visualization**: circular_stages.
-- **Content**: 中间图可以定位错误来源，编辑轨迹可以解释每一步修复，指标可以把解释落到数字，真实用户修改轨迹还可以反哺训练与交互策略。这样系统从“能生成”提升为“能解释、能评测、能被真实使用数据持续改进”。
+- **Layout**: Method result table with boundary and future-work panels.
+- **Title**: 结果边界：验证的是图桥行为，不是大规模 SOTA
+- **Core message**: 展示已经做出的结构恢复结果，同时明确受控实验边界和后续科研深化路线。
+- **Visualization**: basic_table.
+- **Content**: Sketch-only `$\mathrm{Edge}\ F_1=0.387$`，Speech-only `$\mathrm{Edge}\ F_1=0.564$`，Early Fusion `$\mathrm{Node}\ F_1=0.929$` / `$\mathrm{Edge}\ F_1=0.577$`，Greedy Repair `$\mathrm{Edge}\ F_1=0.842$`，MMSB-Graph 在可控条件下 `$\mathrm{N}/\mathrm{E}/\mathrm{D}=1.000,\ \mathrm{GED}=0$`。边界是未接入真实 ASR/VLM、不能代表真实世界端到端泛化；未来接入真人草图、用户修改轨迹、语义嵌入检索和可训练 edit policy。
 
 #### Slide 13 - 项目知识图谱：我们实际完成了哪些节点
 

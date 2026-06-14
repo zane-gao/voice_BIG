@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720">
+  <defs>
+    <filter id="softShadow" x="-12%" y="-12%" width="124%" height="124%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="6"/>
+      <feOffset dx="0" dy="4" result="offsetBlur"/>
+      <feFlood flood-color="#172033" flood-opacity="0.09" result="shadowColor"/>
+      <feComposite in="shadowColor" in2="offsetBlur" operator="in" result="shadow"/>
+      <feMerge><feMergeNode in="shadow"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <marker id="arrowEnd" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#0F766E"/>
+    </marker>
+  </defs>
+  <g id="background">
+    <rect width="1280" height="720" fill="#F8FAFC"/>
+    <rect x="0" y="0" width="1280" height="18" fill="#155E75"/>
+  </g>
+  <g id="hero">
+    <text x="640" y="86" text-anchor="middle" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="40" font-weight="800" fill="#172033">总结：把自然表达升级为可研究的知识结构生产线</text>
+    <text x="640" y="124" text-anchor="middle" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="19" fill="#475569">SketchVoice 不是单点 demo，而是“应用闭环 + 科研模型 + 评测协议 + 可解释诊断”的完整链路。</text>
+  </g>
+  <g id="central-claim">
+    <rect x="150" y="156" width="980" height="82" rx="8" fill="#155E75" filter="url(#softShadow)"/>
+    <use data-icon="tabler-outline/bulb" x="190" y="177" width="40" height="40" fill="#FFFFFF" stroke-width="2"/>
+    <text x="250" y="191" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="24" font-weight="800" fill="#FFFFFF">一句话结论</text>
+    <text x="250" y="219" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="18" fill="#E0F2FE">我们把“边说边画”的低结构表达，转化为可编辑、可导出、可评测、可诊断的多模态科研表达基础设施。</text>
+  </g>
+  <g id="value-dimensions">
+    <g id="value-product">
+      <rect x="70" y="292" width="212" height="178" rx="8" fill="#FFFFFF" stroke="#CBD5E1" filter="url(#softShadow)"/>
+      <use data-icon="tabler-outline/device-desktop" x="94" y="316" width="36" height="36" fill="#2563EB" stroke-width="2"/>
+      <text x="94" y="382" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="21" font-weight="800" fill="#172033">产品价值</text>
+      <text x="94" y="418" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="15" fill="#475569">完成可操作工作台，</text>
+      <text x="94" y="444" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="15" fill="#475569">覆盖输入、预览、下载、讲解。</text>
+    </g>
+    <g id="value-research">
+      <rect x="306" y="292" width="212" height="178" rx="8" fill="#FFFFFF" stroke="#CBD5E1" filter="url(#softShadow)"/>
+      <use data-icon="tabler-outline/git-branch" x="330" y="316" width="36" height="36" fill="#0F766E" stroke-width="2"/>
+      <text x="330" y="382" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="21" font-weight="800" fill="#172033">科研价值</text>
+      <text x="330" y="418" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="15" fill="#475569">定义语音引导知识草图</text>
+      <text x="330" y="444" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="15" fill="#475569">结构化与 MMSB-Graph。</text>
+    </g>
+    <g id="value-eval">
+      <rect x="542" y="292" width="212" height="178" rx="8" fill="#FFFFFF" stroke="#CBD5E1" filter="url(#softShadow)"/>
+      <use data-icon="tabler-outline/chart-dots" x="566" y="316" width="36" height="36" fill="#16A34A" stroke-width="2"/>
+      <text x="566" y="382" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="21" font-weight="800" fill="#172033">评测价值</text>
+      <text x="566" y="418" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="15" fill="#475569">24 个样例、对照基线、</text>
+      <text x="566" y="444" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="15" fill="#475569">GED、F1、路径能量指标。</text>
+    </g>
+    <g id="value-engineering">
+      <rect x="778" y="292" width="212" height="178" rx="8" fill="#FFFFFF" stroke="#CBD5E1" filter="url(#softShadow)"/>
+      <use data-icon="tabler-outline/server" x="802" y="316" width="36" height="36" fill="#155E75" stroke-width="2"/>
+      <text x="802" y="382" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="21" font-weight="800" fill="#172033">工程价值</text>
+      <text x="802" y="418" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="15" fill="#475569">模型服务可替换，mock</text>
+      <text x="802" y="444" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="15" fill="#475569">保障展示和复现实验。</text>
+    </g>
+    <g id="value-education">
+      <rect x="1014" y="292" width="196" height="178" rx="8" fill="#FFFFFF" stroke="#CBD5E1" filter="url(#softShadow)"/>
+      <use data-icon="tabler-outline/presentation" x="1038" y="316" width="36" height="36" fill="#F59E0B" stroke-width="2"/>
+      <text x="1038" y="382" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="21" font-weight="800" fill="#172033">表达价值</text>
+      <text x="1038" y="418" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="15" fill="#475569">把课堂/科研讲解</text>
+      <text x="1038" y="444" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="15" fill="#475569">沉淀为结构化资产。</text>
+    </g>
+  </g>
+  <g id="future-line">
+    <line x1="198" y1="500" x2="1070" y2="500" stroke="#0F766E" stroke-width="3" marker-end="url(#arrowEnd)"/>
+    <g id="future-1">
+      <circle cx="250" cy="500" r="11" fill="#0F766E"/>
+      <text x="250" y="532" text-anchor="middle" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="14" font-weight="800" fill="#172033">真实用户数据</text>
+    </g>
+    <g id="future-2">
+      <circle cx="472" cy="500" r="11" fill="#0F766E"/>
+      <text x="472" y="532" text-anchor="middle" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="14" font-weight="800" fill="#172033">草图解析增强</text>
+    </g>
+    <g id="future-3">
+      <circle cx="694" cy="500" r="11" fill="#0F766E"/>
+      <text x="694" y="532" text-anchor="middle" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="14" font-weight="800" fill="#172033">编辑策略训练</text>
+    </g>
+    <g id="future-4">
+      <circle cx="916" cy="500" r="11" fill="#0F766E"/>
+      <text x="916" y="532" text-anchor="middle" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="14" font-weight="800" fill="#172033">前端诊断反馈</text>
+    </g>
+  </g>
+  <g id="closing">
+    <rect x="214" y="580" width="852" height="52" rx="8" fill="#FFFFFF" stroke="#CBD5E1"/>
+    <text x="640" y="613" text-anchor="middle" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="19" font-weight="800" fill="#155E75">所以，这个项目既有能演示的应用成果，也有可继续深化的科研问题和实验框架。</text>
+  </g>
+  <g id="footer">
+    <text x="60" y="680" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="12" fill="#94A3B8">SketchVoice · Conclusion</text>
+    <text x="1220" y="680" text-anchor="end" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="12" fill="#94A3B8">14 / 14</text>
+  </g>
+</svg>

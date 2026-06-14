@@ -1,1 +1,1 @@
-训练和推理的关键，是先把恢复过程表示成可计算的编辑路径。当前实现用确定性图编辑桥和标准图做可控验证，没有夸大成大规模训练；但同一套路径可以继续扩展为监督编辑策略、能量排序器和基于用户修改轨迹的学习信号。
+这一页给出任务定义。输入 $S$ 包括框、箭头、布局和手写文字，输入 $U$ 包括节点名称、关系顺序和设计意图。系统先恢复候选节点和候选边，再输出 $\hat{G}=(\hat{V},\hat{E})$。评测时我们不只看视觉效果，而是看 $\mathrm{Node}\ F_1$、$\mathrm{Edge}\ F_1$、$\mathrm{Direction\ Accuracy}$、$\mathrm{Speech\ Coverage}$、$\mathrm{Layout\ Preservation}$、$\mathrm{Normalized\ GED}$ 和 $\mathrm{Edit\ Cost}$。这样任务从一个 demo 变成了可以比较、可以复现实验的结构恢复问题。
