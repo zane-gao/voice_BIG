@@ -1,77 +1,115 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720">
   <defs>
-    <filter id="softShadow" x="-10%" y="-10%" width="120%" height="120%">
+    <filter id="softShadow" x="-12%" y="-12%" width="124%" height="124%">
       <feGaussianBlur in="SourceAlpha" stdDeviation="5" />
       <feOffset dx="0" dy="3" result="offsetBlur" />
-      <feFlood flood-color="#172033" flood-opacity="0.07" result="shadowColor" />
+      <feFlood flood-color="#172033" flood-opacity="0.08" result="shadowColor" />
       <feComposite in="shadowColor" in2="offsetBlur" operator="in" result="shadow" />
       <feMerge><feMergeNode in="shadow" /><feMergeNode in="SourceGraphic" /></feMerge>
     </filter>
+    <marker id="arrowTeal" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#0F766E" />
+    </marker>
+    <marker id="arrowBlue" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#2563EB" />
+    </marker>
+    <marker id="arrowAmber" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#F59E0B" />
+    </marker>
+    <marker id="arrowWhite" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#FFFFFF" />
+    </marker>
   </defs>
   <g id="background">
     <rect width="1280" height="720" fill="#F8FAFC" />
   </g>
   <g id="header">
-    <text x="60" y="72" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="36" font-weight="800" fill="#172033">三种中间图：把不完整信息显式拆开</text>
-    <text x="60" y="106" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="18" fill="#475569">`Gs`、`Gu`、`Gf` 让产品调试从黑箱输出变成可观察过程。</text>
+    <text x="60" y="70" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="36" font-weight="800" fill="#172033">MMSB-Graph：把多模态输入放进同一图状态空间</text>
+    <text x="60" y="106" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="18" fill="#475569">核心不是直接“画好看”，而是在离散知识图空间里求一条低代价、可解释的结构恢复路径。</text>
   </g>
-  <g id="pillars">
-    <g id="pillar-gs">
-      <path fill="#FFFFFF" stroke="#CBD5E1" filter="url(#softShadow)" d="M90,158 H404 A8,8 0 0 1 412,166 V560 A8,8 0 0 1 404,568 H90 A8,8 0 0 1 82,560 V166 A8,8 0 0 1 90,158 Z" />
-      <path fill="#E0F2FE" d="M90,158 H404 A8,8 0 0 1 412,166 V246 A8,8 0 0 1 404,254 H90 A8,8 0 0 1 82,246 V166 A8,8 0 0 1 90,158 Z" />
+  <g id="constraint-sources">
+    <g id="source-sketch">
+      <path fill="#FFFFFF" stroke="#CBD5E1" filter="url(#softShadow)" d="M78,168 H342 A8,8 0 0 1 350,176 V278 A8,8 0 0 1 342,286 H78 A8,8 0 0 1 70,278 V176 A8,8 0 0 1 78,168 Z" />
+      <path fill="#2563EB" d="M74,168 H74 A4,4 0 0 1 78,172 V282 A4,4 0 0 1 74,286 H74 A4,4 0 0 1 70,282 V172 A4,4 0 0 1 74,168 Z" />
       
-  <g transform="translate(114.0, 184.0) scale(1.75)" fill="none" stroke="#155E75" stroke-width="2">
+  <g transform="translate(100.0, 196.0) scale(1.6666666666666667)" fill="none" stroke="#2563EB" stroke-width="2">
     <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
     <path d="M13.5 6.5l4 4" />
   </g>
-      <text x="176" y="207" font-family="Consolas, monospace" font-size="28" font-weight="700" fill="#155E75">Gs</text>
-      <text x="176" y="232" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="18" font-weight="800" fill="#172033">草图图</text>
-      <text x="114" y="304" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="20" font-weight="800" fill="#172033">优势</text>
-      <text x="114" y="340" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="18" fill="#475569">保留模块位置和空间结构</text>
-      <text x="114" y="372" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="18" fill="#475569">能表达分支、上下游、闭环</text>
-      <text x="114" y="432" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="20" font-weight="800" fill="#F59E0B">缺口</text>
-      <text x="114" y="468" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="18" fill="#475569">标签不稳、语义弱、方向可能错</text>
+      <text x="158" y="211" font-family="Consolas, monospace" font-size="22" font-weight="700" fill="#2563EB">Gs</text>
+      <text x="158" y="238" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="18" font-weight="800" fill="#172033">草图边缘约束</text>
+      <text x="100" y="270" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="15" fill="#475569">位置、邻接、箭头粗方向</text>
     </g>
-    <g id="pillar-gu">
-      <path fill="#FFFFFF" stroke="#CBD5E1" filter="url(#softShadow)" d="M483,158 H797 A8,8 0 0 1 805,166 V560 A8,8 0 0 1 797,568 H483 A8,8 0 0 1 475,560 V166 A8,8 0 0 1 483,158 Z" />
-      <path fill="#CCFBF1" d="M483,158 H797 A8,8 0 0 1 805,166 V246 A8,8 0 0 1 797,254 H483 A8,8 0 0 1 475,246 V166 A8,8 0 0 1 483,158 Z" />
+    <g id="source-speech">
+      <path fill="#FFFFFF" stroke="#CBD5E1" filter="url(#softShadow)" d="M78,326 H342 A8,8 0 0 1 350,334 V436 A8,8 0 0 1 342,444 H78 A8,8 0 0 1 70,436 V334 A8,8 0 0 1 78,326 Z" />
+      <path fill="#0F766E" d="M74,326 H74 A4,4 0 0 1 78,330 V440 A4,4 0 0 1 74,444 H74 A4,4 0 0 1 70,440 V330 A4,4 0 0 1 74,326 Z" />
       
-  <g transform="translate(507.0, 184.0) scale(1.75)" fill="none" stroke="#0F766E" stroke-width="2">
+  <g transform="translate(100.0, 354.0) scale(1.6666666666666667)" fill="none" stroke="#0F766E" stroke-width="2">
     <path d="M9 5a3 3 0 0 1 3 -3a3 3 0 0 1 3 3v5a3 3 0 0 1 -3 3a3 3 0 0 1 -3 -3l0 -5" />
     <path d="M5 10a7 7 0 0 0 14 0" />
     <path d="M8 21l8 0" />
     <path d="M12 17l0 4" />
   </g>
-      <text x="569" y="207" font-family="Consolas, monospace" font-size="28" font-weight="700" fill="#0F766E">Gu</text>
-      <text x="569" y="232" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="18" font-weight="800" fill="#172033">语音图</text>
-      <text x="507" y="304" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="20" font-weight="800" fill="#172033">优势</text>
-      <text x="507" y="340" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="18" fill="#475569">节点命名和语义更完整</text>
-      <text x="507" y="372" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="18" fill="#475569">能补充顺序、因果和设计意图</text>
-      <text x="507" y="432" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="20" font-weight="800" fill="#F59E0B">缺口</text>
-      <text x="507" y="468" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="18" fill="#475569">缺少二维布局，难直接变成图</text>
+      <text x="158" y="369" font-family="Consolas, monospace" font-size="22" font-weight="700" fill="#0F766E">Gu</text>
+      <text x="158" y="396" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="18" font-weight="800" fill="#172033">语音语义约束</text>
+      <text x="100" y="428" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="15" fill="#475569">节点标签、顺序、关系意图</text>
     </g>
-    <g id="pillar-gf">
-      <path fill="#155E75" filter="url(#softShadow)" d="M876,158 H1190 A8,8 0 0 1 1198,166 V560 A8,8 0 0 1 1190,568 H876 A8,8 0 0 1 868,560 V166 A8,8 0 0 1 876,158 Z" />
-      <path fill="#0F766E" d="M876,158 H1190 A8,8 0 0 1 1198,166 V246 A8,8 0 0 1 1190,254 H876 A8,8 0 0 1 868,246 V166 A8,8 0 0 1 876,158 Z" />
+    <g id="source-fusion">
+      <path fill="#FFFFFF" stroke="#CBD5E1" filter="url(#softShadow)" d="M78,484 H342 A8,8 0 0 1 350,492 V594 A8,8 0 0 1 342,602 H78 A8,8 0 0 1 70,594 V492 A8,8 0 0 1 78,484 Z" />
+      <path fill="#F59E0B" d="M74,484 H74 A4,4 0 0 1 78,488 V598 A4,4 0 0 1 74,602 H74 A4,4 0 0 1 70,598 V488 A4,4 0 0 1 74,484 Z" />
       
-  <g transform="translate(900.0, 184.0) scale(1.75)" fill="none" stroke="#FFFFFF" stroke-width="2">
+  <g transform="translate(100.0, 512.0) scale(1.6666666666666667)" fill="none" stroke="#F59E0B" stroke-width="2">
     <path d="M19 8.268a2 2 0 0 1 1 1.732v8a2 2 0 0 1 -2 2h-8a2 2 0 0 1 -2 -2v-8a2 2 0 0 1 2 -2h3" />
     <path d="M5 15.734a2 2 0 0 1 -1 -1.734v-8a2 2 0 0 1 2 -2h8a2 2 0 0 1 2 2v8a2 2 0 0 1 -2 2h-3" />
   </g>
-      <text x="962" y="207" font-family="Consolas, monospace" font-size="28" font-weight="700" fill="#FFFFFF">Gf</text>
-      <text x="962" y="232" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="18" font-weight="800" fill="#E0F2FE">融合图</text>
-      <text x="900" y="304" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="20" font-weight="800" fill="#FFFFFF">作用</text>
-      <text x="900" y="340" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="18" fill="#E0F2FE">把空间结构和语义锚点合并</text>
-      <text x="900" y="372" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="18" fill="#E0F2FE">作为图编辑桥的初始候选</text>
-      <text x="900" y="432" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="20" font-weight="800" fill="#FFFFFF">产品意义</text>
-      <text x="900" y="468" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="18" fill="#E0F2FE">可定位错误来自视觉、语音还是融合</text>
+      <text x="158" y="527" font-family="Consolas, monospace" font-size="22" font-weight="700" fill="#F59E0B">Gf</text>
+      <text x="158" y="554" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="18" font-weight="800" fill="#172033">早期融合候选</text>
+      <text x="100" y="586" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="15" fill="#475569">初始图与多模态锚点</text>
     </g>
   </g>
-  <g id="takeaway">
-    <text x="640" y="632" text-anchor="middle" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="22" font-weight="800" fill="#155E75">显式中间图让“模型为什么这么画”有了可解释入口</text>
+  <g id="bridge-model">
+    <path d="M 354 226 C 452 226 455 330 536 352" fill="none" stroke="#2563EB" stroke-width="3" marker-end="url(#arrowBlue)" />
+    <path d="M 354 384 C 450 384 464 374 536 362" fill="none" stroke="#0F766E" stroke-width="3" marker-end="url(#arrowTeal)" />
+    <path d="M 354 542 C 452 542 455 398 536 372" fill="none" stroke="#F59E0B" stroke-width="3" marker-end="url(#arrowAmber)" />
+    <path fill="#155E75" filter="url(#softShadow)" d="M548,178 H892 A8,8 0 0 1 900,186 V534 A8,8 0 0 1 892,542 H548 A8,8 0 0 1 540,534 V186 A8,8 0 0 1 548,178 Z" />
+    <text x="720" y="228" text-anchor="middle" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="28" font-weight="800" fill="#FFFFFF">离散图编辑桥</text>
+    <text x="720" y="260" text-anchor="middle" font-family="Consolas, monospace" font-size="17" font-weight="700" fill="#CCFBF1">P(G0:T) in graph state space</text>
+    <g id="graph-path">
+      <circle cx="618" cy="350" r="24" fill="#E0F2FE" stroke="#FFFFFF" stroke-width="2" />
+      <circle cx="686" cy="350" r="24" fill="#CCFBF1" stroke="#FFFFFF" stroke-width="2" />
+      <circle cx="754" cy="350" r="24" fill="#FEF3C7" stroke="#FFFFFF" stroke-width="2" />
+      <circle cx="822" cy="350" r="24" fill="#DCFCE7" stroke="#FFFFFF" stroke-width="2" />
+      <line x1="642" y1="350" x2="662" y2="350" stroke="#FFFFFF" stroke-width="3" marker-end="url(#arrowWhite)" />
+      <line x1="710" y1="350" x2="730" y2="350" stroke="#FFFFFF" stroke-width="3" marker-end="url(#arrowWhite)" />
+      <line x1="778" y1="350" x2="798" y2="350" stroke="#FFFFFF" stroke-width="3" marker-end="url(#arrowWhite)" />
+      <text x="618" y="414" text-anchor="middle" font-family="Consolas, monospace" font-size="16" fill="#E0F2FE">G0</text>
+      <text x="686" y="414" text-anchor="middle" font-family="Consolas, monospace" font-size="16" fill="#E0F2FE">G1</text>
+      <text x="754" y="414" text-anchor="middle" font-family="Consolas, monospace" font-size="16" fill="#E0F2FE">...</text>
+      <text x="822" y="414" text-anchor="middle" font-family="Consolas, monospace" font-size="16" fill="#E0F2FE">GT</text>
+    </g>
+    <text x="576" y="470" font-family="Consolas, monospace" font-size="17" font-weight="700" fill="#FFFFFF">min_P KL(P||R) + λs Cs + λu Cu + λf Cf</text>
+    <text x="576" y="505" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="15" fill="#E0F2FE">R 是允许节点/边编辑的参考过程，三个 λ 控制草图、语音、融合约束权重。</text>
+  </g>
+  <g id="target-distribution">
+    <path d="M 904 360 C 960 360 976 360 1018 360" fill="none" stroke="#0F766E" stroke-width="3" marker-end="url(#arrowTeal)" />
+    <path fill="#FFFFFF" stroke="#CBD5E1" filter="url(#softShadow)" d="M1028,208 H1202 A8,8 0 0 1 1210,216 V504 A8,8 0 0 1 1202,512 H1028 A8,8 0 0 1 1020,504 V216 A8,8 0 0 1 1028,208 Z" />
+    
+  <g transform="translate(1094.0, 246.0) scale(2.0)" fill="none" stroke="#16A34A" stroke-width="2">
+    <path d="M11 12a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+    <path d="M7 12a5 5 0 1 0 10 0a5 5 0 1 0 -10 0" />
+    <path d="M3 12a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" />
+  </g>
+    <text x="1115" y="330" text-anchor="middle" font-family="Consolas, monospace" font-size="26" font-weight="700" fill="#0F766E">G*</text>
+    <text x="1115" y="363" text-anchor="middle" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="19" font-weight="800" fill="#172033">目标知识图</text>
+    <text x="1115" y="404" text-anchor="middle" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="15" fill="#475569">节点、边、方向、标签</text>
+    <text x="1115" y="432" text-anchor="middle" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="15" fill="#475569">同时对齐标准结构</text>
+  </g>
+  <g id="bottom-takeaway">
+    <path fill="#FFFFFF" stroke="#CBD5E1" d="M428,584 H932 A8,8 0 0 1 940,592 V630 A8,8 0 0 1 932,638 H428 A8,8 0 0 1 420,630 V592 A8,8 0 0 1 428,584 Z" />
+    <text x="680" y="618" text-anchor="middle" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="19" font-weight="800" fill="#155E75">科研价值：把产品输出转成可优化、可约束、可诊断的图分布问题</text>
   </g>
   <g id="footer">
-    <text x="60" y="680" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="12" fill="#94A3B8">SketchVoice · Intermediate Graphs</text>
+    <text x="60" y="680" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="12" fill="#94A3B8">SketchVoice · MMSB-Graph Model</text>
     <text x="1220" y="680" text-anchor="end" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="12" fill="#94A3B8">08 / 14</text>
   </g>
 </svg>

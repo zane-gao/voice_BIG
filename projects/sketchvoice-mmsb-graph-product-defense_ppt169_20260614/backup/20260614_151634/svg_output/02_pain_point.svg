@@ -1,0 +1,59 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720">
+  <defs>
+    <filter id="softShadow" x="-12%" y="-12%" width="124%" height="124%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="5"/>
+      <feOffset dx="0" dy="3" result="offsetBlur"/>
+      <feFlood flood-color="#172033" flood-opacity="0.08" result="shadowColor"/>
+      <feComposite in="shadowColor" in2="offsetBlur" operator="in" result="shadow"/>
+      <feMerge><feMergeNode in="shadow"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <g id="background">
+    <rect width="1280" height="720" fill="#F8FAFC"/>
+  </g>
+  <g id="header">
+    <text x="60" y="78" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="36" font-weight="800" fill="#172033">应用出发点：真实工作流是边说、边画、边补充</text>
+    <text x="60" y="114" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="18" fill="#475569">普通“文本生成图”工具不完全匹配科研学习场景，因为原始思考过程不是完整 prompt。</text>
+  </g>
+  <g id="central-claim">
+    <rect x="92" y="166" width="1096" height="120" rx="8" fill="#FFFFFF" stroke="#CBD5E1" filter="url(#softShadow)"/>
+    <use data-icon="tabler-outline/route-2" x="126" y="198" width="48" height="48" fill="#155E75" stroke-width="2"/>
+    <text x="204" y="214" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="24" font-weight="800" fill="#155E75">痛点不是“不会画图”，而是讨论过程很难沉淀为结构化资产</text>
+    <text x="204" y="252" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="18" fill="#475569">草图留下布局和箭头，语音留下节点名称、关系方向和设计意图；但会后往往还要重新整理。</text>
+  </g>
+  <g id="audience-list">
+    <line x1="140" y1="348" x2="1140" y2="348" stroke="#CBD5E1" stroke-width="2"/>
+    <g id="audience-student">
+      <circle cx="172" cy="348" r="18" fill="#155E75"/>
+      <text x="172" y="354" text-anchor="middle" font-family="Consolas, monospace" font-size="15" font-weight="700" fill="#FFFFFF">1</text>
+      <text x="214" y="340" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="21" font-weight="800" fill="#172033">AI/科研学生</text>
+      <text x="214" y="374" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="17" fill="#475569">读论文、做组会、快速画方法图</text>
+    </g>
+    <g id="audience-teacher">
+      <circle cx="172" cy="438" r="18" fill="#0F766E"/>
+      <text x="172" y="444" text-anchor="middle" font-family="Consolas, monospace" font-size="15" font-weight="700" fill="#FFFFFF">2</text>
+      <text x="214" y="430" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="21" font-weight="800" fill="#172033">教师/助教</text>
+      <text x="214" y="464" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="17" fill="#475569">课堂讲解和知识路线需要留下结构化材料</text>
+    </g>
+    <g id="audience-team">
+      <circle cx="682" cy="348" r="18" fill="#2563EB"/>
+      <text x="682" y="354" text-anchor="middle" font-family="Consolas, monospace" font-size="15" font-weight="700" fill="#FFFFFF">3</text>
+      <text x="724" y="340" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="21" font-weight="800" fill="#172033">科研团队</text>
+      <text x="724" y="374" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="17" fill="#475569">白板 brainstorming 容易丢失，复盘成本高</text>
+    </g>
+    <g id="audience-product">
+      <circle cx="682" cy="438" r="18" fill="#F59E0B"/>
+      <text x="682" y="444" text-anchor="middle" font-family="Consolas, monospace" font-size="15" font-weight="700" fill="#FFFFFF">4</text>
+      <text x="724" y="430" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="21" font-weight="800" fill="#172033">双创/产品团队</text>
+      <text x="724" y="464" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="17" fill="#475569">想法表达很快，但图形产物和讲解材料生成慢</text>
+    </g>
+  </g>
+  <g id="takeaway">
+    <rect x="166" y="560" width="948" height="48" rx="8" fill="#155E75"/>
+    <text x="640" y="591" text-anchor="middle" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="19" font-weight="800" fill="#FFFFFF">SketchVoice 的切入点：保留自然表达方式，同时输出可编辑、可复用、可展示的结构化结果。</text>
+  </g>
+  <g id="footer">
+    <text x="60" y="680" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="12" fill="#94A3B8">SketchVoice · Application Scenario</text>
+    <text x="1220" y="680" text-anchor="end" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="12" fill="#94A3B8">02 / 14</text>
+  </g>
+</svg>

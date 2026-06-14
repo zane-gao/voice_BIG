@@ -6,7 +6,7 @@
 
 ## mode
 - mode: custom
-- mode_behavior: Three-act product-defense narrative. Act 1 starts from user workflow and product pain, Act 2 introduces MMSB-Graph as the structural engine, Act 3 closes with evaluation, engineering loop, boundary, and contributions. Titles should be claim-like and speaker notes should connect product value to research support.
+- mode_behavior: Three-act product-defense narrative. Act 1 starts from user workflow and product pain, Act 2 introduces MMSB-Graph as the structural engine, Act 3 closes with evaluation, explainability, project knowledge graph, and multi-dimensional value. Titles should be claim-like and speaker notes should connect product value to research support.
 
 ## visual_style
 - visual_style: soft-rounded
@@ -60,7 +60,7 @@
 - P10: dense
 - P11: dense
 - P12: dense
-- P13: breathing
+- P13: dense
 - P14: anchor
 
 ## page_charts
@@ -68,12 +68,12 @@
 - P04: icon_grid
 - P05: pipeline_with_stages
 - P06: layered_architecture
-- P08: vertical_pillars
+- P08: hub_inward_arrows
 - P09: process_flow
 - P10: icon_grid
 - P11: basic_table
 - P12: circular_stages
-- P13: vertical_list
+- P13: mind_map
 
 ## forbidden
 - Mixing icon libraries

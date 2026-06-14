@@ -2,7 +2,7 @@
   <defs>
     <filter id="softShadow" x="-12%" y="-12%" width="124%" height="124%">
       <feGaussianBlur in="SourceAlpha" stdDeviation="6" />
-      <feOffset dx="0" dy="3" result="offsetBlur" />
+      <feOffset dx="0" dy="4" result="offsetBlur" />
       <feFlood flood-color="#172033" flood-opacity="0.09" result="shadowColor" />
       <feComposite in="shadowColor" in2="offsetBlur" operator="in" result="shadow" />
       <feMerge><feMergeNode in="shadow" /><feMergeNode in="SourceGraphic" /></feMerge>
@@ -15,69 +15,39 @@
     <rect width="1280" height="720" fill="#F8FAFC" />
     <rect x="0" y="0" width="1280" height="18" fill="#155E75" />
   </g>
-  <g id="hero-summary">
-    <text x="640" y="110" text-anchor="middle" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="44" font-weight="800" fill="#172033">总结：产品闭环 + 方法支撑 + 可评测系统</text>
-    <text x="640" y="154" text-anchor="middle" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="20" fill="#475569">SketchVoice 将“语音 + 草图”的自然表达过程，转化为可编辑、可导出、可评价的知识图。</text>
+  <g id="hero">
+    <text x="640" y="86" text-anchor="middle" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="40" font-weight="800" fill="#172033">总结：把自然表达升级为可研究的知识结构生产线</text>
+    <text x="640" y="124" text-anchor="middle" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="19" fill="#475569">SketchVoice 不是单点 demo，而是“应用闭环 + 科研模型 + 评测协议 + 可解释诊断”的完整链路。</text>
   </g>
-  <g id="product-flow">
-    <path fill="#FFFFFF" stroke="#CBD5E1" filter="url(#softShadow)" d="M216,202 H1064 A8,8 0 0 1 1072,210 V288 A8,8 0 0 1 1064,296 H216 A8,8 0 0 1 208,288 V210 A8,8 0 0 1 216,202 Z" />
-    <g id="flow-input">
-      <circle cx="292" cy="249" r="28" fill="#CCFBF1" />
+  <g id="central-claim">
+    <path fill="#155E75" filter="url(#softShadow)" d="M158,156 H1122 A8,8 0 0 1 1130,164 V230 A8,8 0 0 1 1122,238 H158 A8,8 0 0 1 150,230 V164 A8,8 0 0 1 158,156 Z" />
+    
+  <g transform="translate(190.0, 177.0) scale(1.6666666666666667)" fill="none" stroke="#FFFFFF" stroke-width="2">
+    <path d="M3 12h1m8 -9v1m8 8h1m-15.4 -6.4l.7 .7m12.1 -.7l-.7 .7" />
+    <path d="M9 16a5 5 0 1 1 6 0a3.5 3.5 0 0 0 -1 3a2 2 0 0 1 -4 0a3.5 3.5 0 0 0 -1 -3" />
+    <path d="M9.7 17l4.6 0" />
+  </g>
+    <text x="250" y="191" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="24" font-weight="800" fill="#FFFFFF">一句话结论</text>
+    <text x="250" y="219" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="18" fill="#E0F2FE">我们把“边说边画”的低结构表达，转化为可编辑、可导出、可评测、可诊断的多模态科研表达基础设施。</text>
+  </g>
+  <g id="value-dimensions">
+    <g id="value-product">
+      <path fill="#FFFFFF" stroke="#CBD5E1" filter="url(#softShadow)" d="M78,292 H274 A8,8 0 0 1 282,300 V462 A8,8 0 0 1 274,470 H78 A8,8 0 0 1 70,462 V300 A8,8 0 0 1 78,292 Z" />
       
-  <g transform="translate(274.0, 231.0) scale(1.5)" fill="none" stroke="#0F766E" stroke-width="2">
-    <path d="M9 5a3 3 0 0 1 3 -3a3 3 0 0 1 3 3v5a3 3 0 0 1 -3 3a3 3 0 0 1 -3 -3l0 -5" />
-    <path d="M5 10a7 7 0 0 0 14 0" />
-    <path d="M8 21l8 0" />
-    <path d="M12 17l0 4" />
-  </g>
-      <text x="342" y="256" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="19" font-weight="800" fill="#172033">说清语义</text>
-    </g>
-    <path d="M 450 249 L 530 249" fill="none" stroke="#0F766E" stroke-width="3" marker-end="url(#arrowEnd)" />
-    <g id="flow-structure">
-      <circle cx="586" cy="249" r="28" fill="#E0F2FE" />
-      
-  <g transform="translate(568.0, 231.0) scale(1.5)" fill="none" stroke="#2563EB" stroke-width="2">
-    <path d="M6 9a6 6 0 1 0 12 0a6 6 0 0 0 -12 0" />
-    <path d="M12 3c1.333 .333 2 2.333 2 6s-.667 5.667 -2 6" />
-    <path d="M12 3c-1.333 .333 -2 2.333 -2 6s.667 5.667 2 6" />
-    <path d="M6 9h12" />
-    <path d="M3 20h7" />
-    <path d="M14 20h7" />
-    <path d="M10 20a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
-    <path d="M12 15v3" />
-  </g>
-      <text x="636" y="256" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="19" font-weight="800" fill="#172033">恢复结构</text>
-    </g>
-    <path d="M 742 249 L 822 249" fill="none" stroke="#0F766E" stroke-width="3" marker-end="url(#arrowEnd)" />
-    <g id="flow-output">
-      <circle cx="878" cy="249" r="28" fill="#DCFCE7" />
-      
-  <g transform="translate(860.0, 231.0) scale(1.5)" fill="none" stroke="#16A34A" stroke-width="2">
-    <path d="M14 3v4a1 1 0 0 0 1 1h4" />
-    <path d="M11.5 21h-4.5a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v5m-5 6h7m-3 -3l3 3l-3 3" />
-  </g>
-      <text x="928" y="256" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="19" font-weight="800" fill="#172033">交付结果</text>
-    </g>
-  </g>
-  <g id="contributions">
-    <g id="contribution-product">
-      <path fill="#FFFFFF" stroke="#CBD5E1" filter="url(#softShadow)" d="M92,346 H418 A8,8 0 0 1 426,354 V534 A8,8 0 0 1 418,542 H92 A8,8 0 0 1 84,534 V354 A8,8 0 0 1 92,346 Z" />
-      
-  <g transform="translate(112.0, 374.0) scale(1.6666666666666667)" fill="none" stroke="#155E75" stroke-width="2">
+  <g transform="translate(94.0, 316.0) scale(1.5)" fill="none" stroke="#2563EB" stroke-width="2">
     <path d="M3 5a1 1 0 0 1 1 -1h16a1 1 0 0 1 1 1v10a1 1 0 0 1 -1 1h-16a1 1 0 0 1 -1 -1v-10" />
     <path d="M7 20h10" />
     <path d="M9 16v4" />
     <path d="M15 16v4" />
   </g>
-      <text x="170" y="404" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="24" font-weight="800" fill="#172033">产品层</text>
-      <text x="112" y="458" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="18" fill="#475569">构建 SketchVoice 方法图工作台，</text>
-      <text x="112" y="490" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="18" fill="#475569">支持草图、语音、文本到图结构的</text>
-      <text x="112" y="522" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="18" fill="#475569">连续交互与导出。</text>
+      <text x="94" y="382" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="21" font-weight="800" fill="#172033">产品价值</text>
+      <text x="94" y="418" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="15" fill="#475569">完成可操作工作台，</text>
+      <text x="94" y="444" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="15" fill="#475569">覆盖输入、预览、下载、讲解。</text>
     </g>
-    <g id="contribution-method">
-      <path fill="#FFFFFF" stroke="#CBD5E1" filter="url(#softShadow)" d="M477,346 H803 A8,8 0 0 1 811,354 V534 A8,8 0 0 1 803,542 H477 A8,8 0 0 1 469,534 V354 A8,8 0 0 1 477,346 Z" />
+    <g id="value-research">
+      <path fill="#FFFFFF" stroke="#CBD5E1" filter="url(#softShadow)" d="M314,292 H510 A8,8 0 0 1 518,300 V462 A8,8 0 0 1 510,470 H314 A8,8 0 0 1 306,462 V300 A8,8 0 0 1 314,292 Z" />
       
-  <g transform="translate(497.0, 374.0) scale(1.6666666666666667)" fill="none" stroke="#0F766E" stroke-width="2">
+  <g transform="translate(330.0, 316.0) scale(1.5)" fill="none" stroke="#0F766E" stroke-width="2">
     <path d="M5 18a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
     <path d="M5 6a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
     <path d="M15 6a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
@@ -85,15 +55,14 @@
     <path d="M9 18h6a2 2 0 0 0 2 -2v-5" />
     <path d="M14 14l3 -3l3 3" />
   </g>
-      <text x="555" y="404" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="24" font-weight="800" fill="#172033">方法层</text>
-      <text x="497" y="458" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="18" fill="#475569">提出语音引导知识草图结构化任务，</text>
-      <text x="497" y="490" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="18" fill="#475569">用 MMSB-Graph 将生成问题转化为</text>
-      <text x="497" y="522" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="18" fill="#475569">可解释图编辑路径。</text>
+      <text x="330" y="382" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="21" font-weight="800" fill="#172033">科研价值</text>
+      <text x="330" y="418" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="15" fill="#475569">定义语音引导知识草图</text>
+      <text x="330" y="444" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="15" fill="#475569">结构化与 MMSB-Graph。</text>
     </g>
-    <g id="contribution-system">
-      <path fill="#FFFFFF" stroke="#CBD5E1" filter="url(#softShadow)" d="M862,346 H1188 A8,8 0 0 1 1196,354 V534 A8,8 0 0 1 1188,542 H862 A8,8 0 0 1 854,534 V354 A8,8 0 0 1 862,346 Z" />
+    <g id="value-eval">
+      <path fill="#FFFFFF" stroke="#CBD5E1" filter="url(#softShadow)" d="M550,292 H746 A8,8 0 0 1 754,300 V462 A8,8 0 0 1 746,470 H550 A8,8 0 0 1 542,462 V300 A8,8 0 0 1 550,292 Z" />
       
-  <g transform="translate(882.0, 374.0) scale(1.6666666666666667)" fill="none" stroke="#2563EB" stroke-width="2">
+  <g transform="translate(566.0, 316.0) scale(1.5)" fill="none" stroke="#16A34A" stroke-width="2">
     <path d="M3 3v18h18" />
     <path d="M7 9a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
     <path d="M17 7a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
@@ -101,18 +70,63 @@
     <path d="M10.16 10.62l2.34 2.88" />
     <path d="M15.088 13.328l2.837 -4.586" />
   </g>
-      <text x="940" y="404" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="24" font-weight="800" fill="#172033">系统层</text>
-      <text x="882" y="458" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="18" fill="#475569">打通输入、生成、展示、导出、评测</text>
-      <text x="882" y="490" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="18" fill="#475569">闭环，让产品结果可以被复用，</text>
-      <text x="882" y="522" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="18" fill="#475569">也可以被指标检验。</text>
+      <text x="566" y="382" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="21" font-weight="800" fill="#172033">评测价值</text>
+      <text x="566" y="418" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="15" fill="#475569">24 个样例、对照基线、</text>
+      <text x="566" y="444" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="15" fill="#475569">GED、F1、路径能量指标。</text>
+    </g>
+    <g id="value-engineering">
+      <path fill="#FFFFFF" stroke="#CBD5E1" filter="url(#softShadow)" d="M786,292 H982 A8,8 0 0 1 990,300 V462 A8,8 0 0 1 982,470 H786 A8,8 0 0 1 778,462 V300 A8,8 0 0 1 786,292 Z" />
+      
+  <g transform="translate(802.0, 316.0) scale(1.5)" fill="none" stroke="#155E75" stroke-width="2">
+    <path d="M3 7a3 3 0 0 1 3 -3h12a3 3 0 0 1 3 3v2a3 3 0 0 1 -3 3h-12a3 3 0 0 1 -3 -3" />
+    <path d="M3 15a3 3 0 0 1 3 -3h12a3 3 0 0 1 3 3v2a3 3 0 0 1 -3 3h-12a3 3 0 0 1 -3 -3l0 -2" />
+    <path d="M7 8l0 .01" />
+    <path d="M7 16l0 .01" />
+  </g>
+      <text x="802" y="382" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="21" font-weight="800" fill="#172033">工程价值</text>
+      <text x="802" y="418" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="15" fill="#475569">模型服务可替换，mock</text>
+      <text x="802" y="444" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="15" fill="#475569">保障展示和复现实验。</text>
+    </g>
+    <g id="value-education">
+      <path fill="#FFFFFF" stroke="#CBD5E1" filter="url(#softShadow)" d="M1022,292 H1202 A8,8 0 0 1 1210,300 V462 A8,8 0 0 1 1202,470 H1022 A8,8 0 0 1 1014,462 V300 A8,8 0 0 1 1022,292 Z" />
+      
+  <g transform="translate(1038.0, 316.0) scale(1.5)" fill="none" stroke="#F59E0B" stroke-width="2">
+    <path d="M3 4l18 0" />
+    <path d="M4 4v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2 -2v-10" />
+    <path d="M12 16l0 4" />
+    <path d="M9 20l6 0" />
+    <path d="M8 12l3 -3l2 2l3 -3" />
+  </g>
+      <text x="1038" y="382" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="21" font-weight="800" fill="#172033">表达价值</text>
+      <text x="1038" y="418" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="15" fill="#475569">把课堂/科研讲解</text>
+      <text x="1038" y="444" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="15" fill="#475569">沉淀为结构化资产。</text>
     </g>
   </g>
-  <g id="closing-line">
-    <path fill="#155E75" d="M178,588 H1102 A8,8 0 0 1 1110,596 V630 A8,8 0 0 1 1102,638 H178 A8,8 0 0 1 170,630 V596 A8,8 0 0 1 178,588 Z" />
-    <text x="640" y="620" text-anchor="middle" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="20" font-weight="800" fill="#FFFFFF">一句话：把“边说边画”变成结构化知识资产，并给出可解释的恢复路径。</text>
+  <g id="future-line">
+    <line x1="198" y1="500" x2="1070" y2="500" stroke="#0F766E" stroke-width="3" marker-end="url(#arrowEnd)" />
+    <g id="future-1">
+      <circle cx="250" cy="500" r="11" fill="#0F766E" />
+      <text x="250" y="532" text-anchor="middle" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="14" font-weight="800" fill="#172033">真实用户数据</text>
+    </g>
+    <g id="future-2">
+      <circle cx="472" cy="500" r="11" fill="#0F766E" />
+      <text x="472" y="532" text-anchor="middle" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="14" font-weight="800" fill="#172033">草图解析增强</text>
+    </g>
+    <g id="future-3">
+      <circle cx="694" cy="500" r="11" fill="#0F766E" />
+      <text x="694" y="532" text-anchor="middle" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="14" font-weight="800" fill="#172033">编辑策略训练</text>
+    </g>
+    <g id="future-4">
+      <circle cx="916" cy="500" r="11" fill="#0F766E" />
+      <text x="916" y="532" text-anchor="middle" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="14" font-weight="800" fill="#172033">前端诊断反馈</text>
+    </g>
+  </g>
+  <g id="closing">
+    <path fill="#FFFFFF" stroke="#CBD5E1" d="M222,580 H1058 A8,8 0 0 1 1066,588 V624 A8,8 0 0 1 1058,632 H222 A8,8 0 0 1 214,624 V588 A8,8 0 0 1 222,580 Z" />
+    <text x="640" y="613" text-anchor="middle" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="19" font-weight="800" fill="#155E75">所以，这个项目既有能演示的应用成果，也有可继续深化的科研问题和实验框架。</text>
   </g>
   <g id="footer">
-    <text x="60" y="680" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="12" fill="#94A3B8">SketchVoice 路 Conclusion</text>
+    <text x="60" y="680" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="12" fill="#94A3B8">SketchVoice · Conclusion</text>
     <text x="1220" y="680" text-anchor="end" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="12" fill="#94A3B8">14 / 14</text>
   </g>
 </svg>

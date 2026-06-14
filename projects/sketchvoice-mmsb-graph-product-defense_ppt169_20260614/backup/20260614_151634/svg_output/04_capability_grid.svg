@@ -1,0 +1,78 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720">
+  <defs>
+    <filter id="cardShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="4"/>
+      <feOffset dx="0" dy="2" result="offsetBlur"/>
+      <feFlood flood-color="#172033" flood-opacity="0.06" result="shadowColor"/>
+      <feComposite in="shadowColor" in2="offsetBlur" operator="in" result="shadow"/>
+      <feMerge><feMergeNode in="shadow"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <g id="background">
+    <rect width="1280" height="720" fill="#F8FAFC"/>
+  </g>
+  <g id="header">
+    <text x="60" y="72" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="36" font-weight="800" fill="#172033">产品能力：不只是生成图，而是生成“工作台”</text>
+    <text x="60" y="106" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="18" fill="#475569">价值来自完整操作面，而不是一次模型调用。</text>
+  </g>
+  <g id="grid">
+    <g id="cap-input">
+      <rect x="60" y="150" width="360" height="190" rx="8" fill="#FFFFFF" stroke="#CBD5E1" filter="url(#cardShadow)"/>
+      <rect x="88" y="176" width="52" height="52" rx="8" fill="#E0F2FE"/>
+      <use data-icon="tabler-outline/device-desktop" x="100" y="188" width="28" height="28" fill="#2563EB" stroke-width="2"/>
+      <text x="160" y="198" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="22" font-weight="800" fill="#172033">输入工作台</text>
+      <text x="160" y="228" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="16" fill="#475569">画布、录音、上传音频、转写文本补充</text>
+      <line x1="88" y1="258" x2="392" y2="258" stroke="#CBD5E1"/>
+      <text x="88" y="292" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="17" fill="#475569">用户不需要先整理成规范格式，直接把讨论过程放进系统。</text>
+    </g>
+    <g id="cap-structure">
+      <rect x="460" y="150" width="360" height="190" rx="8" fill="#FFFFFF" stroke="#CBD5E1" filter="url(#cardShadow)"/>
+      <rect x="488" y="176" width="52" height="52" rx="8" fill="#CCFBF1"/>
+      <use data-icon="tabler-outline/network" x="500" y="188" width="28" height="28" fill="#0F766E" stroke-width="2"/>
+      <text x="560" y="198" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="22" font-weight="800" fill="#172033">结构化建模</text>
+      <text x="560" y="228" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="16" fill="#475569">节点、边、方向、类型、置信度</text>
+      <line x1="488" y1="258" x2="792" y2="258" stroke="#CBD5E1"/>
+      <text x="488" y="292" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="17" fill="#475569">核心不是“画得像”，而是恢复可编辑知识结构。</text>
+    </g>
+    <g id="cap-preview">
+      <rect x="860" y="150" width="360" height="190" rx="8" fill="#FFFFFF" stroke="#CBD5E1" filter="url(#cardShadow)"/>
+      <rect x="888" y="176" width="52" height="52" rx="8" fill="#E0F2FE"/>
+      <use data-icon="tabler-outline/json" x="900" y="188" width="28" height="28" fill="#2563EB" stroke-width="2"/>
+      <text x="960" y="198" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="22" font-weight="800" fill="#172033">多视图预览</text>
+      <text x="960" y="228" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="16" fill="#475569">Mermaid / 图形 / AI 图像 / JSON</text>
+      <line x1="888" y1="258" x2="1192" y2="258" stroke="#CBD5E1"/>
+      <text x="888" y="292" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="17" fill="#475569">同一个结构可以用不同形式检查、修改和下载。</text>
+    </g>
+    <g id="cap-image">
+      <rect x="60" y="380" width="360" height="190" rx="8" fill="#FFFFFF" stroke="#CBD5E1" filter="url(#cardShadow)"/>
+      <rect x="88" y="406" width="52" height="52" rx="8" fill="#DCFCE7"/>
+      <use data-icon="tabler-outline/photo" x="100" y="418" width="28" height="28" fill="#16A34A" stroke-width="2"/>
+      <text x="160" y="428" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="22" font-weight="800" fill="#172033">草稿图与终稿图</text>
+      <text x="160" y="458" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="16" fill="#475569">豆包草稿图 + OpenAI 终稿图</text>
+      <line x1="88" y1="488" x2="392" y2="488" stroke="#CBD5E1"/>
+      <text x="88" y="522" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="17" fill="#475569">把结构图进一步包装成论文或汇报可用的方法图。</text>
+    </g>
+    <g id="cap-narration">
+      <rect x="460" y="380" width="360" height="190" rx="8" fill="#FFFFFF" stroke="#CBD5E1" filter="url(#cardShadow)"/>
+      <rect x="488" y="406" width="52" height="52" rx="8" fill="#FEF3C7"/>
+      <use data-icon="tabler-outline/speakerphone" x="500" y="418" width="28" height="28" fill="#F59E0B" stroke-width="2"/>
+      <text x="560" y="428" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="22" font-weight="800" fill="#172033">终稿图讲解</text>
+      <text x="560" y="458" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="16" fill="#475569">分段脚本、TTS、光标坐标、WebM</text>
+      <line x1="488" y1="488" x2="792" y2="488" stroke="#CBD5E1"/>
+      <text x="488" y="522" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="17" fill="#475569">输出不止是静态图，也能变成可播放讲解材料。</text>
+    </g>
+    <g id="cap-export">
+      <rect x="860" y="380" width="360" height="190" rx="8" fill="#FFFFFF" stroke="#CBD5E1" filter="url(#cardShadow)"/>
+      <rect x="888" y="406" width="52" height="52" rx="8" fill="#CCFBF1"/>
+      <use data-icon="tabler-outline/file-export" x="900" y="418" width="28" height="28" fill="#0F766E" stroke-width="2"/>
+      <text x="960" y="428" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="22" font-weight="800" fill="#172033">下载与演示</text>
+      <text x="960" y="458" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="16" fill="#475569">SVG、JSON、Mermaid、图像、WebM</text>
+      <line x1="888" y1="488" x2="1192" y2="488" stroke="#CBD5E1"/>
+      <text x="888" y="522" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="17" fill="#475569">Mock 模式保证课堂演示时即使无 key 也能跑通闭环。</text>
+    </g>
+  </g>
+  <g id="footer">
+    <text x="60" y="680" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="12" fill="#94A3B8">SketchVoice · Capability Map</text>
+    <text x="1220" y="680" text-anchor="end" font-family='"Microsoft YaHei", Arial, sans-serif' font-size="12" fill="#94A3B8">04 / 14</text>
+  </g>
+</svg>

@@ -205,12 +205,12 @@ Catalog read: 71 templates
 | P05 | pipeline_with_stages | `templates/charts/pipeline_with_stages.svg` | "Pick for 3-5 horizontal pipeline stages, each = title + 1-line description + output artifact, connected by arrows (data pipelines, ETL, build pipelines). Skip if any stage lacks an artifact (use process_flow or numbered_steps)." | Live demo flow from sketch to WebM |
 | P06 | layered_architecture | `templates/charts/layered_architecture.svg` | "Pick for 3-4 horizontal architecture layers (presentation/service/data), 2-4 module cards per layer, each card = title + 1-line description (description required, even if source brief). Skip if no per-module descriptions (use icon_grid) or no horizontal layering (use module_composition)." | System architecture |
 | P07 | vertical_list | `templates/charts/vertical_list.svg` | "Pick for 3-6 numbered key points each with a short description — design principles, core tenets, action items, key takeaways, recommendations, executive summary points. Skip for icon-style cards (use icon_grid) or sequential steps (use numbered_steps)." | Research task definition bridge |
-| P08 | vertical_pillars | `templates/charts/vertical_pillars.svg` | "Pick for 1×3 / 1×4 / 1×5 vertical column layout where each pillar = one independent category with title + bullets — PEST (Political/Economic/Social/Technological), four-pillar strategy overview, side-by-side independent categories. Skip for 2×2 quadrant (use quadrant_text_bullets), pricing tiers (use comparison_columns), or 2×2 parallel aspects (use labeled_card)." | Three intermediate graphs |
+| P08 | hub_inward_arrows | `templates/charts/hub_inward_arrows.svg` | "Pick for 1 center subject + 4-5 surrounding forces with arrows pointing inward — Porter's Five Forces (central rivalry, threat of new entrants/substitutes, bargaining power of buyers/suppliers), threat-model with central asset, pressure-on-core diagrams. Skip for outward radiation from center capability (use hub_spoke) or non-directional cluster (use mind_map)." | MMSB-Graph multi-constraint model |
 | P09 | process_flow | `templates/charts/process_flow.svg` | "Pick for 3-8 sequential steps connected by simple arrows — approval workflows, customer onboarding, request handling, lifecycle stages. Skip if cyclical (use circular_stages) or stages produce named outputs (use pipeline_with_stages)." | Graph editing bridge |
 | P10 | icon_grid | `templates/charts/icon_grid.svg` | "Pick for 4-9 parallel features/capabilities/services as icon cards — feature grid, service lineup, benefits matrix, brand values, product highlights. Skip for sequential ordering (use numbered_steps) or hierarchical layers (use pyramid_chart)." | Dataset and metric overview |
 | P11 | basic_table | `templates/charts/basic_table.svg` | "Pick for plain tabular text/number grid, 3-8 columns. Skip if cells need visual bars (use consulting_table) or qualitative scores (use harvey_balls_table)." | Method comparison results |
 | P12 | circular_stages | `templates/charts/circular_stages.svg` | "Pick for 4-6 stage closed loop where stages compose a cycle — PDCA, flywheel compounding loops (Attract → Engage → Delight), lifecycle, continuous improvement. Skip for linear flow (use process_flow), one-shot sequence (use numbered_steps), or wedge-based central topic (use segmented_wheel)." | Engineering product loop |
-| P13 | vertical_list | `templates/charts/vertical_list.svg` | "Pick for 3-6 numbered key points each with a short description — design principles, core tenets, action items, key takeaways, recommendations, executive summary points. Skip for icon-style cards (use icon_grid) or sequential steps (use numbered_steps)." | Boundary and value explanation |
+| P13 | mind_map | `templates/charts/mind_map.svg` | "Pick for one core topic radiating into 3-6 brainstorm branches. Skip for capability hub-and-spoke (use hub_spoke) or strict hierarchy (use top_down_tree)." | Project knowledge graph |
 
 **Runners-up considered**
 
@@ -290,21 +290,21 @@ No AI-generated images are used. The deck has only one image-bearing page, so th
 - **Visualization**: vertical_list.
 - **Content**: 给定手绘草图 `S` 与同步语音 `U`，目标是重建知识图 `G_hat = (V, E)`。草图提供模块位置、箭头和空间关系；语音提供节点名称、关系方向和设计意图。三个核心假设是：语音能补全节点标签，口头叙述顺序能纠正边方向，显式编辑路径能降低用户修改成本。
 
-#### Slide 08 - 三种中间图：把不完整信息显式拆开
+#### Slide 08 - MMSB-Graph：把多模态输入放进同一图状态空间
 
-- **Layout**: Three vertical pillars converging to a fusion graph.
-- **Title**: 三种中间图：把不完整信息显式拆开
-- **Core message**: `Gs`、`Gu`、`Gf` 让产品调试从黑箱输出变成可观察过程。
-- **Visualization**: vertical_pillars.
-- **Content**: `Gs` 来自草图解析，保留空间结构但语义弱；`Gu` 来自语音转写，语义强但没有布局；`Gf` 融合两者，作为编辑桥的初始候选图。这个拆分也对应用户可能看到的错误来源。
+- **Layout**: Left-side constraint sources, central bridge model, right-side target distribution.
+- **Title**: MMSB-Graph：把多模态输入放进同一图状态空间
+- **Core message**: 核心不是直接“画好看”，而是在离散知识图空间里求一条低代价、可解释的结构恢复路径。
+- **Visualization**: hub_inward_arrows.
+- **Content**: `Gs` 提供草图边缘约束，保留位置、邻接和箭头粗方向；`Gu` 提供语音语义约束，补充标签、顺序和关系意图；`Gf` 形成早期融合候选。MMSB-Graph 把这些边缘约束统一进图状态空间，求解 `min_P KL(P||R) + λs Cs + λu Cu + λf Cf`，其中 `R` 是允许节点和边编辑的参考过程。目标不是一个单点预测，而是一条从 `G0` 到 `GT` 的可解释路径。
 
-#### Slide 09 - 图编辑桥：逐步恢复，而不是一次猜完
+#### Slide 09 - 训练与推理：先把编辑路径变成可计算对象
 
-- **Layout**: Process flow with edit operations and cost badges.
-- **Title**: 图编辑桥：逐步恢复，而不是一次猜完
-- **Core message**: 图编辑桥把结构恢复转化为可追踪的离散编辑路径。
+- **Layout**: Trainable extension left/right cards with process and math panels.
+- **Title**: 训练与推理：先把编辑路径变成可计算对象
+- **Core message**: 当前实现验证图桥和指标链路；同一套路径表示也能扩展为可监督训练与能量重排序。
 - **Visualization**: process_flow.
-- **Content**: 允许插入节点、删除节点、插入边、删除边和修正边方向。单步代价 `c(Gt, Gt+1)` 由结构变化、语义距离、方向惩罚、布局保持和语音覆盖组成；路径能量 `E(G0:T) = 1/T Σ c(Gt, Gt+1)^2` 衡量整体修复是否自然。
+- **Content**: 现阶段代码用确定性图编辑桥和 gold graph 做可控 sanity check，验证任务定义、指标和路径代价可运行；可训练扩展则可以把人工修正轨迹、候选图和编辑序列转成 edit policy 或 energy reranker。编辑动作空间包括插入节点、删除节点、插入边、删除边与修正方向。单步代价 `c(Gt, Gt+1)` 由结构变化、语义距离、方向惩罚、布局保持和语音覆盖组成；路径能量 `E(G0:T) = 1/T Σ c(Gt, Gt+1)^2` 既是诊断量，也能作为学习信号。
 
 ### Part 3: Evaluation, loop, and final value
 
@@ -325,28 +325,28 @@ No AI-generated images are used. The deck has only one image-bearing page, so th
 - **Content**: Sketch only 的 Edge F1 为 0.387，Speech only 提升到 0.564，Early Fusion 提升节点但边仍不稳，Greedy Repair 能局部修复，MMSB-Graph 达到 Node/Edge F1 1.000、Normalized GED 0、manual edit cost 0。诊断图用于展示结构恢复、GED 和桥路径负载。
 - **Image**: `mmsb_diagnostics.png`.
 
-#### Slide 12 - 工程闭环：产品、模型、评测可以互相反馈
+#### Slide 12 - 可解释性：让生成结果能被追问、定位和改进
 
-- **Layout**: Circular stages loop.
-- **Title**: 工程闭环：产品、模型、评测可以互相反馈
-- **Core message**: 这个项目的完整性体现在“用户可操作、模型可替换、结果可评测”。
+- **Layout**: Diagnostic loop with evidence panel.
+- **Title**: 可解释性：让生成结果能被追问、定位和改进
+- **Core message**: 科研价值来自可诊断的结构恢复过程，而不是只输出一张看起来正确的图。
 - **Visualization**: circular_stages.
-- **Content**: 用户输入产生结构图；结构图驱动 Mermaid、SVG、图像和讲解；评测系统对齐预测图与标准图；指标反馈到样例构建和模型策略；mock 模式保障无 key 时也能完整演示。
+- **Content**: 中间图可以定位错误来源，编辑轨迹可以解释每一步修复，指标可以把解释落到数字，真实用户修改轨迹还可以反哺训练与交互策略。这样系统从“能生成”提升为“能解释、能评测、能被真实使用数据持续改进”。
 
-#### Slide 13 - 真实性边界：当前是可控验证，不是大规模宣称
+#### Slide 13 - 项目知识图谱：我们实际完成了哪些节点
 
-- **Layout**: Vertical list with boundary, value, next step.
-- **Title**: 真实性边界：当前是可控验证，不是大规模宣称
-- **Core message**: 产品原型已经跑通闭环，但科研结论需要清楚限定在合成条件图的可控验证范围内。
-- **Visualization**: vertical_list.
-- **Content**: 当前实验用于验证任务定义、评测链路和图编辑过程可计算性；它不等价于大规模真实世界性能。下一步可以扩展真实用户数据、引入更强草图识别、记录用户实际修改成本，并把评测指标接入前端反馈。
+- **Layout**: Knowledge graph with SketchVoice at the center.
+- **Title**: 项目知识图谱：我们实际完成了哪些节点
+- **Core message**: 把应用侧、科研侧和工程侧放到同一张图里，展示成果之间的依赖关系。
+- **Visualization**: mind_map.
+- **Content**: 节点包括产品原型、结构输出、终稿与讲解、科研任务、方法模型、数据资产、评测结果、工程保障和可解释轨迹。每个节点都对应真实实现，而不是只停留在概念命名。中心是 SketchVoice，外圈展示的是项目做成了什么。
 
-#### Slide 14 - 总结：产品闭环 + 方法支撑 + 可评测系统
+#### Slide 14 - 总结：把自然表达升级为可研究的知识结构生产线
 
-- **Layout**: Three contribution blocks plus closing sentence.
-- **Title**: 总结：产品闭环 + 方法支撑 + 可评测系统
-- **Core message**: 本项目的贡献不只在算法，也在把算法放进一个可演示、可编辑、可评测的产品闭环里。
-- **Content**: 产品层：构建 SketchVoice 方法图工作台，从草图和语音到 Mermaid、JSON、SVG、终稿图和 WebM。方法层：提出语音引导的知识草图结构化任务和 MMSB-Graph 图编辑桥。系统层：实现输入、生成、展示、导出和评测闭环。一句话结论：SketchVoice 将“语音 + 草图”的自然表达过程转化为可编辑知识图，MMSB-Graph 则提供可解释的结构恢复路径。
+- **Layout**: Five-value summary with closing claim.
+- **Title**: 总结：把自然表达升级为可研究的知识结构生产线
+- **Core message**: SketchVoice 不是单点 demo，而是“应用闭环 + 科研模型 + 评测协议 + 可解释诊断”的完整链路。
+- **Content**: 产品层上，它完成了可操作工作台和多格式交付；科研层上，它定义了语音引导知识草图结构化与 MMSB-Graph；评测层上，它提供 24 个可控样例和多指标协议；工程层上，它具备可替换服务和 mock fallback；应用层上，它能把课堂和科研讲解沉淀为结构化资产。最后的结论是：这个项目既有能演示的应用成果，也有可继续深化的科研问题和实验框架。
 
 ---
 
