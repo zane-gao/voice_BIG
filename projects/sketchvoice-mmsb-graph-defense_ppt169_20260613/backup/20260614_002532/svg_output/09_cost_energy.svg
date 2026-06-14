@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720">
+  <rect width="1280" height="720" fill="#F8FAFC"/>
+  <g id="header">
+    <text x="52" y="74" font-family="Microsoft YaHei, Arial, sans-serif" font-size="36" font-weight="800" fill="#172033">代价函数与路径能量</text>
+    <line x1="52" y1="104" x2="1228" y2="104" stroke="#CBD5E1" stroke-width="1"/>
+  </g>
+  <g id="formula-block">
+    <rect x="90" y="156" width="1100" height="210" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="2"/>
+    <text x="130" y="210" font-family="Consolas, Courier New, monospace" font-size="28" font-weight="700" fill="#172033">c(G_t, G_t+1) = GED + label + direction + layout - speech</text>
+    <line x1="130" y1="244" x2="1150" y2="244" stroke="#CBD5E1" stroke-width="1"/>
+    <text x="130" y="294" font-family="Consolas, Courier New, monospace" font-size="28" font-weight="700" fill="#172033">E(G_0:T) = (1 / T) · sum c(G_t, G_t+1)^2</text>
+    <text x="130" y="334" font-family="Microsoft YaHei, Arial, sans-serif" font-size="17" fill="#475569">保留关键结构，避免在答辩页中过度展开数学细节。</text>
+  </g>
+  <g id="cost-components">
+    <rect x="90" y="420" width="196" height="86" fill="#E0F2FE" stroke="#155E75" stroke-width="2"/>
+    <text x="188" y="456" text-anchor="middle" font-family="Microsoft YaHei, Arial, sans-serif" font-size="20" font-weight="800" fill="#155E75">结构变化量</text>
+    <text x="188" y="484" text-anchor="middle" font-family="Microsoft YaHei, Arial, sans-serif" font-size="16" fill="#475569">图编辑距离</text>
+    <rect x="310" y="420" width="196" height="86" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="2"/>
+    <text x="408" y="456" text-anchor="middle" font-family="Microsoft YaHei, Arial, sans-serif" font-size="20" font-weight="800" fill="#172033">语义距离</text>
+    <text x="408" y="484" text-anchor="middle" font-family="Microsoft YaHei, Arial, sans-serif" font-size="16" fill="#475569">节点名称差异</text>
+    <rect x="530" y="420" width="196" height="86" fill="#FEF3C7" stroke="#F59E0B" stroke-width="2"/>
+    <text x="628" y="456" text-anchor="middle" font-family="Microsoft YaHei, Arial, sans-serif" font-size="20" font-weight="800" fill="#172033">方向代价</text>
+    <text x="628" y="484" text-anchor="middle" font-family="Microsoft YaHei, Arial, sans-serif" font-size="16" fill="#475569">错向惩罚</text>
+    <rect x="750" y="420" width="196" height="86" fill="#CCFBF1" stroke="#0F766E" stroke-width="2"/>
+    <text x="848" y="456" text-anchor="middle" font-family="Microsoft YaHei, Arial, sans-serif" font-size="20" font-weight="800" fill="#0F766E">草图保持</text>
+    <text x="848" y="484" text-anchor="middle" font-family="Microsoft YaHei, Arial, sans-serif" font-size="16" fill="#475569">空间一致性</text>
+    <rect x="970" y="420" width="196" height="86" fill="#DCFCE7" stroke="#0F766E" stroke-width="2"/>
+    <text x="1068" y="456" text-anchor="middle" font-family="Microsoft YaHei, Arial, sans-serif" font-size="20" font-weight="800" fill="#0F766E">语音覆盖</text>
+    <text x="1068" y="484" text-anchor="middle" font-family="Microsoft YaHei, Arial, sans-serif" font-size="16" fill="#475569">语义奖励</text>
+  </g>
+  <g id="interpretation">
+    <text x="640" y="592" text-anchor="middle" font-family="Microsoft YaHei, Arial, sans-serif" font-size="30" font-weight="800" fill="#172033">能量越低，说明编辑过程越自然；能量越高，说明强行修正越多。</text>
+    <text x="640" y="632" text-anchor="middle" font-family="Microsoft YaHei, Arial, sans-serif" font-size="19" fill="#475569">它不仅评价最终图是否正确，也评价恢复过程是否可解释。</text>
+  </g>
+  <g id="footer">
+    <text x="52" y="682" font-family="Microsoft YaHei, Arial, sans-serif" font-size="12" fill="#94A3B8">Cost and path energy</text>
+    <text x="1228" y="682" text-anchor="end" font-family="Microsoft YaHei, Arial, sans-serif" font-size="12" fill="#94A3B8">09</text>
+  </g>
+</svg>

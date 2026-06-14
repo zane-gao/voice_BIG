@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720">
+  <rect width="1280" height="720" fill="#F8FAFC"/>
+  <defs>
+    <marker id="loopArrow" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#155E75"/>
+    </marker>
+  </defs>
+  <g id="header">
+    <text x="52" y="74" font-family="Microsoft YaHei, Arial, sans-serif" font-size="36" font-weight="800" fill="#172033">工程系统与科研闭环</text>
+    <line x1="52" y1="104" x2="1228" y2="104" stroke="#CBD5E1" stroke-width="1"/>
+  </g>
+  <g id="loop-diagram">
+    <rect x="96" y="160" width="250" height="126" fill="#FFFFFF" stroke="#155E75" stroke-width="2"/>
+    <!-- icon: tabler-outline/pencil -->
+  <g transform="translate(126.0, 198.0) scale(1.4166666666666667)" fill="none" stroke="#155E75" stroke-width="2">
+    <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
+    <path d="M13.5 6.5l4 4" />
+  </g>
+    <text x="178" y="222" font-family="Microsoft YaHei, Arial, sans-serif" font-size="24" font-weight="800" fill="#172033">交互输入</text>
+    <text x="126" y="258" font-family="Microsoft YaHei, Arial, sans-serif" font-size="16" fill="#475569">草图 · 录音 · 文本补充</text>
+    <rect x="516" y="160" width="250" height="126" fill="#FFFFFF" stroke="#0F766E" stroke-width="2"/>
+    <!-- icon: tabler-outline/network -->
+  <g transform="translate(546.0, 198.0) scale(1.4166666666666667)" fill="none" stroke="#0F766E" stroke-width="2">
+    <path d="M6 9a6 6 0 1 0 12 0a6 6 0 0 0 -12 0" />
+    <path d="M12 3c1.333 .333 2 2.333 2 6s-.667 5.667 -2 6" />
+    <path d="M12 3c-1.333 .333 -2 2.333 -2 6s.667 5.667 2 6" />
+    <path d="M6 9h12" />
+    <path d="M3 20h7" />
+    <path d="M14 20h7" />
+    <path d="M10 20a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+    <path d="M12 15v3" />
+  </g>
+    <text x="598" y="222" font-family="Microsoft YaHei, Arial, sans-serif" font-size="24" font-weight="800" fill="#172033">图结构生成</text>
+    <text x="546" y="258" font-family="Microsoft YaHei, Arial, sans-serif" font-size="16" fill="#475569">转写 · Mermaid · JSON</text>
+    <rect x="936" y="160" width="250" height="126" fill="#FFFFFF" stroke="#2563EB" stroke-width="2"/>
+    <!-- icon: tabler-outline/chart-dots -->
+  <g transform="translate(966.0, 198.0) scale(1.4166666666666667)" fill="none" stroke="#2563EB" stroke-width="2">
+    <path d="M3 3v18h18" />
+    <path d="M7 9a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
+    <path d="M17 7a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
+    <path d="M12 15a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
+    <path d="M10.16 10.62l2.34 2.88" />
+    <path d="M15.088 13.328l2.837 -4.586" />
+  </g>
+    <text x="1018" y="222" font-family="Microsoft YaHei, Arial, sans-serif" font-size="24" font-weight="800" fill="#172033">可编辑输出</text>
+    <text x="966" y="258" font-family="Microsoft YaHei, Arial, sans-serif" font-size="16" fill="#475569">SVG · 终稿图 · WebM</text>
+    <rect x="516" y="438" width="250" height="126" fill="#FFFFFF" stroke="#F59E0B" stroke-width="2"/>
+    <!-- icon: tabler-outline/test-pipe -->
+  <g transform="translate(546.0, 476.0) scale(1.4166666666666667)" fill="none" stroke="#F59E0B" stroke-width="2">
+    <path d="M20 8.04l-12.122 12.124a2.857 2.857 0 1 1 -4.041 -4.04l12.122 -12.124" />
+    <path d="M7 13h8" />
+    <path d="M19 15l1.5 1.6a2 2 0 1 1 -3 0l1.5 -1.6" />
+    <path d="M15 3l6 6" />
+  </g>
+    <text x="598" y="500" font-family="Microsoft YaHei, Arial, sans-serif" font-size="24" font-weight="800" fill="#172033">自动评测</text>
+    <text x="546" y="536" font-family="Microsoft YaHei, Arial, sans-serif" font-size="16" fill="#475569">对齐标准图 · 输出指标</text>
+    <line x1="346" y1="223" x2="516" y2="223" stroke="#155E75" stroke-width="3" marker-end="url(#loopArrow)"/>
+    <line x1="766" y1="223" x2="936" y2="223" stroke="#155E75" stroke-width="3" marker-end="url(#loopArrow)"/>
+    <path d="M 1061 286 C 1061 390, 890 501, 766 501" fill="none" stroke="#155E75" stroke-width="3" marker-end="url(#loopArrow)"/>
+    <path d="M 516 501 C 360 500, 222 400, 222 286" fill="none" stroke="#155E75" stroke-width="3" marker-end="url(#loopArrow)"/>
+  </g>
+  <g id="system-stack">
+    <rect x="144" y="612" width="992" height="42" fill="#155E75"/>
+    <text x="640" y="640" text-anchor="middle" font-family="Microsoft YaHei, Arial, sans-serif" font-size="20" font-weight="800" fill="#FFFFFF">FastAPI 后端托管静态前端，形成“输入 - 生成 - 输出 - 评测”的端到端演示系统</text>
+  </g>
+  <g id="footer">
+    <text x="52" y="682" font-family="Microsoft YaHei, Arial, sans-serif" font-size="12" fill="#94A3B8">System loop</text>
+    <text x="1228" y="682" text-anchor="end" font-family="Microsoft YaHei, Arial, sans-serif" font-size="12" fill="#94A3B8">13</text>
+  </g>
+</svg>

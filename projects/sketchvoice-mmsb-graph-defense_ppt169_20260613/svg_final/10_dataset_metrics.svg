@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720">
+  <rect width="1280" height="720" fill="#F8FAFC" />
+  <g id="header">
+    <text x="52" y="74" font-family="Microsoft YaHei, Arial, sans-serif" font-size="36" font-weight="800" fill="#172033">数据集与评测协议</text>
+    <line x1="52" y1="104" x2="1228" y2="104" stroke="#CBD5E1" stroke-width="1" />
+  </g>
+  <g id="dataset-card">
+    <rect x="70" y="150" width="430" height="430" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="2" />
+    
+  <g transform="translate(110.0, 192.0) scale(1.75)" fill="none" stroke="#155E75" stroke-width="2">
+    <path d="M4 6a8 3 0 1 0 16 0a8 3 0 1 0 -16 0" />
+    <path d="M4 6v6a8 3 0 0 0 16 0v-6" />
+    <path d="M4 12v6a8 3 0 0 0 16 0v-6" />
+  </g>
+    <text x="172" y="224" font-family="Microsoft YaHei, Arial, sans-serif" font-size="28" font-weight="800" fill="#155E75">24 个知识草图样例</text>
+    <text font-family="Microsoft YaHei, Arial, sans-serif" fill="#172033" font-size="20" x="110" y="292">覆盖：线性流程、分支结构</text><text font-family="Microsoft YaHei, Arial, sans-serif" fill="#172033" font-size="20" x="110" y="328">反馈闭环、模型架构图</text><text font-family="Microsoft YaHei, Arial, sans-serif" fill="#172033" font-size="20" x="110" y="364">实验流程图</text><line x1="110" y1="400" x2="460" y2="400" stroke="#CBD5E1" />
+    <text x="110" y="444" font-family="Microsoft YaHei, Arial, sans-serif" font-size="20" font-weight="800" fill="#172033">每个样例包含</text>
+    <text font-family="Microsoft YaHei, Arial, sans-serif" fill="#475569" font-size="18" x="110" y="480">草图、语音、转写、标准节点边</text><text font-family="Microsoft YaHei, Arial, sans-serif" fill="#475569" font-size="18" x="110" y="512">语音锚点、区域坐标、难度标签</text></g>
+  <g id="metric-grid">
+    <rect x="550" y="150" width="660" height="430" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="2" />
+    <text x="590" y="204" font-family="Microsoft YaHei, Arial, sans-serif" font-size="28" font-weight="800" fill="#172033">评测指标</text>
+    <g id="metrics-row-1">
+      <rect x="590" y="244" width="180" height="76" fill="#E0F2FE" stroke="#CBD5E1" />
+      <text x="680" y="290" text-anchor="middle" font-family="Consolas, Courier New, monospace" font-size="21" font-weight="700" fill="#155E75">Node F1</text>
+      <rect x="790" y="244" width="180" height="76" fill="#E0F2FE" stroke="#CBD5E1" />
+      <text x="880" y="290" text-anchor="middle" font-family="Consolas, Courier New, monospace" font-size="21" font-weight="700" fill="#155E75">Edge F1</text>
+      <rect x="990" y="244" width="180" height="76" fill="#CCFBF1" stroke="#CBD5E1" />
+      <text x="1080" y="282" text-anchor="middle" font-family="Microsoft YaHei, Arial, sans-serif" font-size="18" font-weight="800" fill="#0F766E">方向准确率</text>
+    </g>
+    <g id="metrics-row-2">
+      <rect x="590" y="340" width="180" height="76" fill="#FFFFFF" stroke="#CBD5E1" />
+      <text x="680" y="386" text-anchor="middle" font-family="Consolas, Courier New, monospace" font-size="21" font-weight="700" fill="#172033">GED</text>
+      <rect x="790" y="340" width="180" height="76" fill="#FFFFFF" stroke="#CBD5E1" />
+      <text x="880" y="378" text-anchor="middle" font-family="Microsoft YaHei, Arial, sans-serif" font-size="18" font-weight="800" fill="#172033">语音覆盖</text>
+      <rect x="990" y="340" width="180" height="76" fill="#FFFFFF" stroke="#CBD5E1" />
+      <text x="1080" y="378" text-anchor="middle" font-family="Microsoft YaHei, Arial, sans-serif" font-size="18" font-weight="800" fill="#172033">布局保持</text>
+    </g>
+    <g id="metrics-row-3">
+      <rect x="690" y="436" width="180" height="76" fill="#FEF3C7" stroke="#CBD5E1" />
+      <text x="780" y="482" text-anchor="middle" font-family="Microsoft YaHei, Arial, sans-serif" font-size="18" font-weight="800" fill="#172033">修改成本</text>
+      <rect x="900" y="436" width="180" height="76" fill="#DCFCE7" stroke="#CBD5E1" />
+      <text x="990" y="482" text-anchor="middle" font-family="Microsoft YaHei, Arial, sans-serif" font-size="18" font-weight="800" fill="#0F766E">路径能量</text>
+    </g>
+  </g>
+  <g id="bottom-note">
+    <text x="640" y="632" text-anchor="middle" font-family="Microsoft YaHei, Arial, sans-serif" font-size="23" font-weight="800" fill="#172033">评测不只看最终图，也看恢复过程和用户修改负担</text>
+  </g>
+  <g id="footer">
+    <text x="52" y="682" font-family="Microsoft YaHei, Arial, sans-serif" font-size="12" fill="#94A3B8">Dataset and evaluation protocol</text>
+    <text x="1228" y="682" text-anchor="end" font-family="Microsoft YaHei, Arial, sans-serif" font-size="12" fill="#94A3B8">10</text>
+  </g>
+</svg>

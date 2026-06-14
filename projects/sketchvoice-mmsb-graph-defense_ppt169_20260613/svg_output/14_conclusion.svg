@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720">
+  <rect width="1280" height="720" fill="#F8FAFC"/>
+  <g id="header">
+    <text x="52" y="74" font-family="Microsoft YaHei, Arial, sans-serif" font-size="36" font-weight="800" fill="#172033">贡献总结与一句话结论</text>
+    <line x1="52" y1="104" x2="1228" y2="104" stroke="#CBD5E1" stroke-width="1"/>
+  </g>
+  <g id="contribution-task">
+    <rect x="80" y="160" width="350" height="230" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="2"/>
+    <use data-icon="tabler-outline/target" x="118" y="198" width="38" height="38" fill="#155E75" stroke-width="2"/>
+    <text x="176" y="226" font-family="Microsoft YaHei, Arial, sans-serif" font-size="26" font-weight="800" fill="#155E75">任务层</text>
+    <text x="118" y="292" font-family="Microsoft YaHei, Arial, sans-serif" font-size="21" fill="#172033">
+      <tspan x="118" dy="0">提出语音引导的</tspan>
+      <tspan x="118" dy="38">知识草图结构化任务</tspan>
+    </text>
+    <text x="118" y="358" font-family="Microsoft YaHei, Arial, sans-serif" font-size="16" fill="#475569">把“边说边画”形式化为可研究问题。</text>
+  </g>
+  <g id="contribution-method">
+    <rect x="465" y="160" width="350" height="230" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="2"/>
+    <use data-icon="tabler-outline/route" x="503" y="198" width="38" height="38" fill="#0F766E" stroke-width="2"/>
+    <text x="561" y="226" font-family="Microsoft YaHei, Arial, sans-serif" font-size="26" font-weight="800" fill="#0F766E">方法层</text>
+    <text x="503" y="292" font-family="Microsoft YaHei, Arial, sans-serif" font-size="21" fill="#172033">
+      <tspan x="503" dy="0">提出 MMSB-Graph</tspan>
+      <tspan x="503" dy="38">图编辑桥框架</tspan>
+    </text>
+    <text x="503" y="358" font-family="Microsoft YaHei, Arial, sans-serif" font-size="16" fill="#475569">将图生成转化为路径优化问题。</text>
+  </g>
+  <g id="contribution-system">
+    <rect x="850" y="160" width="350" height="230" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="2"/>
+    <use data-icon="tabler-outline/bulb" x="888" y="198" width="38" height="38" fill="#F59E0B" stroke-width="2"/>
+    <text x="946" y="226" font-family="Microsoft YaHei, Arial, sans-serif" font-size="26" font-weight="800" fill="#172033">系统层</text>
+    <text x="888" y="292" font-family="Microsoft YaHei, Arial, sans-serif" font-size="21" fill="#172033">
+      <tspan x="888" dy="0">构建交互输入到</tspan>
+      <tspan x="888" dy="38">可评测输出的闭环</tspan>
+    </text>
+    <text x="888" y="358" font-family="Microsoft YaHei, Arial, sans-serif" font-size="16" fill="#475569">支持方法图生成、编辑与指标报告。</text>
+  </g>
+  <g id="closing-sentence">
+    <rect x="96" y="472" width="1088" height="120" fill="#155E75"/>
+    <text x="640" y="514" text-anchor="middle" font-family="Microsoft YaHei, Arial, sans-serif" font-size="26" font-weight="800" fill="#FFFFFF">一句话总结</text>
+    <text x="640" y="556" text-anchor="middle" font-family="Microsoft YaHei, Arial, sans-serif" font-size="22" fill="#FFFFFF">
+      <tspan x="640" dy="0">本项目将“语音 + 草图”的自然表达过程抽象为多模态知识结构恢复问题，</tspan>
+      <tspan x="640" dy="34">并用图编辑桥实现从不完整表达到可编辑知识图的可解释重建。</tspan>
+    </text>
+  </g>
+  <g id="footer">
+    <text x="52" y="682" font-family="Microsoft YaHei, Arial, sans-serif" font-size="12" fill="#94A3B8">Conclusion</text>
+    <text x="1228" y="682" text-anchor="end" font-family="Microsoft YaHei, Arial, sans-serif" font-size="12" fill="#94A3B8">14</text>
+  </g>
+</svg>

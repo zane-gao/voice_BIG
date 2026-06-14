@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720">
+  <rect width="1280" height="720" fill="#F8FAFC"/>
+  <g id="header">
+    <text x="52" y="70" font-family="Microsoft YaHei, Arial, sans-serif" font-size="34" font-weight="800" fill="#172033">实验结果与解释</text>
+    <line x1="52" y1="98" x2="1228" y2="98" stroke="#CBD5E1" stroke-width="1"/>
+  </g>
+  <g id="result-table">
+    <rect x="62" y="128" width="800" height="326" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="2"/>
+    <rect x="62" y="128" width="800" height="46" fill="#E0F2FE"/>
+    <text x="88" y="158" font-family="Microsoft YaHei, Arial, sans-serif" font-size="17" font-weight="800" fill="#155E75">方法</text>
+    <text x="285" y="158" text-anchor="middle" font-family="Microsoft YaHei, Arial, sans-serif" font-size="17" font-weight="800" fill="#155E75">节点F1</text>
+    <text x="405" y="158" text-anchor="middle" font-family="Microsoft YaHei, Arial, sans-serif" font-size="17" font-weight="800" fill="#155E75">边F1</text>
+    <text x="525" y="158" text-anchor="middle" font-family="Microsoft YaHei, Arial, sans-serif" font-size="17" font-weight="800" fill="#155E75">GED</text>
+    <text x="650" y="158" text-anchor="middle" font-family="Microsoft YaHei, Arial, sans-serif" font-size="17" font-weight="800" fill="#155E75">方向</text>
+    <text x="780" y="158" text-anchor="middle" font-family="Microsoft YaHei, Arial, sans-serif" font-size="17" font-weight="800" fill="#155E75">成本</text>
+    <line x1="250" y1="128" x2="250" y2="454" stroke="#CBD5E1"/>
+    <line x1="340" y1="128" x2="340" y2="454" stroke="#CBD5E1"/>
+    <line x1="470" y1="128" x2="470" y2="454" stroke="#CBD5E1"/>
+    <line x1="585" y1="128" x2="585" y2="454" stroke="#CBD5E1"/>
+    <line x1="720" y1="128" x2="720" y2="454" stroke="#CBD5E1"/>
+    <g id="rows" font-family="Microsoft YaHei, Arial, sans-serif" font-size="16" fill="#172033">
+      <line x1="62" y1="230" x2="862" y2="230" stroke="#CBD5E1"/>
+      <line x1="62" y1="286" x2="862" y2="286" stroke="#CBD5E1"/>
+      <line x1="62" y1="342" x2="862" y2="342" stroke="#CBD5E1"/>
+      <line x1="62" y1="398" x2="862" y2="398" stroke="#CBD5E1"/>
+      <text x="88" y="208">草图单模态</text><text x="285" y="208" text-anchor="middle">0.803</text><text x="405" y="208" text-anchor="middle">0.387</text><text x="525" y="208" text-anchor="middle">0.587</text><text x="650" y="208" text-anchor="middle">0.281</text><text x="780" y="208" text-anchor="middle">9.29</text>
+      <text x="88" y="264">语音单模态</text><text x="285" y="264" text-anchor="middle">0.890</text><text x="405" y="264" text-anchor="middle">0.564</text><text x="525" y="264" text-anchor="middle">0.391</text><text x="650" y="264" text-anchor="middle">0.394</text><text x="780" y="264" text-anchor="middle">6.19</text>
+      <text x="88" y="320">早期融合</text><text x="285" y="320" text-anchor="middle">0.929</text><text x="405" y="320" text-anchor="middle">0.577</text><text x="525" y="320" text-anchor="middle">0.391</text><text x="650" y="320" text-anchor="middle">0.466</text><text x="780" y="320" text-anchor="middle">5.94</text>
+      <text x="88" y="376">贪心修复</text><text x="285" y="376" text-anchor="middle">1.000</text><text x="405" y="376" text-anchor="middle">0.842</text><text x="525" y="376" text-anchor="middle">0.129</text><text x="650" y="376" text-anchor="middle">0.729</text><text x="780" y="376" text-anchor="middle">1.79</text>
+      <rect x="62" y="398" width="800" height="56" fill="#CCFBF1" fill-opacity="0.7"/>
+      <text x="88" y="432" font-weight="800" fill="#0F766E">MMSB-Graph</text><text x="285" y="432" text-anchor="middle" font-weight="800" fill="#0F766E">1.000</text><text x="405" y="432" text-anchor="middle" font-weight="800" fill="#0F766E">1.000</text><text x="525" y="432" text-anchor="middle" font-weight="800" fill="#0F766E">0.000</text><text x="650" y="432" text-anchor="middle" font-weight="800" fill="#0F766E">1.000</text><text x="780" y="432" text-anchor="middle" font-weight="800" fill="#0F766E">0.00</text>
+    </g>
+  </g>
+  <g id="key-findings">
+    <rect x="900" y="128" width="318" height="326" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="2"/>
+    <use data-icon="tabler-outline/chart-dots" x="932" y="166" width="38" height="38" fill="#155E75" stroke-width="2"/>
+    <text x="990" y="196" font-family="Microsoft YaHei, Arial, sans-serif" font-size="25" font-weight="800" fill="#172033">关键现象</text>
+    <text x="932" y="258" font-family="Microsoft YaHei, Arial, sans-serif" font-size="18" fill="#172033">
+      <tspan x="932" dy="0">语音显著补全语义，</tspan>
+      <tspan x="932" dy="30">边 F1 从 0.387 到 0.564。</tspan>
+      <tspan x="932" dy="46">早期融合提升节点覆盖，</tspan>
+      <tspan x="932" dy="30">但边方向错误仍保留。</tspan>
+      <tspan x="932" dy="46">图编辑桥把残余误差</tspan>
+      <tspan x="932" dy="30">转化为可诊断路径。</tspan>
+    </text>
+  </g>
+  <g id="diagnostic-image">
+    <rect x="62" y="492" width="1156" height="130" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="2"/>
+    <image href="../images/mmsb_diagnostics.png" x="82" y="508" width="720" height="95" preserveAspectRatio="xMidYMid meet"/>
+    <line x1="830" y1="492" x2="830" y2="622" stroke="#CBD5E1"/>
+    <text x="862" y="535" font-family="Microsoft YaHei, Arial, sans-serif" font-size="20" font-weight="800" fill="#172033">诊断图说明</text>
+    <text x="862" y="570" font-family="Microsoft YaHei, Arial, sans-serif" font-size="17" fill="#475569">结构恢复相图、GED 分布与桥负载共同说明：路径能量是最终 F1 之外的过程质量指标。</text>
+  </g>
+  <g id="footer">
+    <text x="52" y="682" font-family="Microsoft YaHei, Arial, sans-serif" font-size="12" fill="#94A3B8">Results</text>
+    <text x="1228" y="682" text-anchor="end" font-family="Microsoft YaHei, Arial, sans-serif" font-size="12" fill="#94A3B8">12</text>
+  </g>
+</svg>

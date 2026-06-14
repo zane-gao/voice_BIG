@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720">
+  <rect width="1280" height="720" fill="#F8FAFC" />
+  <g id="header">
+    <text x="52" y="74" font-family="Microsoft YaHei, Arial, sans-serif" font-size="36" font-weight="800" fill="#172033">真实场景：科研表达通常是“草图 + 语音”</text>
+    <line x1="52" y1="104" x2="1228" y2="104" stroke="#CBD5E1" stroke-width="1" />
+  </g>
+  <g id="sketch-input">
+    <rect x="96" y="170" width="360" height="300" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="2" />
+    
+  <g transform="translate(136.0, 214.0) scale(1.8333333333333333)" fill="none" stroke="#155E75" stroke-width="2">
+    <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
+    <path d="M13.5 6.5l4 4" />
+  </g>
+    <text x="200" y="246" font-family="Microsoft YaHei, Arial, sans-serif" font-size="28" font-weight="800" fill="#155E75">草图</text>
+    <text font-family="Microsoft YaHei, Arial, sans-serif" fill="#172033" font-size="22" x="136" y="318">模块位置</text><text font-family="Microsoft YaHei, Arial, sans-serif" fill="#172033" font-size="22" x="136" y="360">流程关系</text><text font-family="Microsoft YaHei, Arial, sans-serif" fill="#172033" font-size="22" x="136" y="402">并行 / 串行 / 闭环</text><path d="M 180 410 L 284 350 L 372 414" fill="none" stroke="#0F766E" stroke-width="4" />
+    <circle cx="180" cy="410" r="14" fill="#CCFBF1" stroke="#0F766E" stroke-width="3" />
+    <circle cx="284" cy="350" r="14" fill="#CCFBF1" stroke="#0F766E" stroke-width="3" />
+    <circle cx="372" cy="414" r="14" fill="#CCFBF1" stroke="#0F766E" stroke-width="3" />
+  </g>
+  <g id="speech-input">
+    <rect x="824" y="170" width="360" height="300" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="2" />
+    
+  <g transform="translate(864.0, 214.0) scale(1.8333333333333333)" fill="none" stroke="#0F766E" stroke-width="2">
+    <path d="M9 5a3 3 0 0 1 3 -3a3 3 0 0 1 3 3v5a3 3 0 0 1 -3 3a3 3 0 0 1 -3 -3l0 -5" />
+    <path d="M5 10a7 7 0 0 0 14 0" />
+    <path d="M8 21l8 0" />
+    <path d="M12 17l0 4" />
+  </g>
+    <text x="928" y="246" font-family="Microsoft YaHei, Arial, sans-serif" font-size="28" font-weight="800" fill="#0F766E">语音</text>
+    <text font-family="Microsoft YaHei, Arial, sans-serif" fill="#172033" font-size="22" x="864" y="318">节点名称</text><text font-family="Microsoft YaHei, Arial, sans-serif" fill="#172033" font-size="22" x="864" y="360">因果关系</text><text font-family="Microsoft YaHei, Arial, sans-serif" fill="#172033" font-size="22" x="864" y="402">设计意图与补充说明</text><path d="M 904 424 C 944 382, 1012 382, 1052 424" fill="none" stroke="#155E75" stroke-width="4" />
+    <path d="M 902 390 C 946 342, 1010 342, 1054 390" fill="none" stroke="#155E75" stroke-width="2" />
+  </g>
+  <g id="convergence">
+    <line x1="456" y1="320" x2="592" y2="320" stroke="#155E75" stroke-width="3" />
+    <polygon points="592,320 570,308 570,332" fill="#155E75" />
+    <line x1="824" y1="320" x2="688" y2="320" stroke="#0F766E" stroke-width="3" />
+    <polygon points="688,320 710,308 710,332" fill="#0F766E" />
+    <rect x="548" y="252" width="184" height="136" fill="#FFFFFF" stroke="#155E75" stroke-width="2" />
+    <text x="640" y="306" text-anchor="middle" font-family="Microsoft YaHei, Arial, sans-serif" font-size="24" font-weight="800" fill="#172033">混合表达</text>
+    <text x="640" y="344" text-anchor="middle" font-family="Microsoft YaHei, Arial, sans-serif" font-size="18" fill="#475569">不完整但互补</text>
+  </g>
+  <g id="takeaway">
+    <text x="640" y="570" text-anchor="middle" font-family="Microsoft YaHei, Arial, sans-serif" font-size="34" font-weight="800" fill="#172033">核心问题：如何从多模态不完整表达中恢复结构化知识图？</text>
+    <text x="640" y="610" text-anchor="middle" font-family="Microsoft YaHei, Arial, sans-serif" font-size="20" fill="#475569">这不是单纯的画图生成，而是结构恢复与图预测问题。</text>
+  </g>
+  <g id="footer">
+    <text x="52" y="682" font-family="Microsoft YaHei, Arial, sans-serif" font-size="12" fill="#94A3B8">Research background</text>
+    <text x="1228" y="682" text-anchor="end" font-family="Microsoft YaHei, Arial, sans-serif" font-size="12" fill="#94A3B8">02</text>
+  </g>
+</svg>

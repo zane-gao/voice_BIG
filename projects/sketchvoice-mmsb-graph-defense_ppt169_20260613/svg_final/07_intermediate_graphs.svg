@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720">
+  <rect width="1280" height="720" fill="#F8FAFC" />
+  <g id="header">
+    <text x="52" y="74" font-family="Microsoft YaHei, Arial, sans-serif" font-size="36" font-weight="800" fill="#172033">三种中间图表示：Gs、Gu、Gf</text>
+    <line x1="52" y1="104" x2="1228" y2="104" stroke="#CBD5E1" stroke-width="1" />
+  </g>
+  <g id="column-gs">
+    <rect x="70" y="158" width="354" height="394" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="2" />
+    <rect x="70" y="158" width="354" height="12" fill="#155E75" />
+    <text x="106" y="220" font-family="Consolas, Courier New, monospace" font-size="34" font-weight="700" fill="#155E75">G_s</text>
+    <text x="176" y="218" font-family="Microsoft YaHei, Arial, sans-serif" font-size="26" font-weight="800" fill="#172033">草图图</text>
+    <text font-family="Microsoft YaHei, Arial, sans-serif" fill="#172033" font-size="21" x="106" y="282">来源：视觉草图解析</text><text font-family="Microsoft YaHei, Arial, sans-serif" fill="#172033" font-size="21" x="106" y="330">保留：空间结构、框、箭头</text><text font-family="Microsoft YaHei, Arial, sans-serif" fill="#172033" font-size="21" x="106" y="378">不足：标签不完整、语义弱</text><line x1="106" y1="450" x2="388" y2="450" stroke="#CBD5E1" />
+    <text x="106" y="494" font-family="Microsoft YaHei, Arial, sans-serif" font-size="18" font-weight="800" fill="#155E75">作用</text>
+    <text x="166" y="494" font-family="Microsoft YaHei, Arial, sans-serif" font-size="18" fill="#475569">约束布局和局部拓扑</text>
+  </g>
+  <g id="column-gu">
+    <rect x="463" y="158" width="354" height="394" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="2" />
+    <rect x="463" y="158" width="354" height="12" fill="#0F766E" />
+    <text x="499" y="220" font-family="Consolas, Courier New, monospace" font-size="34" font-weight="700" fill="#0F766E">G_u</text>
+    <text x="569" y="218" font-family="Microsoft YaHei, Arial, sans-serif" font-size="26" font-weight="800" fill="#172033">语音图</text>
+    <text font-family="Microsoft YaHei, Arial, sans-serif" fill="#172033" font-size="21" x="499" y="282">来源：语音转写与解析</text><text font-family="Microsoft YaHei, Arial, sans-serif" fill="#172033" font-size="21" x="499" y="330">保留：节点短语、顺序词</text><text font-family="Microsoft YaHei, Arial, sans-serif" fill="#172033" font-size="21" x="499" y="378">不足：无可靠二维布局</text><line x1="499" y1="450" x2="781" y2="450" stroke="#CBD5E1" />
+    <text x="499" y="494" font-family="Microsoft YaHei, Arial, sans-serif" font-size="18" font-weight="800" fill="#0F766E">作用</text>
+    <text x="559" y="494" font-family="Microsoft YaHei, Arial, sans-serif" font-size="18" fill="#475569">提供语义锚点与方向提示</text>
+  </g>
+  <g id="column-gf">
+    <rect x="856" y="158" width="354" height="394" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="2" />
+    <rect x="856" y="158" width="354" height="12" fill="#2563EB" />
+    <text x="892" y="220" font-family="Consolas, Courier New, monospace" font-size="34" font-weight="700" fill="#2563EB">G_f</text>
+    <text x="962" y="218" font-family="Microsoft YaHei, Arial, sans-serif" font-size="26" font-weight="800" fill="#172033">融合图</text>
+    <text font-family="Microsoft YaHei, Arial, sans-serif" fill="#172033" font-size="21" x="892" y="282">来源：草图 + 语音联合构建</text><text font-family="Microsoft YaHei, Arial, sans-serif" fill="#172033" font-size="21" x="892" y="330">保留：候选节点与候选边</text><text font-family="Microsoft YaHei, Arial, sans-serif" fill="#172033" font-size="21" x="892" y="378">不足：仍有缺边和错向</text><line x1="892" y1="450" x2="1174" y2="450" stroke="#CBD5E1" />
+    <text x="892" y="494" font-family="Microsoft YaHei, Arial, sans-serif" font-size="18" font-weight="800" fill="#2563EB">作用</text>
+    <text x="952" y="494" font-family="Microsoft YaHei, Arial, sans-serif" font-size="18" fill="#475569">作为图编辑桥初始状态</text>
+  </g>
+  <g id="bottom-message">
+    
+  <g transform="translate(316.0, 604.0) scale(1.4166666666666667)" fill="none" stroke="#155E75" stroke-width="2">
+    <path d="M19 8.268a2 2 0 0 1 1 1.732v8a2 2 0 0 1 -2 2h-8a2 2 0 0 1 -2 -2v-8a2 2 0 0 1 2 -2h3" />
+    <path d="M5 15.734a2 2 0 0 1 -1 -1.734v-8a2 2 0 0 1 2 -2h8a2 2 0 0 1 2 2v8a2 2 0 0 1 -2 2h-3" />
+  </g>
+    <text x="372" y="629" font-family="Microsoft YaHei, Arial, sans-serif" font-size="24" font-weight="800" fill="#172033">显式拆分中间图，才能诊断“结构错了”还是“语义错了”</text>
+  </g>
+  <g id="footer">
+    <text x="52" y="682" font-family="Microsoft YaHei, Arial, sans-serif" font-size="12" fill="#94A3B8">Intermediate graph states</text>
+    <text x="1228" y="682" text-anchor="end" font-family="Microsoft YaHei, Arial, sans-serif" font-size="12" fill="#94A3B8">07</text>
+  </g>
+</svg>
