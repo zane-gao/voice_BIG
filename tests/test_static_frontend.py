@@ -30,3 +30,17 @@ def test_app_js_contains_narration_workflow_hooks() -> None:
         "recordNarrationVideo",
     ):
         assert hook in script
+
+
+def test_app_js_uses_offline_images_for_generation() -> None:
+    script = (STATIC_DIR / "app.js").read_text(encoding="utf-8")
+
+    assert "/static/offline/${sampleId}/${imageKey}.${extension}" in script
+    assert "/static/offline/${imageKey}.${extension}" in script
+    assert "offlineDelayMs" in script
+    assert "generationSeed" in script
+    assert "OFFLINE_MIN_SPIN_SECONDS = 40" in script
+    assert "OFFLINE_MAX_SPIN_SECONDS = 60" in script
+    assert "activeSample?.id" in script
+    assert 'fetch("/api/generate"' not in script
+    assert 'fetch("/api/render-image"' not in script

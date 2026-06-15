@@ -54,13 +54,31 @@ SKETCHVOICE_MOCK=true
 
 ## 演示流程
 
+### 演示图片配置
+
+当前前端的“生成方法图”和“生成终稿图”已改为读取本地静态图片，不再调用结构化生成或生图接口。
+
+请把演示图片放到 `src/sketchvoice/static/offline/`：
+
+- 通用回退图：`method.png` / `final.png`，也支持 jpg/jpeg/webp。
+- 样例专属图：`src/sketchvoice/static/offline/<sample_id>/method.*` 和 `src/sketchvoice/static/offline/<sample_id>/final.*`。
+
+当前默认样例 ID 是 `cnn_explainer`、`diffusion_roadmap`、`video_generation_timeline`。
+
+- 方法图：`method.png`，也支持 `method.jpg`、`method.jpeg`、`method.webp`。
+- 终稿图：`final.png`，也支持 `final.jpg`、`final.jpeg`、`final.webp`。
+
+点击“生成方法图”会优先加载当前样例目录下的 `method.*`，找不到时回退到根目录 `method.*`；点击“AI 图像”标签页里的“生成终稿图”会优先加载当前样例目录下的 `final.*`，找不到时回退到根目录 `final.*`。
+
+默认生成等待时间由随机种子决定，范围为 40 到 60 秒；测试时可在 URL 上加 `?offlineDelayMs=1000` 缩短等待。
+
 1. 在左侧画布手绘科研流程草图。
 2. 也可以在“演示样例”中选择 CNN、扩散路线或视频生成脉络，一键载入草图和语音。
 3. 点击“开始录音”口头描述思路，或上传已有音频。
 4. 可在中间文本框补充或修改转写文本。
 5. 点击“生成方法图”。
 6. 在右侧查看 Mermaid、图形预览、AI 图像和 JSON，并下载结果。
-7. 停止画图或编辑文本 10 秒后会自动生成豆包草稿图；点击“生成终稿图”可生成 OpenAI 高清终稿图。
+7. 点击“生成方法图”后进入生成状态；点击“生成终稿图”可生成高清终稿图。
 8. 终稿图生成后，在“语音讲解”区域选择音源/音色，点击“生成讲解”，播放时光标会跟随讲解段落移动，也可下载浏览器录制的 WebM。
 
 ## 测试与报告

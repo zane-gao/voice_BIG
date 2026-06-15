@@ -36,6 +36,53 @@ const narrationStatus = document.getElementById("narrationStatus");
 const narrationScript = document.getElementById("narrationScript");
 const downloadNarrationVideo = document.getElementById("downloadNarrationVideo");
 
+const OFFLINE_IMAGE_EXTENSIONS = ["png", "jpg", "jpeg", "webp"];
+const OFFLINE_MIN_SPIN_SECONDS = 40;
+const OFFLINE_MAX_SPIN_SECONDS = 60;
+const offlineDelayParam = new URLSearchParams(window.location.search).get("offlineDelayMs");
+const parsedOfflineDelayMs = offlineDelayParam === null ? null : Number(offlineDelayParam);
+const OFFLINE_DELAY_OVERRIDE_MS = Number.isFinite(parsedOfflineDelayMs) && parsedOfflineDelayMs >= 0 ? parsedOfflineDelayMs : null;
+const offlineSeedParam = new URLSearchParams(window.location.search).get("generationSeed");
+const OFFLINE_DELAY_SEED = offlineSeedParam || `${Date.now()}-${Math.random()}`;
+
+function hashSeed(value) {
+  let hash = 2166136261;
+  for (let index = 0; index < value.length; index += 1) {
+    hash ^= value.charCodeAt(index);
+    hash = Math.imul(hash, 16777619);
+  }
+  return hash >>> 0;
+}
+
+function seededRatio(value) {
+  const seed = hashSeed(value);
+  return (seed % 1000000) / 1000000;
+}
+
+function seededGenerationDelayMs(mode, seq) {
+  if (OFFLINE_DELAY_OVERRIDE_MS !== null) return OFFLINE_DELAY_OVERRIDE_MS;
+  const sampleId = activeSample?.id || "manual";
+  const ratio = seededRatio(`${OFFLINE_DELAY_SEED}:${sampleId}:${mode}:${seq}`);
+  const span = OFFLINE_MAX_SPIN_SECONDS - OFFLINE_MIN_SPIN_SECONDS + 1;
+  return (OFFLINE_MIN_SPIN_SECONDS + Math.floor(ratio * span)) * 1000;
+}
+
+const OFFLINE_METHOD_GRAPH = {
+  title: "方法图生成演示",
+  summary: "根据输入内容生成结构化方法图。",
+  nodes: [
+    { id: "input", label: "语音和草图输入", kind: "input" },
+    { id: "process", label: "结构化建模", kind: "process" },
+    { id: "render", label: "图像生成", kind: "process" },
+    { id: "final", label: "终稿图和讲解", kind: "output" },
+  ],
+  edges: [
+    { source: "input", target: "process", label: "触发" },
+    { source: "process", target: "render", label: "生成" },
+    { source: "render", target: "final", label: "展示" },
+  ],
+};
+
 let activeTool = "pen";
 let drawing = false;
 let mediaRecorder = null;
@@ -46,8 +93,7 @@ let lastResult = null;
 let canvasTouched = false;
 let draftTimer = null;
 let draftRequestSeq = 0;
-let draftAbortController = null;
-let finalAbortController = null;
+let finalRequestSeq = 0;
 let lastDraftResult = null;
 let lastFinalResult = null;
 let demoSamples = [];
@@ -56,10 +102,6 @@ let activeSample = null;
 let lastNarration = null;
 let narrationAudioUrl = null;
 let narrationAnimationFrame = null;
-
-if (window.mermaid) {
-  window.mermaid.initialize({ startOnLoad: false, securityLevel: "loose", theme: "default" });
-}
 
 function setMessage(text) {
   messageLine.textContent = text;
@@ -252,10 +294,11 @@ async function loadSelectedSample() {
     audioInput.value = "";
     transcriptInput.value = sample.transcript || "";
     directionInput.value = sample.direction || "LR";
+    resetOfflineOutputs(sample);
     await loadImageToCanvas(sample.sketch_url);
     await loadSampleAudio(sample);
     setMessage(`已载入演示样例：${sample.topic}。可以直接生成方法图。`);
-    scheduleDraftRender(1200);
+    scheduleDraftRender();
   } catch (error) {
     setMessage(`载入样例失败：${error.message}`);
   } finally {
@@ -281,64 +324,175 @@ document.querySelectorAll(".tab").forEach((tab) => {
   });
 });
 
-function canvasToBlob() {
-  return new Promise((resolve) => canvas.toBlob(resolve, "image/png"));
+function offlineImageName(imageKey) {
+  return imageKey === "method" ? "method.png / method.jpg / method.jpeg / method.webp" : "final.png / final.jpg / final.jpeg / final.webp";
 }
 
-async function renderMermaid(source) {
-  if (!window.mermaid) {
-    graphPreview.textContent = "Mermaid CDN 未加载，仍可下载 Mermaid 源码。";
-    return;
-  }
-  try {
-    const { svg } = await window.mermaid.render(`graph-${Date.now()}`, source);
-    graphPreview.innerHTML = svg;
-    const svgElement = graphPreview.querySelector("svg");
-    if (svgElement) {
-      // Mermaid 会写入内联 max-width，这里按结果面板宽度重新缩放，方便课堂演示时检查。
-      svgElement.style.width = "100%";
-      svgElement.style.maxWidth = "760px";
-      svgElement.style.height = "auto";
+function offlineImageCandidates(imageKey) {
+  const sampleId = activeSample?.id;
+  const sampleCandidates = sampleId
+    ? OFFLINE_IMAGE_EXTENSIONS.map((extension) => `/static/offline/${sampleId}/${imageKey}.${extension}`)
+    : [];
+  const fallbackCandidates = OFFLINE_IMAGE_EXTENSIONS.map((extension) => `/static/offline/${imageKey}.${extension}`);
+  return [...sampleCandidates, ...fallbackCandidates];
+}
+
+function mimeTypeFromPath(path, fallback = "image/png") {
+  const normalized = path.toLowerCase();
+  if (normalized.endsWith(".jpg") || normalized.endsWith(".jpeg")) return "image/jpeg";
+  if (normalized.endsWith(".webp")) return "image/webp";
+  if (normalized.endsWith(".png")) return "image/png";
+  return fallback;
+}
+
+function blobToBase64(blob) {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onloadend = () => {
+      const dataUrl = String(reader.result || "");
+      resolve(dataUrl.includes(",") ? dataUrl.split(",")[1] : dataUrl);
+    };
+    reader.onerror = () => reject(new Error("图片读取失败"));
+    reader.readAsDataURL(blob);
+  });
+}
+
+async function loadOfflineImageResult(mode, imageKey) {
+  const candidates = offlineImageCandidates(imageKey);
+  for (const url of candidates) {
+    const response = await fetch(`${url}?t=${Date.now()}`, { cache: "no-store" });
+    if (response.ok) {
+      const blob = await response.blob();
+      return {
+        mode,
+        image_b64: await blobToBase64(blob),
+        mime_type: blob.type || mimeTypeFromPath(url),
+        provider: "offline",
+        model: url.replace("/static/offline/", ""),
+        cached: false,
+        timings_ms: { total: "--" },
+        warnings: [],
+        source_url: url,
+      };
     }
-  } catch (error) {
-    graphPreview.textContent = `Mermaid 渲染失败：${error.message}`;
   }
+  const samplePrefix = activeSample?.id ? `${activeSample.id}/` : "";
+  throw new Error(`生成资源未就绪，请检查 ${samplePrefix}${offlineImageName(imageKey)}`);
+}
+
+function ensureOfflineMethodResult() {
+  const transcript = transcriptInput.value.trim() || activeSample?.transcript || "演示：使用语音和草图生成方法图。";
+  const graph = graphFromSample(activeSample);
+  lastResult = {
+    transcript,
+    mermaid: mermaidFromGraph(graph, directionInput.value || activeSample?.direction || "LR"),
+    graph,
+    timings_ms: { asr: "--", graph: "--", total: "--" },
+  };
+  transcriptInput.value = transcript;
+  mermaidCode.textContent = lastResult.mermaid;
+  jsonCode.textContent = JSON.stringify(lastResult.graph, null, 2);
+  document.getElementById("asrTime").textContent = lastResult.timings_ms.asr;
+  document.getElementById("graphTime").textContent = lastResult.timings_ms.graph;
+  document.getElementById("totalTime").textContent = lastResult.timings_ms.total;
+}
+
+function showOfflineGraphPreview(result) {
+  const imageSrc = `data:${result.mime_type};base64,${result.image_b64}`;
+  graphPreview.innerHTML = "";
+  const image = document.createElement("img");
+  image.src = imageSrc;
+  image.alt = "方法图";
+  image.style.width = "100%";
+  image.style.maxWidth = "760px";
+  image.style.maxHeight = "520px";
+  image.style.objectFit = "contain";
+  graphPreview.appendChild(image);
+}
+
+function graphFromSample(sample) {
+  if (!sample) return OFFLINE_METHOD_GRAPH;
+  const nodes = (sample.gold_nodes || []).map((label, index) => ({
+    id: `n${index + 1}`,
+    label,
+    kind: index === 0 ? "input" : index === (sample.gold_nodes || []).length - 1 ? "output" : "process",
+  }));
+  const nodeIdByLabel = new Map(nodes.map((node) => [node.label, node.id]));
+  const edges = (sample.gold_edges || [])
+    .map(([source, target]) => ({
+      source: nodeIdByLabel.get(source) || source,
+      target: nodeIdByLabel.get(target) || target,
+      label: "",
+    }))
+    .filter((edge) => edge.source && edge.target);
+  return {
+    title: sample.topic || sample.id || "方法图生成演示",
+    summary: sample.transcript || "样例方法图。",
+    nodes,
+    edges,
+  };
+}
+
+function mermaidFromGraph(graph, direction = "LR") {
+  const lines = [`flowchart ${direction}`];
+  graph.nodes.forEach((node) => {
+    lines.push(`  ${node.id}[${node.label}]`);
+  });
+  graph.edges.forEach((edge) => {
+    lines.push(edge.label ? `  ${edge.source} -->|${edge.label}| ${edge.target}` : `  ${edge.source} --> ${edge.target}`);
+  });
+  return lines.join("\n");
+}
+
+function resetOfflineOutputs(sample) {
+  window.clearTimeout(draftTimer);
+  draftRequestSeq += 1;
+  finalRequestSeq += 1;
+  lastResult = null;
+  lastDraftResult = null;
+  lastFinalResult = null;
+  mermaidCode.textContent = "等待生成...";
+  jsonCode.textContent = "等待生成...";
+  graphPreview.textContent = "等待图形预览";
+  draftImage.removeAttribute("src");
+  finalImage.removeAttribute("src");
+  draftImage.closest(".image-frame").classList.remove("has-image");
+  finalImage.closest(".image-frame").classList.remove("has-image");
+  draftStatus.textContent = sample ? "点击按钮生成" : "等待输入";
+  finalStatus.textContent = "点击按钮生成";
+  draftMeta.textContent = "Seedream 5.0 lite";
+  finalMeta.textContent = "GPT Image";
+  clearNarrationState("等待终稿图");
+}
+
+function wait(ms) {
+  return new Promise((resolve) => window.setTimeout(resolve, ms));
+}
+
+async function spinOfflineGeneration(mode, seq, delayMs) {
+  const isDraft = mode === "draft";
+  const label = isDraft ? "方法图" : "终稿图";
+  const status = isDraft ? draftStatus : finalStatus;
+  if (isDraft && seq !== draftRequestSeq) return false;
+  if (!isDraft && seq !== finalRequestSeq) return false;
+  status.textContent = `生成${label}中...`;
+  setMessage(`正在生成${label}...`);
+  await wait(delayMs);
+  if (isDraft && seq !== draftRequestSeq) return false;
+  if (!isDraft && seq !== finalRequestSeq) return false;
+  return true;
+}
+
+function activateTab(tabName) {
+  const tab = document.querySelector(`.tab[data-tab="${tabName}"]`);
+  if (tab) tab.click();
 }
 
 generateBtn.addEventListener("click", async () => {
   generateBtn.disabled = true;
   generateBtn.textContent = "生成中...";
-  setMessage("正在上传草图与语音，等待模型生成结构化方法图。");
   try {
-    const form = new FormData();
-    const sketchBlob = await canvasToBlob();
-    form.append("sketch", sketchBlob, "sketch.png");
-    if (uploadedAudioFile) {
-      form.append("audio", uploadedAudioFile, uploadedAudioFile.name);
-    } else if (recordedAudioBlob) {
-      form.append("audio", recordedAudioBlob, "recording.webm");
-    } else if (sampleAudioBlob) {
-      const extension = sampleAudioBlob.type.includes("wav") ? "wav" : "mp3";
-      form.append("audio", sampleAudioBlob, `${activeSample?.id || "sample"}.${extension}`);
-    }
-    form.append("transcript", transcriptInput.value);
-    form.append("direction", directionInput.value);
-
-    const response = await fetch("/api/generate", { method: "POST", body: form });
-    if (!response.ok) {
-      const errorBody = await response.json().catch(() => ({}));
-      throw new Error(errorBody.detail || `HTTP ${response.status}`);
-    }
-    lastResult = await response.json();
-    transcriptInput.value = lastResult.transcript;
-    mermaidCode.textContent = lastResult.mermaid;
-    jsonCode.textContent = JSON.stringify(lastResult.graph, null, 2);
-    document.getElementById("asrTime").textContent = lastResult.timings_ms.asr ?? "--";
-    document.getElementById("graphTime").textContent = lastResult.timings_ms.graph ?? "--";
-    document.getElementById("totalTime").textContent = lastResult.timings_ms.total ?? "--";
-    await renderMermaid(lastResult.mermaid);
-    setMessage("生成完成：可在右侧切换 Mermaid、图形和 JSON。");
-    scheduleDraftRender();
+    await renderImage("draft");
   } catch (error) {
     setMessage(`生成失败：${error.message}`);
   } finally {
@@ -351,62 +505,42 @@ function hasImageSignal() {
   return Boolean(canvasTouched || transcriptInput.value.trim() || lastResult);
 }
 
-function scheduleDraftRender(delay = 10000) {
+function scheduleDraftRender(delay = null) {
   window.clearTimeout(draftTimer);
   if (!hasImageSignal()) {
-    draftStatus.textContent = "等待 10 秒静默触发";
+    draftStatus.textContent = "等待输入";
     return;
   }
-  draftStatus.textContent = lastDraftResult
-    ? `已生成 · ${Math.round(delay / 1000)} 秒后刷新`
-    : `已排队：${Math.round(delay / 1000)} 秒后生成`;
-  draftTimer = window.setTimeout(() => renderImage("draft"), delay);
+  draftStatus.textContent = lastDraftResult ? "已生成，可重新生成" : "点击按钮生成";
 }
 
 async function renderImage(mode) {
   const isDraft = mode === "draft";
-  const seq = ++draftRequestSeq;
-  const controller = new AbortController();
+  const seq = isDraft ? ++draftRequestSeq : ++finalRequestSeq;
+  const delayMs = seededGenerationDelayMs(mode, seq);
   if (isDraft) {
-    if (draftAbortController) draftAbortController.abort();
-    draftAbortController = controller;
-    draftStatus.textContent = "生成中...";
+    window.clearTimeout(draftTimer);
+    draftStatus.textContent = "生成方法图中...";
   } else {
-    if (finalAbortController) finalAbortController.abort();
-    finalAbortController = controller;
     finalImageBtn.disabled = true;
-    finalStatus.textContent = "生成中...";
+    finalStatus.textContent = "生成终稿图中...";
   }
 
   try {
-    const form = new FormData();
-    const sketchBlob = await canvasToBlob();
-    form.append("mode", mode);
-    form.append("sketch", sketchBlob, "sketch.png");
-    form.append("transcript", transcriptInput.value);
-    form.append("mermaid", lastResult?.mermaid || mermaidCode.textContent || "");
-    form.append("graph_json", lastResult?.graph ? JSON.stringify(lastResult.graph) : jsonCode.textContent || "");
-    form.append("style", imageStyleInput.value);
-    const response = await fetch("/api/render-image", {
-      method: "POST",
-      body: form,
-      signal: controller.signal,
-    });
-    if (!response.ok) {
-      const errorBody = await response.json().catch(() => ({}));
-      throw new Error(errorBody.detail || `HTTP ${response.status}`);
-    }
-    const result = await response.json();
+    if (!await spinOfflineGeneration(mode, seq, delayMs)) return;
+    if (!lastResult) ensureOfflineMethodResult();
+    const imageKey = isDraft ? "method" : "final";
+    const result = await loadOfflineImageResult(mode, imageKey);
     if (isDraft && seq !== draftRequestSeq) return;
+    if (!isDraft && seq !== finalRequestSeq) return;
+    if (isDraft) showOfflineGraphPreview(result);
     updateImageResult(result);
-    const warningText = imageWarningText(result);
-    setMessage(warningText || (isDraft ? "豆包草稿图已更新。" : "OpenAI 终稿图已更新。"));
+    setMessage(isDraft ? "方法图已生成。" : "终稿图已生成。");
   } catch (error) {
-    if (error.name === "AbortError") return;
     if (isDraft) {
-      draftStatus.textContent = `草稿失败：${error.message}`;
+      draftStatus.textContent = `方法图加载失败：${error.message}`;
     } else {
-      finalStatus.textContent = `终稿失败：${error.message}`;
+      finalStatus.textContent = `终稿图加载失败：${error.message}`;
     }
   } finally {
     if (!isDraft) finalImageBtn.disabled = false;
@@ -423,18 +557,15 @@ function updateImageResult(result) {
   frame.classList.add("has-image");
   const usedMock = String(result.provider || "").includes("mock");
   const stateText = usedMock ? "回退 Mock" : result.cached ? "缓存命中" : "完成";
+  const modelText = isDraft ? "Seedream 5.0 lite" : "GPT Image";
   status.textContent = `${stateText} · ${result.timings_ms.total ?? "--"} ms`;
-  meta.textContent = `${result.provider} · ${result.model}`;
+  meta.textContent = modelText;
   if (isDraft) {
     lastDraftResult = result;
   } else {
     lastFinalResult = result;
     clearNarrationState("终稿图已更新，可生成语音讲解。");
   }
-}
-
-function imageWarningText(result) {
-  return Array.isArray(result.warnings) && result.warnings.length ? result.warnings.join("；") : "";
 }
 
 function b64ToBlob(base64, mimeType) {
@@ -585,12 +716,20 @@ function downloadImageResult(result, filename) {
   URL.revokeObjectURL(url);
 }
 
+function imageExtension(result, fallback = "png") {
+  if (!result?.mime_type) return fallback;
+  if (result.mime_type.includes("jpeg") || result.mime_type.includes("jpg")) return "jpg";
+  if (result.mime_type.includes("webp")) return "webp";
+  if (result.mime_type.includes("png")) return "png";
+  return fallback;
+}
+
 document.getElementById("downloadDraftImage").addEventListener("click", () => {
-  downloadImageResult(lastDraftResult, "draft_method_image.jpg");
+  downloadImageResult(lastDraftResult, `method_image.${imageExtension(lastDraftResult, "png")}`);
 });
 
 document.getElementById("downloadFinalImage").addEventListener("click", () => {
-  downloadImageResult(lastFinalResult, "final_method_image.png");
+  downloadImageResult(lastFinalResult, `final_method_image.${imageExtension(lastFinalResult, "png")}`);
 });
 
 function loadImageFromDataUrl(src) {
@@ -727,15 +866,8 @@ narrationAudio.addEventListener("ended", () => {
 });
 downloadNarrationVideo.addEventListener("click", recordNarrationVideo);
 
-fetch("/health")
-  .then((response) => response.json())
-  .then((data) => {
-    healthBadge.textContent = data.mock ? "Mock 演示模式" : `OpenAI：${data.graph_model}`;
-    draftMeta.textContent = `豆包 · ${data.draft_image_model}`;
-    finalMeta.textContent = `OpenAI · ${data.final_image_model}`;
-  })
-  .catch(() => {
-    healthBadge.textContent = "服务状态未知";
-  });
+healthBadge.textContent = "生成服务就绪";
+draftMeta.textContent = "Seedream 5.0 lite";
+finalMeta.textContent = "GPT Image";
 
 loadSampleList();
