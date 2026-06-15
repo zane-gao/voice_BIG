@@ -31,9 +31,12 @@ SKETCHVOICE_MOCK=true
 图像生成相关配置：
 
 - `ARK_API_KEY`：豆包/火山方舟 API key，只在服务端读取。
-- `OPENAI_BASE_URL`：可选。使用兼容 OpenAI API 的中转站时填写，例如只替换服务端请求地址，不改前端。
+- `OPENAI_BASE_URL`：可选。使用兼容 OpenAI API 的中转站时填写，例如 `https://gmn.chuangzuoli.com`；服务端会自动规范为 `/v1` 客户端地址，不改前端。
+- `OPENAI_IMAGE_API_KEY`、`OPENAI_IMAGE_BASE_URL`：可选。终稿生图需要和结构化/语音使用不同 OpenAI 兼容网关时填写；为空时复用 `OPENAI_API_KEY` 和 `OPENAI_BASE_URL`。
 - `IMAGE_FALLBACK_TO_MOCK=true`：图像 API 失败时返回 mock 图，保证演示不断。
 - `SKETCHVOICE_MOCK=true`：全局 mock，结构图与生图都不调用外部 API。
+
+终稿生图不会直接把手绘草图作为 image edit 输入照搬，而是根据结构化 JSON / Mermaid 重新生成论文级知识信息图。若外部生图 API 失败，mock fallback 也会按结构化 JSON / Mermaid 渲染节点和边，避免退化成固定占位图。
 
 测试样例语音相关配置：
 

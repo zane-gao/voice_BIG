@@ -25,7 +25,7 @@ class SketchVoiceGenerator:
     def __init__(self, settings: Settings | None = None) -> None:
         self.settings = settings or Settings()
         self.client = (
-            OpenAI(api_key=self.settings.openai_api_key, base_url=self.settings.openai_base_url)
+            OpenAI(api_key=self.settings.openai_api_key, base_url=self.settings.openai_client_base_url)
             if self.settings.openai_api_key
             else None
         )

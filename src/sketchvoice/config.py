@@ -9,6 +9,8 @@ class Settings(BaseSettings):
 
     openai_api_key: str | None = Field(default=None, validation_alias="OPENAI_API_KEY")
     openai_base_url: str | None = Field(default=None, validation_alias="OPENAI_BASE_URL")
+    openai_image_api_key: str | None = Field(default=None, validation_alias="OPENAI_IMAGE_API_KEY")
+    openai_image_base_url: str | None = Field(default=None, validation_alias="OPENAI_IMAGE_BASE_URL")
     openai_transcribe_model: str = Field(
         default="gpt-4o-mini-transcribe", validation_alias="OPENAI_TRANSCRIBE_MODEL"
     )
@@ -52,3 +54,24 @@ class Settings(BaseSettings):
     @property
     def image_mock(self) -> bool:
         return self.sketchvoice_mock
+
+    @property
+    def openai_client_base_url(self) -> str | None:
+        return normalize_openai_base_url(self.openai_base_url)
+
+    @property
+    def openai_image_client_base_url(self) -> str | None:
+        return normalize_openai_base_url(self.openai_image_base_url or self.openai_base_url)
+
+    @property
+    def openai_image_key(self) -> str | None:
+        return self.openai_image_api_key or self.openai_api_key
+
+
+def normalize_openai_base_url(value: str | None) -> str | None:
+    if not value:
+        return None
+    normalized = value.rstrip("/")
+    if normalized.endswith("/v1"):
+        return normalized
+    return f"{normalized}/v1"

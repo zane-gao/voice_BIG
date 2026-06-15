@@ -44,6 +44,11 @@ def create_app(settings: Settings | None = None) -> FastAPI:
             "tts_model": current.openai_tts_model,
             "sample_tts_provider": current.sample_tts_provider,
             "image_mock": current.image_mock,
+            "has_openai_api_key": bool(current.openai_api_key),
+            "has_openai_image_api_key": bool(current.openai_image_api_key),
+            "has_ark_api_key": bool(current.ark_api_key),
+            "openai_base_url_configured": bool(current.openai_client_base_url),
+            "openai_image_base_url_configured": bool(current.openai_image_client_base_url),
             "max_audio_mb": current.max_audio_mb,
         }
 
